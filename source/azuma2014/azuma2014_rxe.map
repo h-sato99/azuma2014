@@ -152,6 +152,7 @@ touchSensor         0x4               build/model_impl.o
 cntcb_almque        0x1               build/./kernel_cfg.o
 strategyDistance    0x4               build/model_impl.o
 commander           0x8               build/model_impl.o
+trialDicision       0xc               build/model_impl.o
 calibration         0x18              build/model_impl.o
 lookupGageDistance  0x4               build/model_impl.o
 lightSensor         0x4               build/model_impl.o
@@ -174,6 +175,7 @@ almcb_cycle         0x8               build/./kernel_cfg.o
 tcxb_sp             0xc               build/./kernel_cfg.o
 uart                0x44              ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
 competision         0xc               build/model_impl.o
+lineChange          0xc               build/model_impl.o
 sample              0x324             ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
 almcb_next          0x2               build/./kernel_cfg.o
 _errorhook_par2     0x4               build/kernel/osctl.o
@@ -1455,7 +1457,7 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x00208480                __dtor_end = .
                 0x00208480                . = ALIGN (0x10)
 
-.bss            0x00208480     0x1adc
+.bss            0x00208480     0x1af4
  *(*.bss *.bss.*)
  .bss.ready_primap
                 0x00208480        0x2 build/kernel/task.o
@@ -1617,7 +1619,7 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x002098d4                tcxb_sp
                 0x002098e0                almcb_next
                 0x002098e4                cntcb_curval
- COMMON         0x002098e8      0x2fc build/model_impl.o
+ COMMON         0x002098e8      0x314 build/model_impl.o
                 0x002098e8                info
                 0x00209904                wheel
                 0x0020990c                basicStageDistance
@@ -1646,37 +1648,39 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x00209ac4                touchSensor
                 0x00209ac8                strategyDistance
                 0x00209acc                commander
-                0x00209ad4                calibration
-                0x00209aec                lookupGageDistance
-                0x00209af0                lightSensor
-                0x00209af4                lineTracer
-                0x00209b10                checkStart
-                0x00209b24                dash
-                0x00209b28                courseInfo
-                0x00209b3c                balanceControl
-                0x00209b6c                garageInDistance
-                0x00209b70                seesaw
-                0x00209bb4                settingInfo
-                0x00209bd4                grayDecisionTimer
-                0x00209bd8                competision
- COMMON         0x00209be4        0x4 build/competision/LookUpGate.o
-                0x00209be4                throwGateFlg
- COMMON         0x00209be8       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
-                0x00209be8                uart
- COMMON         0x00209c2c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
-                0x00209c2c                data_abort_pc
- COMMON         0x00209c30        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
-                0x00209c30                display_x
-                0x00209c34                display_y
- COMMON         0x00209c38      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
-                0x00209c38                sample
+                0x00209ad4                trialDicision
+                0x00209ae0                calibration
+                0x00209af8                lookupGageDistance
+                0x00209afc                lightSensor
+                0x00209b00                lineTracer
+                0x00209b1c                checkStart
+                0x00209b30                dash
+                0x00209b34                courseInfo
+                0x00209b48                balanceControl
+                0x00209b78                garageInDistance
+                0x00209b7c                seesaw
+                0x00209bc0                settingInfo
+                0x00209be0                grayDecisionTimer
+                0x00209be4                competision
+                0x00209bf0                lineChange
+ COMMON         0x00209bfc        0x4 build/competision/LookUpGate.o
+                0x00209bfc                throwGateFlg
+ COMMON         0x00209c00       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
+                0x00209c00                uart
+ COMMON         0x00209c44        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
+                0x00209c44                data_abort_pc
+ COMMON         0x00209c48        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
+                0x00209c48                display_x
+                0x00209c4c                display_y
+ COMMON         0x00209c50      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
+                0x00209c50                sample
                 0x00208480                __bss_start__ = ADDR (.bss)
-                0x00209f5c                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
-                0x00209f5c                PROVIDE (end, .)
+                0x00209f74                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
+                0x00209f74                PROVIDE (end, .)
 
-.heap_area      0x00209f5c     0x5c1c
+.heap_area      0x00209f74     0x5c04
                 0x0020fb78                . = (. + (0x20fb78 - end))
- *fill*         0x00209f5c     0x5c1c 00
+ *fill*         0x00209f74     0x5c04 00
 
 .stack          0x0020fb78      0x488
                 0x0020fbf8                . = (. + 0x80)
@@ -2950,6 +2954,7 @@ isrinib_intpri                                    build/./kernel_cfg.o
 lcd                                               build/model_impl.o
 leftMotor                                         build/model_impl.o
 lightSensor                                       build/model_impl.o
+lineChange                                        build/model_impl.o
 lineTracer                                        build/model_impl.o
 logger                                            build/model_impl.o
 logvol                                            ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
@@ -3318,6 +3323,7 @@ tnum_task                                         build/./kernel_cfg.o
                                                   build/kernel/task.o
                                                   build/kernel/event.o
 touchSensor                                       build/model_impl.o
+trialDicision                                     build/model_impl.o
 twi_init                                          ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
                                                   ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
 twi_isr_C                                         ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)

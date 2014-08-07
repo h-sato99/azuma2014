@@ -31,6 +31,9 @@
 #include "competision/Seesaw.h"
 #include "competision/Strategy.h"
 
+#include "competision/LineChange.h"
+#include "competision/TrialDicision.h"
+
 #include "Info.h"
 
 #include "Calibration.h"
@@ -94,6 +97,8 @@ Runner runner;
 Seesaw seesaw;
 Strategy strategy;
 
+LineChange lineChange;
+TrialDicision trialDicision;
 
 // タスクの宣言
 DeclareCounter(SysTimerCnt);
@@ -183,6 +188,9 @@ TASK(TaskInit)
 	garageIn.distance = &garageInDistance;
 	runner.dash = &dash;
 	basicStage.distance = &basicStageDistance;
+
+	// 競技オブジェクト(2014年度追加分)
+
 
 	// 各オブジェクトを初期化する
 	Bluetooth_init(&bluetooth);

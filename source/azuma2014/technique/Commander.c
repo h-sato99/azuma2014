@@ -50,6 +50,7 @@ void Commander_runComand(Commander* this, Info *info)
 		case(99):
 		{
 			info->runnerInfo->emergencyStopFlag = TRUE;
+			break;
 		}
 		// リモートスタート
 		case(1):
