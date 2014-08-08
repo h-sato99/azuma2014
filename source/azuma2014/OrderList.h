@@ -7,9 +7,9 @@
 #ifndef _OrderList_H_
 #define _OrderList_H_
 
-//#include "kernel.h"
-//#include "kernel_id.h"
-//#include "ecrobot_interface.h"
+#include "kernel.h"
+#include "kernel_id.h"
+#include "ecrobot_interface.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct OrderList

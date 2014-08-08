@@ -1,6 +1,5 @@
-build/competision/GarageIn.o: competision/GarageIn.c \
-  competision/GarageIn.h Info.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+build/competision/Jump.o: competision/Jump.c competision/Jump.h \
+  OrderList.h ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
@@ -41,5 +40,4 @@ build/competision/GarageIn.o: competision/GarageIn.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h CourseInfo.h \
-  SettingInfo.h RunnerInfo.h technique/Distance.h CourseInfo.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h

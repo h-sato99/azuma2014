@@ -51,12 +51,11 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h \
   technique/GrayDecision.h device/Timer.h device/LightSensor.h \
   competision/Strategy.h SettingInfo.h competision/BasicStage.h \
-  RunnerInfo.h technique/Distance.h CourseInfo.h competision/Seesaw.h \
-  device/GyroSensor.h technique/WheelAverage.h technique/Wheel.h \
-  device/Motor.h competision/LookUpGate.h device/SonarSensor.h \
-  kernel_id.h device/Timer.h competision/GarageIn.h competision/Runner.h \
-  CourseInfo.h technique/Tail.h technique/Wheel.h \
-  technique/BalanceControl.h \
+  RunnerInfo.h technique/Distance.h CourseInfo.h technique/LineChange.h \
+  OrderList.h technique/BumpDecision.h device/GyroSensor.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
+  OrderList.h competision/Runner.h CourseInfo.h technique/Tail.h \
+  device/Motor.h technique/Wheel.h technique/BalanceControl.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
   /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
@@ -65,4 +64,4 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
-  device/GyroSensor.h technique/Distance.h technique/Dash.h
+  technique/Wheel.h technique/Distance.h technique/Dash.h

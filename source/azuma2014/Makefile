@@ -17,11 +17,12 @@ DEVICE_SOURCES = $(DEVICE_PATH)/Bluetooth.c $(DEVICE_PATH)/GyroSensor.c $(DEVICE
 # 「要素技術」のソースファイル
 TECHNIQUE = technique
 TECHNIQUE_SOURCES = $(TECHNIQUE)/Tail.c $(TECHNIQUE)/Wheel.c $(TECHNIQUE)/BalanceControl.c $(TECHNIQUE)/PidControl.c $(TECHNIQUE)/Communication.c $(TECHNIQUE)/Commander.c $(TECHNIQUE)/GrayDecision.c $(TECHNIQUE)/WheelAverage.c $(TECHNIQUE)/Distance.c $(TECHNIQUE)/Dash.c
+TECHNIQUE_SOURCES_2014 = $(TECHNIQUE)/BumpDecision.c $(TECHNIQUE)/TrialDecision.c $(TECHNIQUE)/LineChange.c
 # 「競技」のソースファイル
 COMPETISION = competision
-COMPETISION_SOURCES = $(COMPETISION)/Competision.c $(COMPETISION)/Strategy.c $(COMPETISION)/LineTracer.c $(COMPETISION)/Runner.c $(COMPETISION)/GarageIn.c $(COMPETISION)/Seesaw.c $(COMPETISION)/BasicStage.c $(COMPETISION)/LookUpGate.c
+COMPETISION_SOURCES = $(COMPETISION)/Competision.c $(COMPETISION)/Strategy.c $(COMPETISION)/LineTracer.c $(COMPETISION)/Runner.c $(COMPETISION)/BasicStage.c  $(COMPETISION)/Jump.c 
 # 全ソースファイル
-TARGET_SOURCES = model_impl.c balancer_param.c $(DEVICE_SOURCES) $(COMPETISION_SOURCES) $(TECHNIQUE_SOURCES) CheckStart.c Calibration.c
+TARGET_SOURCES = model_impl.c balancer_param.c $(DEVICE_SOURCES) $(COMPETISION_SOURCES) $(TECHNIQUE_SOURCES) $(TECHNIQUE_SOURCES_2014) CheckStart.c Calibration.c
 
 # TOPPERS/ATK1(OSEK)設定ファイル
 TOPPERS_OSEK_OIL_SOURCE = ./model_impl.oil

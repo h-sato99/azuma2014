@@ -13,9 +13,12 @@
 typedef struct Jump
 {
 	OrderList *orderList;
+	int mode;
+	int orderNum;
 } Jump;
 
+// ŒöŠJ‘€ì
 void Jump_init(Jump* this);
-void Jump_action(Jump* this);
+BOOL Jump_action(Jump* this);
 
 #endif /* JUMP_H_ */

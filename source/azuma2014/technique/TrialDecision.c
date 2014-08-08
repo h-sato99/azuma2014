@@ -1,10 +1,10 @@
 /*******************************************************************************
-**  ファイル名  ：TrialDicision.c
+**  ファイル名  ：TrialDecision.c
 **  概要        ：難所検知クラス
 **  詳細        ：
 *******************************************************************************/
 
-#include "TrialDicision.h"
+#include "TrialDecision.h"
 
 #define NONE			0		// 初期値
 #define TARGET			500		// 閾値
@@ -22,54 +22,55 @@ typedef enum State
 	BACK_RUN,
 	DASH_RUN,
 	FINISHED
-};
+} State;
 
-void TrialDicision_init(TrialDicision* this)
+void TrialDecision_init(TrialDecision* this)
 {
 	this->mode = START;
 	this->orderNum = NONE;
 }
 
 /*------------------------------------------------------------------------------
---  関数名      ：TrialDicision_action
+--  関数名      ：TrialDecision_action
 --  概要        ：難所検知処理を実行する
 --              ：
 --  引数        ：
 --  戻り値      ：true(処理完了)、false(処理未完了)
 ------------------------------------------------------------------------------*/
-BOOL TrialDicision_action(TrialDicision* this)
+BOOL TrialDecision_action(TrialDecision* this)
 {
 	switch(this->mode)
 	{
 	case START:
 		// 低速走行に切り替える
-		this->orderNum = OrderList_lineTraceRunning(this,TARGET,LOW,NONE,NONE,NONE);
+		this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,LOW,NONE,NONE,NONE);
 		this->mode = CHECK_BUMP;
 		break;
 
 	case CHECK_BUMP:
 		// 衝撃を検知したか判定する
-		if (BumpDecision_checkBump(this))
+		if (BumpDecision_checkBump(this->bumpDecision))
 		{
 			// 衝撃を検知した場合、後退走行に切り替える
-			this->orderNum = OrderList_lineTraceRunning(this,TARGET,BACK,NONE,NONE,BACK_DISTANCE);
+			OrderList_finishOrder(this->orderList,this->orderNum);
+			this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,BACK,NONE,NONE,BACK_DISTANCE);
 			this->mode = BACK_RUN;
 		}
 		break;
 
 	case BACK_RUN:
 		// 後退走行が完了したか判定する
-		if (OrderList_checkFinished(this,this->orderNum))
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
 			// 後退走行が完了した場合、加速走行に切り替える
-			this->orderNum = OrderList_lineTraceRunning(this,TARGET,HIGH,NONE,NONE,DASH_DISTANCE);
+			this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,HIGH,NONE,NONE,DASH_DISTANCE);
 			this->mode = DASH_RUN;
 		}
 		break;
 
 	case DASH_RUN:
 		// 加速走行が完了したか判定する
-		if (OrderList_checkFinished(this,this->orderNum))
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
 			// 加速走行が完了した場合、終了処理を実行する
 			this->mode = FINISHED;
@@ -85,36 +86,36 @@ BOOL TrialDicision_action(TrialDicision* this)
 }
 
 // 設計に基づいた実装の場合
-BOOL TrialDicision_action2(TrialDicision* this)
+BOOL TrialDecision_action2(TrialDecision* this)
 {
 	// 低速走行に切り替える
-	this->orderNum = OrderList_lineTraceRunning(this,TARGET,LOW,NONE,NONE,NONE);
+	this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,LOW,NONE,NONE,NONE);
 
 	while(1)
 	{
-		if(BumpDecision_checkBump(this))
+		if(BumpDecision_checkBump(this->bumpDecision))
 		{
 			break;
 		}
 	}
 
 	// 後退走行に切り替える
-	this->orderNum = OrderList_lineTraceRunning(this,TARGET,BACK,NONE,NONE,BACK_DISTANCE);
+	this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,BACK,NONE,NONE,BACK_DISTANCE);
 
 	while(1)
 	{
-		if(OrderList_checkFinished(this->orderNum))
+		if(OrderList_checkFinished(this->orderList, this->orderNum))
 		{
 			break;
 		}
 	}
 
 	// 加速走行に切り替える
-	this->orderNum = OrderList_lineTraceRunning(this,TARGET,HIGH,NONE,NONE,DASH_DISTANCE);
+	this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,HIGH,NONE,NONE,DASH_DISTANCE);
 
 	while(1)
 	{
-		if(OrderList_checkFinished(this->orderNum))
+		if(OrderList_checkFinished(this->orderList, this->orderNum))
 		{
 			break;
 		}

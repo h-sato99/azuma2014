@@ -1,4 +1,5 @@
-build/model_impl.o: model_impl.c device/Bluetooth.h \
+build/technique/TrialDecision.o: technique/TrialDecision.c \
+  technique/TrialDecision.h OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
@@ -40,40 +41,7 @@ build/model_impl.o: model_impl.c device/Bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h device/Logger.h \
-  device/Motor.h device/TouchSensor.h device/GyroSensor.h \
-  device/LightSensor.h device/SonarSensor.h device/LCD.h device/Timer.h \
-  technique/BalanceControl.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
-  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
-  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/syslimits.h \
-  ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/javavm/limits.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h \
+  technique/BumpDecision.h device/GyroSensor.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h CourseInfo.h \
-  device/GyroSensor.h technique/Wheel.h device/Motor.h \
-  technique/Distance.h CourseInfo.h technique/PidControl.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h CourseInfo.h \
-  SettingInfo.h RunnerInfo.h technique/Tail.h device/Motor.h \
-  technique/Wheel.h technique/Communication.h command.h device/Logger.h \
-  device/Bluetooth.h technique/Commander.h Command.h \
-  technique/Communication.h technique/GrayDecision.h device/Timer.h \
-  device/LightSensor.h technique/Distance.h technique/Dash.h \
-  competision/BasicStage.h Info.h RunnerInfo.h SettingInfo.h \
-  technique/Distance.h competision/Competision.h competision/LineTracer.h \
-  device/LightSensor.h technique/PidControl.h technique/GrayDecision.h \
-  competision/Strategy.h competision/BasicStage.h technique/LineChange.h \
-  OrderList.h technique/BumpDecision.h device/GyroSensor.h \
-  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
-  OrderList.h competision/Runner.h CourseInfo.h technique/Tail.h \
-  technique/Wheel.h technique/BalanceControl.h technique/Dash.h \
-  competision/LineTracer.h competision/Runner.h competision/Strategy.h \
-  Info.h Calibration.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Command.h \
-  CheckStart.h technique/LineChange.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Jump.h
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h

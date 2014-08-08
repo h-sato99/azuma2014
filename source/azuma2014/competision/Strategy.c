@@ -11,8 +11,8 @@
 
 static void Strategy_checkState(Strategy* this, Info* info);
 static BOOL Strategy_checkBasicStage(Strategy* this, Info* info);
-static BOOL Strategy_checkLookUpGate(Strategy* this, Info* info);
-static BOOL Strategy_checkSeesaw(Strategy* this, Info* info);
+//static BOOL Strategy_checkLookUpGate(Strategy* this, Info* info);
+//static BOOL Strategy_checkSeesaw(Strategy* this, Info* info);
 
 void Strategy_init(Strategy* this)
 {
@@ -42,19 +42,19 @@ void Strategy_action(Strategy* this, Info* info)
 		case(2):
 		{
 			// シーソー
-			Seesaw_action(this->seesaw, info);
+//			Seesaw_action(this->seesaw, info);
 			break;
 		}
 		case(3):
 		{
 			// ルックアップゲート
-			LookUpGate_action(this->lookUpGate, info);
+//			LookUpGate_action(this->lookUpGate, info);
 			break;
 		}
 		case(4):
 		{
 			// ガレージイン
-			GarageIn_action(this->garageIn, info);
+//			GarageIn_action(this->garageIn, info);
 			break;
 		}
 	}
@@ -96,7 +96,7 @@ static void Strategy_checkState(Strategy* this, Info* info)
 		case(2):
 		{
 			// シーソー
-			check = Strategy_checkSeesaw(this, info);
+//			check = Strategy_checkSeesaw(this, info);
 			if(check == TRUE)
 			{
 				// ガレージインへ切替
@@ -107,7 +107,7 @@ static void Strategy_checkState(Strategy* this, Info* info)
 		case(3):
 		{
 			// ルックアップゲート
-			check = Strategy_checkLookUpGate(this, info);
+//			check = Strategy_checkLookUpGate(this, info);
 			if(check == TRUE)
 			{
 				// ガレージインへ切替
@@ -176,17 +176,17 @@ static BOOL Strategy_checkBasicStage(Strategy* this, Info* info)
 --  引数        ：info  全情報
 --  戻り値      ：なし
 ------------------------------------------------------------------------------*/
-static BOOL Strategy_checkLookUpGate(Strategy* this, Info* info)
-{
-	if(LookUpGate_checkFinish(this->lookUpGate) == TRUE)
-	{
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
-}
+//static BOOL Strategy_checkLookUpGate(Strategy* this, Info* info)
+//{
+//	if(LookUpGate_checkFinish(this->lookUpGate) == TRUE)
+//	{
+//		return TRUE;
+//	}
+//	else
+//	{
+//		return FALSE;
+//	}
+//}
 
 /*------------------------------------------------------------------------------
 --  関数名      ：Strategy_checkSeesaw
@@ -195,14 +195,14 @@ static BOOL Strategy_checkLookUpGate(Strategy* this, Info* info)
 --  引数        ：info  全情報
 --  戻り値      ：なし
 ------------------------------------------------------------------------------*/
-static BOOL Strategy_checkSeesaw(Strategy* this, Info* info)
-{
-	if(Seesaw_checkFinish(this->seesaw) == TRUE)
-	{
-		return TRUE;
-	}
-	else
-	{
-		return FALSE;
-	}
-}
+//static BOOL Strategy_checkSeesaw(Strategy* this, Info* info)
+//{
+//	if(Seesaw_checkFinish(this->seesaw) == TRUE)
+//	{
+//		return TRUE;
+//	}
+//	else
+//	{
+//		return FALSE;
+//	}
+//}

@@ -43,11 +43,10 @@ build/competision/Strategy.o: competision/Strategy.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h CourseInfo.h \
   SettingInfo.h RunnerInfo.h SettingInfo.h competision/BasicStage.h \
-  RunnerInfo.h technique/Distance.h CourseInfo.h competision/Seesaw.h \
-  device/GyroSensor.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
-  technique/WheelAverage.h technique/Wheel.h device/Motor.h \
-  competision/LookUpGate.h device/SonarSensor.h kernel_id.h \
-  device/Timer.h competision/GarageIn.h technique/GrayDecision.h Info.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h device/Timer.h \
-  device/LightSensor.h
+  RunnerInfo.h technique/Distance.h CourseInfo.h technique/GrayDecision.h \
+  Info.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  device/Timer.h ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  device/LightSensor.h technique/LineChange.h OrderList.h \
+  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/Jump.h OrderList.h

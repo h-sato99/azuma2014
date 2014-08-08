@@ -1,26 +1,26 @@
 /*******************************************************************************
-**  ファイル名  ：TrialDicision.h
+**  ファイル名  ：TrialDecision.h
 **  概要        ：難所検知クラス定義
 **  詳細        ：クラスの公開情報を定義する。
 *******************************************************************************/
 
-#ifndef TRIALDICISION_H_
-#define TRIALDICISION_H_
+#ifndef TRIALDECISION_H_
+#define TRIALDECISION_H_
 
 #include "OrderList.h"
 #include "technique/BumpDecision.h"
 
 // 属性を保持するための構造体の定義
-typedef struct TrialDicision
+typedef struct TrialDecision
 {
 	OrderList *orderList;
 	BumpDecision *bumpDecision;
 	int mode;
 	int orderNum;
-} TrialDicision;
+} TrialDecision;
 
 // 公開操作
-void TrialDicision_init(TrialDicision* this);
-BOOL TrialDicision_action(TrialDicision* this);
+void TrialDecision_init(TrialDecision* this);
+BOOL TrialDecision_action(TrialDecision* this);
 
 #endif /* TRIALDICISION_H_ */

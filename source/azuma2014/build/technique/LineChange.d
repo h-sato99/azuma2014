@@ -1,5 +1,5 @@
-build/competision/LookUpGate.o: competision/LookUpGate.c \
-  competision/LookUpGate.h Info.h \
+build/technique/LineChange.o: technique/LineChange.c \
+  technique/LineChange.h OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
@@ -41,8 +41,4 @@ build/competision/LookUpGate.o: competision/LookUpGate.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h CourseInfo.h \
-  SettingInfo.h RunnerInfo.h device/SonarSensor.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h device/Timer.h \
-  technique/Distance.h CourseInfo.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h

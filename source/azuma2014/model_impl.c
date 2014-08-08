@@ -24,15 +24,12 @@
 #include "technique/Dash.h"
 #include "competision/BasicStage.h"
 #include "competision/Competision.h"
-#include "competision/GarageIn.h"
+//#include "competision/GarageIn.h"
 #include "competision/LineTracer.h"
-#include "competision/LookUpGate.h"
+//#include "competision/LookUpGate.h"
 #include "competision/Runner.h"
-#include "competision/Seesaw.h"
+//#include "competision/Seesaw.h"
 #include "competision/Strategy.h"
-
-#include "competision/LineChange.h"
-#include "competision/TrialDicision.h"
 
 #include "Info.h"
 
@@ -44,6 +41,12 @@
 #include "kernel.h"
 #include "kernel_id.h"
 #include "ecrobot_interface.h"
+
+#include "technique/LineChange.h"
+#include "technique/TrialDecision.h"
+#include "technique/BumpDecision.h"
+#include "competision/Jump.h"
+
 
 // 定数
 // 尻尾の角度(100±5とする)
@@ -79,7 +82,7 @@ Wheel wheel;
 Communication communication;
 Commander commander;
 GrayDecision grayDecision;
-WheelAverage wheelAverage;
+//WheelAverage wheelAverage;
 Distance distance;
 Distance garageInDistance;
 Dash dash;
@@ -90,15 +93,17 @@ Distance basicStageDistance;
 // 競技オブジェクト
 Competision competision;
 BasicStage basicStage;
-GarageIn garageIn;
+//GarageIn garageIn;
 LineTracer lineTracer;
-LookUpGate lookUpGate;
+//LookUpGate lookUpGate;
 Runner runner;
-Seesaw seesaw;
+//Seesaw seesaw;
 Strategy strategy;
 
 LineChange lineChange;
-TrialDicision trialDicision;
+TrialDecision trialDicision;
+BumpDecision bumpDecision;
+Jump jump;
 
 // タスクの宣言
 DeclareCounter(SysTimerCnt);
@@ -160,7 +165,7 @@ TASK(TaskInit)
 	communication.command = &command;
 	commander.command = &command;
 	commander.communication = &communication;
-	wheelAverage.wheel = &wheel;
+//	wheelAverage.wheel = &wheel;
 	grayDecision.lightSensor = &lightSensor;
 	grayDecision.timer = &grayDecisionTimer;
 	// 競技オブジェクト
@@ -171,26 +176,29 @@ TASK(TaskInit)
 	lineTracer.pidControl = &pidControl;
 	lineTracer.grayDecision = &grayDecision;
 	strategy.basicStage = &basicStage;
-	strategy.garageIn = &garageIn;
-	strategy.lookUpGate = &lookUpGate;
-	strategy.seesaw = &seesaw;
+//	strategy.garageIn = &garageIn;
+//	strategy.lookUpGate = &lookUpGate;
+//	strategy.seesaw = &seesaw;
 	strategy.grayDecision = &grayDecision;
 	strategy.distance = &strategyDistance;
 	runner.balanceControl = &balanceControl;
 	runner.tail = &tail;
 	runner.wheel = &wheel;
 	// 戦略オブジェクト
-	lookUpGate.sonarSensor = &sonarSensor;
-	lookUpGate.timer = &lookUpGateTimer;
-	lookUpGate.distance = &lookupGageDistance;
-	seesaw.gyroSensor = &gyroSensor;
-	seesaw.wheelAverage = &wheelAverage;
-	garageIn.distance = &garageInDistance;
+//	lookUpGate.sonarSensor = &sonarSensor;
+//	lookUpGate.timer = &lookUpGateTimer;
+//	lookUpGate.distance = &lookupGageDistance;
+//	seesaw.gyroSensor = &gyroSensor;
+//	seesaw.wheelAverage = &wheelAverage;
+//	garageIn.distance = &garageInDistance;
 	runner.dash = &dash;
 	basicStage.distance = &basicStageDistance;
 
 	// 競技オブジェクト(2014年度追加分)
-
+	strategy.lineChange = &lineChange;
+	strategy.bumpDecision = &bumpDecision;
+	strategy.trialDecision = &trialDicision;
+	strategy.jump = &jump;
 
 	// 各オブジェクトを初期化する
 	Bluetooth_init(&bluetooth);
@@ -205,18 +213,24 @@ TASK(TaskInit)
 	TouchSensor_init(&touchSensor, NXT_PORT_S4);
 	GyroSensor_init(&gyroSensor, NXT_PORT_S1);
 	LCD_init(&lcd);
-	LookUpGate_init(&lookUpGate);
+//	LookUpGate_init(&lookUpGate);
 	GrayDecision_init(&grayDecision);
 	Timer_init(&lookUpGateTimer);
 	Timer_init(&grayDecisionTimer);
-	Seesaw_init(&seesaw);
-	WheelAverage_init(&wheelAverage);
+//	Seesaw_init(&seesaw);
+//	WheelAverage_init(&wheelAverage);
 	Distance_init(&distance);
 	Distance_init(&garageInDistance);
 	Distance_init(&strategyDistance);
 	Distance_init(&basicStageDistance);
 	Distance_init(&lookupGageDistance);
 	Dash_init(&dash);
+
+	// 各オブジェクトを初期化する(2014年度追加)
+	LineChange_init(&lineChange);
+	BumpDecision_init(&bumpDecision);
+	TrialDecision_init(&trialDicision);
+	Jump_init(&jump);
 
 	// コマンドの初期化
 	command.command = 0;
