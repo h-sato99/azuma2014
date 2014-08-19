@@ -7,8 +7,9 @@
 #ifndef TRIALDECISION_H_
 #define TRIALDECISION_H_
 
-#include "OrderList.h"
+#include "competision/OrderList.h"
 #include "technique/BumpDecision.h"
+#include "competision/Runner.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct TrialDecision

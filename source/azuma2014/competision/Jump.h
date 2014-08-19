@@ -7,7 +7,7 @@
 #ifndef JUMP_H_
 #define JUMP_H_
 
-#include "OrderList.h"
+#include "competision/OrderList.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct Jump
@@ -16,6 +16,14 @@ typedef struct Jump
 	int mode;
 	int orderNum;
 } Jump;
+
+typedef enum State
+{
+	START,
+	CHECK_HOLE,
+	DASH_RUN,
+	FINISHED
+} State;
 
 // ŒöŠJ‘€ì
 void Jump_init(Jump* this);

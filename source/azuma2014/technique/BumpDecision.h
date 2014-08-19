@@ -13,6 +13,7 @@
 typedef struct BumpDecision
 {
 	GyroSensor *gyroSensor;
+	int gyroValue;
 } BumpDecision;
 
 void BumpDecision_init(BumpDecision* this);

@@ -38,15 +38,20 @@
 #include "Command.h"
 #include "CheckStart.h"
 
-#include "kernel.h"
-#include "kernel_id.h"
-#include "ecrobot_interface.h"
-
+//2014年度
+#include "competision/OrderList.h"
+#include "competision/RoboControl.h"
+#include "competision/Jump.h"
+#include "competision/Mogul.h"
+#include "technique/DrivingWheel.h"
+#include "technique/FrontWheel.h"
 #include "technique/LineChange.h"
 #include "technique/TrialDecision.h"
 #include "technique/BumpDecision.h"
-#include "competision/Jump.h"
 
+#include "kernel.h"
+#include "kernel_id.h"
+#include "ecrobot_interface.h"
 
 // 定数
 // 尻尾の角度(100±5とする)
@@ -100,10 +105,17 @@ Runner runner;
 //Seesaw seesaw;
 Strategy strategy;
 
+// 2014年度
+OrderList orderList;
+RoboControl roboControl;
+DrivingWheel drivingWheel;
+FrontWheel frontWheel;
+Motor frontMotor;
 LineChange lineChange;
 TrialDecision trialDicision;
 BumpDecision bumpDecision;
 Jump jump;
+Mogul mogul;
 
 // タスクの宣言
 DeclareCounter(SysTimerCnt);
@@ -181,9 +193,9 @@ TASK(TaskInit)
 //	strategy.seesaw = &seesaw;
 	strategy.grayDecision = &grayDecision;
 	strategy.distance = &strategyDistance;
-	runner.balanceControl = &balanceControl;
-	runner.tail = &tail;
-	runner.wheel = &wheel;
+	//runner.balanceControl = &balanceControl;
+	//runner.tail = &tail;
+	//runner.wheel = &wheel;
 	// 戦略オブジェクト
 //	lookUpGate.sonarSensor = &sonarSensor;
 //	lookUpGate.timer = &lookUpGateTimer;
@@ -191,18 +203,33 @@ TASK(TaskInit)
 //	seesaw.gyroSensor = &gyroSensor;
 //	seesaw.wheelAverage = &wheelAverage;
 //	garageIn.distance = &garageInDistance;
-	runner.dash = &dash;
+//	runner.dash = &dash;
 	basicStage.distance = &basicStageDistance;
 
 	// 競技オブジェクト(2014年度追加分)
+	competision.roboControl = &roboControl;
+	roboControl.orderList = &orderList;
+	roboControl.runner = &runner;
+	frontWheel.frontMotor = &frontMotor;
+	drivingWheel.leftMotor = &leftMotor;
+	drivingWheel.rightMotor = &rightMotor;
+	runner.frontWheel = &frontWheel;
+	runner.drivingWheel = &drivingWheel;
+	runner.lineTracer = &lineTracer;
 	strategy.lineChange = &lineChange;
 	strategy.bumpDecision = &bumpDecision;
 	strategy.trialDecision = &trialDicision;
 	strategy.jump = &jump;
+	strategy.mogul = &mogul;
+	bumpDecision.gyroSensor = &gyroSensor;
+	trialDicision.bumpDecision = &bumpDecision;
+	trialDicision.orderList = &orderList;
+	jump.orderList = &orderList;
+	mogul.orderList = &orderList;
 
 	// 各オブジェクトを初期化する
 	Bluetooth_init(&bluetooth);
-	Motor_init(&tailMotor, NXT_PORT_A);
+//	Motor_init(&tailMotor, NXT_PORT_A);
 	Motor_init(&leftMotor, NXT_PORT_C);
 	Motor_init(&rightMotor, NXT_PORT_B);
 	CheckStart_init(&checkStart);
@@ -227,10 +254,16 @@ TASK(TaskInit)
 	Dash_init(&dash);
 
 	// 各オブジェクトを初期化する(2014年度追加)
+	Motor_init(&frontMotor, NXT_PORT_A);
+	OrderList_init(&orderList);
+	RoboControl_init(&roboControl);
+	DrivingWheel_init(&drivingWheel);
+	FrontWheel_init(&frontWheel);
 	LineChange_init(&lineChange);
 	BumpDecision_init(&bumpDecision);
 	TrialDecision_init(&trialDicision);
 	Jump_init(&jump);
+	Mogul_init(&mogul);
 
 	// コマンドの初期化
 	command.command = 0;
@@ -263,12 +296,13 @@ TASK(TaskInit)
 	ecrobot_sound_tone(659, 100, 95);
 
 	// キャリブレーション
-	Calibration_MeasureLight(&calibration);
+//	Calibration_MeasureLight(&calibration);
 	// 灰色検知用の白色基準値をセット
-	GrayDecision_setTarget(&grayDecision, (int) calibration.white);
+//	GrayDecision_setTarget(&grayDecision, (int) calibration.white);
 
 	LCD_DisplayClear(&lcd);
 
+	/*
 	//コースタイプ表示
 	LCD_SetPointXY(&lcd, 3, 0);
 	LCD_DisplayInt(&lcd, info.settingInfo->courseType);
@@ -276,6 +310,29 @@ TASK(TaskInit)
 	//ライントレースしきい値
 	LCD_SetPointXY(&lcd, 3, 1);
 	LCD_DisplayInt(&lcd, (int)info.settingInfo->target);
+	*/
+
+	//テスト用
+	// マニュアル走行 引数： 前進, 旋回, 走行状態, 終了時間, 終了距離
+//	OrderList_manualRunning(&orderList, 100, 0, TURN_DRIVING, 7000, 0);
+//	OrderList_manualRunning(&orderList, 100, 0, TURN_DRIVING, 0, 1000);
+//	OrderList_manualRunning(&orderList, 20, 0, TURN_DRIVING, 0, 100);
+	//OrderList_manualRunning(&orderList, -60, 0, TURN_DRIVING, 0, 1000);
+
+//	OrderList_manualRunning(&orderList, 60, 0, TURN_DRIVING, 0, 180);
+//	OrderList_manualRunning(&orderList, 0, 0, TURN_DRIVING, 1000, 0);
+//	OrderList_manualRunning(&orderList, -60, 0, TURN_DRIVING, 0, 180);
+//	OrderList_manualRunning(&orderList, 0, 0, TURN_DRIVING, 1000, 0);
+//	OrderList_manualRunning(&orderList, 60, 0, TURN_DRIVING, 0, 1000);
+
+	//OrderList_finishOrder(&orderList, 1);
+	//OrderList_lineTraceRunning(&orderList, 40, 570, TURN_FRONT, 0, 0);
+	//OrderList_lineTraceRunning(&orderList, 70, 460, TURN_DRIVING, 0, 0);
+	//OrderList_stop(&orderList);
+
+	display_goto_xy(1, 1);
+	display_int(orderList.orderIndex, 14);
+	display_update();
 
 	TerminateTask();
 }

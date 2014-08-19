@@ -48,7 +48,7 @@ void CheckStart_waitStart(CheckStart* this, Info* info)
 	}
 	// タッチセンサが押されるまで、待ち続ける
 	// 完全倒立状態にする
-	Tail_setAngle(this->tail, info->runnerInfo->tail);
+	//Tail_setAngle(this->tail, info->runnerInfo->tail);
 
 	if(info->startFlag == TRUE)
 	{

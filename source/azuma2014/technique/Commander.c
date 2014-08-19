@@ -209,6 +209,33 @@ void Commander_runComand(Commander* this, Info *info)
 			info->settingInfo->courseType = this->command->value;
 			break;
 		}
+
+		// ジャンプ台
+		case(60):
+		{
+			if(this->command->value == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value == 1)
+			{
+				info->strategyState = 10;
+			}
+			break;
+		}
+		// モーグル
+		case(61):
+		{
+			if(this->command->value == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value == 1)
+			{
+				info->strategyState = 11;
+			}
+			break;
+		}
 	}
 }
 

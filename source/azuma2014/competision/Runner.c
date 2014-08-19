@@ -6,89 +6,247 @@
 
 #include "Runner.h"
 
-static void Runner_setLineEge(Runner* this, RunnerInfo* runnerInfo);
-static void Runner_setMeasureInfo(Runner* this, MeasureInfo* measureInfo);
+static void Runner_run_MUNUAL(Runner* this, float target, F32 forward, F32 turn, int runningState);
+static void Runner_run_LINETRACE(Runner* this, float target, F32 forward, F32 turn, int runningState);
+static void Runner_run_TURN_INIT(Runner* this, int turnState);
+static void Runner_run_TURN_FRONT(Runner* this, int turnState);
+static void Runner_run_TURN_DRIVING(Runner* this, int turnState);
+static void Runner_manualRun(Runner* this, F32 forward, F32 turn);
+static void Runner_lineTraceRun(Runner* this, F32 forward, F32 turn);
+static void Runner_fowardFrontWheel(Runner* this);
+static void Runner_turnByFrontWheel(Runner* this);
+static void Runner_turnByDrivingWheel(Runner* this);
 
 void Runner_init(Runner* this)
 {
-	// 処理なし
+	this->runningState = MUNUAL;
+	this->turnState = TURN_INIT;
 }
 
-/*------------------------------------------------------------------------------
---  関数名      ：Runner_run
---  概要        ：モータに走行指示を与える
---              ：  ○turn(旋回値)の動きは下記の通り
---              ：    旋回値＞０の場合：右向きに旋回する
---              ：    旋回値＝０の場合：旋回しない
---              ：    旋回値＜０の場合：左向きに旋回する
---              ：
---  引数        ：runnerInfo  走行情報
---  戻り値      ：なし
-------------------------------------------------------------------------------*/
-void Runner_run(Runner* this, Info* info)
+int Runner_getDistance(Runner* this)
 {
-	int leftMotor;
-	int rightMotor;
-	int tail;
+	int calcWork;
+	int leftPwm;
+	int rightPwm;
 
-	Runner_setMeasureInfo(this, info->measureInfo);
-	Runner_setLineEge(this, info->runnerInfo);
+	leftPwm = DrivingWheel_getLeftAngle(this->drivingWheel);
+	rightPwm = DrivingWheel_getRightAngle(this->drivingWheel);
 
-	if(info->runnerInfo->dashFlag == TRUE)
+	calcWork = (leftPwm + rightPwm) / 2;
+	if(calcWork < 0)
 	{
-		Dash_action(this->dash, info ,info->runnerInfo->dashvol ,info->runnerInfo->dashlim );
+		calcWork *= -1;
+	}
+
+	return calcWork;
+}
+
+void Runner_run(Runner* this, F32 forward, F32 turn, float target, int runningState, int turnState)
+{
+	switch(this->runningState)
+	{
+		case MUNUAL:
+			//ecrobot_sound_tone(659, 100, 95);
+			Runner_run_MUNUAL(this, target, forward, turn, runningState);
+			break;
+		case LINETRACE:
+			Runner_run_LINETRACE(this, target, forward, turn, runningState);
+			break;
+		default:
+			break;
+	}
+	switch(this->turnState)
+	{
+		case TURN_INIT:
+			Runner_run_TURN_INIT(this, turnState);
+			break;
+		case TURN_DRIVING:
+			Runner_run_TURN_DRIVING(this, turnState);
+			break;
+		case TURN_FRONT:
+			Runner_run_TURN_FRONT(this, turnState);
+			break;
+	}
+}
+
+static void Runner_run_MUNUAL(Runner* this, float target, F32 forward, F32 turn, int runningState)
+{
+	/*
+	display_goto_xy(2, 4);
+	display_int(runningState, 14);
+	display_goto_xy(2, 5);
+	display_int(forward, 14);
+	display_update();
+	*/
+	if(runningState == MUNUAL)
+	{
+		this->runningState = MUNUAL;
+		Runner_manualRun(this, forward, turn);
 	}
 	else
 	{
-		Dash_init(this->dash);
+		this->runningState = LINETRACE;
+		Runner_lineTraceRun(this, forward, target);
 	}
+}
 
-	if(info->runnerInfo->emergencyStopCheckFlag == TRUE)
+static void Runner_run_LINETRACE(Runner* this, float target, F32 forward, F32 turn, int runningState)
+{
+	if(runningState == LINETRACE)
 	{
-		info->runnerInfo->emergencyStopFlag = BalanceControl_checkEmergencyStop(this->balanceControl);
-	}
-
-	if(info->runnerInfo->emergencyStopFlag == FALSE)
-	{
-		// 通常の走行
-		BalanceControl_run(this->balanceControl, info->runnerInfo, info->measureInfo);
-		leftMotor = BalanceControl_getLeftMotorPwm(this->balanceControl);
-		rightMotor = BalanceControl_getRightMotorPwm(this->balanceControl);
-		tail = info->runnerInfo->tail;
+		this->runningState = LINETRACE;
+		Runner_lineTraceRun(this, forward, target);
 	}
 	else
 	{
-		// 緊急停止
-		leftMotor = 0;
-		rightMotor = 0;
-		tail = 0;
+		this->runningState = MUNUAL;
+		Runner_manualRun(this, forward, turn);
 	}
-
-	Wheel_setPwm(this->wheel, leftMotor, rightMotor);
-
-	Tail_setAngle(this->tail, tail);
 }
 
-static void Runner_setMeasureInfo(Runner* this, MeasureInfo* measureInfo)
+static void Runner_run_TURN_INIT(Runner* this, int turnState)
 {
-	measureInfo->leftMotorAngle = Wheel_getLeftAngle(this->wheel);
-	measureInfo->rightMotorAngle = Wheel_getRightAngle(this->wheel);
-	measureInfo->tailAngle = Tail_getAngle(this->tail);
-}
+	int frontWheelAngle;
 
-/*------------------------------------------------------------------------------
---  関数名      ：Runner_calcMotor
---  概要        ：トレースするラインエッジを設定する
---              ：通常は右エッジ（ラインの右側）をラインレースする
---              ：
---  引数        ：runnerInfo  走行情報
---  戻り値      ：なし
-------------------------------------------------------------------------------*/
-static void Runner_setLineEge(Runner* this, RunnerInfo* runnerInfo)
-{
-	if(runnerInfo->chengeLineEdgeFlag == TRUE)
+	frontWheelAngle = FrontWheel_getAngle(this->frontWheel);
+
+	if(frontWheelAngle == 0 && turnState == TURN_FRONT)
 	{
-		runnerInfo->turn *= -1;
+		this->turnState = TURN_FRONT;
+		Runner_turnByFrontWheel(this);
+	}
+	else if(frontWheelAngle == 0 && turnState == TURN_DRIVING)
+	{
+		this->turnState = TURN_DRIVING;
+		Runner_turnByDrivingWheel(this);
+	}
+	else
+	{
+		this->turnState = TURN_INIT;
+		Runner_fowardFrontWheel(this);
 	}
 }
 
+static void Runner_run_TURN_FRONT(Runner* this, int turnState)
+{
+	if(turnState == TURN_FRONT)
+	{
+		this->turnState = TURN_FRONT;
+		Runner_turnByFrontWheel(this);
+	}
+	else
+	{
+		this->turnState = TURN_INIT;
+		Runner_fowardFrontWheel(this);
+	}
+}
+
+static void Runner_run_TURN_DRIVING(Runner* this, int turnState)
+{
+	if(turnState == TURN_DRIVING)
+	{
+		this->turnState = TURN_DRIVING;
+		Runner_turnByDrivingWheel(this);
+	}
+	else
+	{
+		this->turnState = TURN_INIT;
+		Runner_fowardFrontWheel(this);
+	}
+}
+
+static void Runner_manualRun(Runner* this, F32 forward, F32 turn)
+{
+	this->forward = forward;
+	this->turn = turn;
+}
+
+static void Runner_lineTraceRun(Runner* this, F32 forward, float target)
+{
+	//ecrobot_sound_tone(659, 100, 95);
+	/*
+	display_goto_xy(2, 4);
+	display_int(forward, 14);
+	display_goto_xy(2, 5);
+	display_int(target, 14);
+	display_update();
+	*/
+	this->forward = forward;
+	LineTracer_setTarget(this->lineTracer, target);
+	this->turn = LineTracer_getTurn(this->lineTracer);
+}
+
+static void Runner_fowardFrontWheel(Runner* this)
+{
+	FrontWheel_setAngle(this->frontWheel, 0);
+
+	DrivingWheel_setPwm(this->drivingWheel ,this->forward, this->forward);
+}
+
+static void Runner_turnByFrontWheel(Runner* this)
+{
+	int frontWheelAngle;
+
+	frontWheelAngle = this->turn;
+
+	FrontWheel_setAngle(this->frontWheel, frontWheelAngle);
+
+	DrivingWheel_setPwm(this->drivingWheel ,this->forward, this->forward);
+}
+
+static void Runner_turnByDrivingWheel(Runner* this)
+{
+	int leftPwm;
+	int rightPwm;
+
+	// 前後進命令と旋回量からモータPWM出力値を算出
+	leftPwm = (int)(this->forward + this->turn);
+	rightPwm = (int)(this->forward - this->turn);
+
+	/*
+	* PWM出力値がMAX値内になるように調整
+	* 前進する場合のみ、PWM出力値がMAX値を超える場合は
+	* もう片方のPWM出力値から超過分を減算
+	*/
+	// 左モータPWM出力値調整
+	if(leftPwm > 100)
+	{
+		if(this->forward > 0)
+		{
+			rightPwm = rightPwm - (leftPwm - 100);
+		}
+		leftPwm = 100;
+	}
+	else if(leftPwm < -100)
+	{
+		leftPwm = -100;
+	}
+	// 右モータPWM出力値調整
+	if(rightPwm > 100)
+	{
+		if(this->forward > 0)
+		{
+			leftPwm = leftPwm - (rightPwm - 100);
+		}
+		rightPwm = 100;
+	}
+	else if(rightPwm <-100)
+	{
+		rightPwm = -100;
+	}
+
+	// 前進命令の場合、モーターは逆回転させない
+	if(this->forward > 0)
+	{
+		if(leftPwm < 0)
+		{
+			leftPwm = 0;
+		}
+		if(rightPwm < 0)
+		{
+			rightPwm = 0;
+		}
+	}
+
+	DrivingWheel_setPwm(this->drivingWheel ,leftPwm, rightPwm);
+}

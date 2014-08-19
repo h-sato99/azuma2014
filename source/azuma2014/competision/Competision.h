@@ -11,6 +11,7 @@
 #include "LineTracer.h"
 #include "Strategy.h"
 #include "Runner.h"
+#include "RoboControl.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct Competision
@@ -18,6 +19,7 @@ typedef struct Competision
 	LineTracer *lineTracer;
 	Strategy *strategy;
 	Runner *runner;
+	RoboControl *roboControl;
 } Competision;
 
 // ŒöŠJ‘€ì

@@ -32,13 +32,36 @@ void LineTracer_trace(LineTracer* this, Info* info)
 	this->brightness = LightSensor_getBrightness(this->lightSensor);
 
 	// ù‰ñ—Ê‚ðŽæ“¾‚·‚é
+	info->settingInfo->target = this->target;
 	calcTurn = PidControl_calcTurn(this->pidControl, info->settingInfo, this->brightness);
+	this->turn = calcTurn;
+
+	/*
+	display_goto_xy(2, 4);
+	display_int(calcTurn, 14);
+	display_goto_xy(2, 5);
+	display_int(this->target, 14);
+	display_update();
+	*/
+	/*
 	if(info->settingInfo->lineTraceFlg == TRUE)
 	{
 		info->runnerInfo->turn = calcTurn;
 	}
+	*/
 
-	LineTracer_checDerailment(this, info);
+	//LineTracer_checDerailment(this, info);
+}
+
+F32 LineTracer_getTurn(LineTracer* this)
+{
+	return this->turn;
+}
+
+void LineTracer_setTarget(LineTracer* this, float target)
+{
+	this->target = target;
+	//ecrobot_sound_tone(659, 100, 95);
 }
 
 /*------------------------------------------------------------------------------

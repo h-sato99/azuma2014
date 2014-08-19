@@ -6,20 +6,22 @@
 
 #include "BumpDecision.h"
 
-#define TARGET	500		//閾値
+#define TARGET_LOW		500		//閾値
+#define TARGET_HIGH		700		//閾値
 
 // 初期化する
 void BumpDecision_init(BumpDecision* this)
 {
-
+	this->gyroValue = 600;
 }
 
 //
 BOOL BumpDecision_checkBump(BumpDecision* this)
 {
 
+	this->gyroValue = GyroSensor_getAngularVelocity(this->gyroSensor);
 	// ジャイロセンサの値を判定する
-	if(GyroSensor_getAngularVelocity(this) > TARGET)
+	if(this->gyroValue < TARGET_LOW || this->gyroValue > TARGET_HIGH )
 	{
 		// ジャイロセンサが閾値を超えた場合、trueを返す
 		return true;

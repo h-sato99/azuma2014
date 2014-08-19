@@ -14,18 +14,38 @@
 #include "technique/Wheel.h"
 #include "technique/BalanceControl.h"
 #include "technique/Dash.h"
+#include "technique/DrivingWheel.h"
+#include "technique/FrontWheel.h"
+#include "LineTracer.h"
+
+typedef enum RunningState
+{
+	MUNUAL,
+	LINETRACE
+} RunningState;
+
+typedef enum TurnState
+{
+	TURN_INIT,
+	TURN_FRONT,
+	TURN_DRIVING
+} TurnState;
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct Runner
 {
-	Tail *tail;
-	Wheel *wheel;
-	BalanceControl *balanceControl;
-	Dash *dash;
+	int runningState;
+	int turnState;
+	F32 forward;
+	F32 turn;
+	DrivingWheel *drivingWheel;
+	FrontWheel *frontWheel;
+	LineTracer *lineTracer;
 } Runner;
 
 // ŒöŠJ‘€ì
 void Runner_init(Runner* this);
-void Runner_run(Runner* this, Info* info);
+void Runner_run(Runner* this, float target, F32 forward, F32 turn, int runningState, int turnState);
+int Runner_getDistance(Runner* this);
 
 #endif /* _Runner_H_ */

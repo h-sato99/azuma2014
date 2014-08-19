@@ -29,7 +29,7 @@ void Strategy_init(Strategy* this)
 ------------------------------------------------------------------------------*/
 void Strategy_action(Strategy* this, Info* info)
 {
-	Strategy_checkState(this, info);
+//	Strategy_checkState(this, info);
 
 	switch(info->strategyState)
 	{
@@ -55,6 +55,22 @@ void Strategy_action(Strategy* this, Info* info)
 		{
 			// ƒKƒŒ[ƒWƒCƒ“
 //			GarageIn_action(this->garageIn, info);
+			break;
+		}
+		case(10):
+		{
+			if(TrialDecision_action(this->trialDecision))
+			{
+				Jump_action(this->jump);
+			}
+			break;
+		}
+		case(11):
+		{
+			if(TrialDecision_action(this->trialDecision))
+			{
+				Mogul_main(this->mogul);
+			}
 			break;
 		}
 	}

@@ -7,7 +7,7 @@
 #ifndef LINECHANGE_H_
 #define LINECHANGE_H_
 
-#include "OrderList.h"
+#include "competision/OrderList.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct LineChange

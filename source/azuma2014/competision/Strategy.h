@@ -19,7 +19,8 @@
 #include "technique/LineChange.h"
 #include "technique/BumpDecision.h"
 #include "technique/TrialDecision.h"
-#include "Jump.h"
+#include "competision/Jump.h"
+#include "competision/Mogul.h"
 
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
@@ -38,6 +39,7 @@ typedef struct Strategy
 	BumpDecision *bumpDecision;
 	TrialDecision *trialDecision;
 	Jump *jump;
+	Mogul *mogul;
 } Strategy;
 
 // ŒöŠJ‘€ì

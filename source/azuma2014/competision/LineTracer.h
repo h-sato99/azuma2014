@@ -22,12 +22,15 @@ typedef struct LineTracer
 	int turnDeff1;
 	int turnDeff2;
 	int count;
+	F32 turn;
+	float target;
 } LineTracer;
 
 
 // ŒöŠJ‘€ì
 void LineTracer_init(LineTracer* this);
 void LineTracer_trace(LineTracer* this, Info* info);
-
+F32 LineTracer_getTurn(LineTracer* this);
+void LineTracer_setTarget(LineTracer* this, float target);
 #endif /* _LineTracer_H_ */
 
