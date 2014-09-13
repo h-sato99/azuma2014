@@ -9,7 +9,6 @@
 #include "Info.h"
 #include "device/LightSensor.h"
 #include "technique/PidControl.h"
-#include "technique/GrayDecision.h"
 
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
@@ -17,7 +16,6 @@ typedef struct LineTracer
 {
 	LightSensor *lightSensor;
 	PidControl *pidControl;
-	GrayDecision *grayDecision;
 	int brightness;
 	int turnDeff1;
 	int turnDeff2;

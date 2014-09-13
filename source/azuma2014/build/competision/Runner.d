@@ -54,4 +54,7 @@ build/competision/Runner.o: competision/Runner.c competision/Runner.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
   CourseInfo.h device/GyroSensor.h technique/Wheel.h technique/Distance.h \
-  technique/Dash.h Info.h
+  technique/Dash.h Info.h technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h

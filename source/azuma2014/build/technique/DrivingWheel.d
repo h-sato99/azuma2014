@@ -1,12 +1,6 @@
-build/technique/TrialDecision.o: technique/TrialDecision.c \
-  technique/TrialDecision.h competision/OrderList.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/t_stddef.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/tool_defs.h \
-  kernel_id.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+build/technique/DrivingWheel.o: technique/DrivingWheel.c \
+  technique/DrivingWheel.h device/Motor.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/mytypes.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/interrupts.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/aic.h \
@@ -42,24 +36,9 @@ build/technique/TrialDecision.o: technique/TrialDecision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h \
-  competision/Order.h technique/BumpDecision.h device/GyroSensor.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
-  competision/Runner.h Info.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h CourseInfo.h \
-  SettingInfo.h RunnerInfo.h RunnerInfo.h CourseInfo.h technique/Tail.h \
-  device/Motor.h technique/Wheel.h technique/BalanceControl.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
-  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
-  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/syslimits.h \
-  ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/javavm/limits.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
-  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
-  CourseInfo.h technique/Wheel.h technique/Distance.h technique/Dash.h \
-  Info.h technique/DrivingWheel.h technique/FrontWheel.h \
-  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/t_stddef.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/tool_defs.h

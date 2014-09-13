@@ -47,5 +47,4 @@ build/competision/LineTracer.o: competision/LineTracer.c \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   technique/PidControl.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h \
-  technique/GrayDecision.h device/Timer.h device/LightSensor.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h

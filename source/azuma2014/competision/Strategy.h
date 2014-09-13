@@ -10,11 +10,7 @@
 #include "Info.h"
 #include "SettingInfo.h"
 #include "BasicStage.h"
-//#include "Seesaw.h"
-//#include "LookUpGate.h"
-//#include "GarageIn.h"
 #include "technique/Distance.h"
-#include "technique/GrayDecision.h"
 
 #include "technique/LineChange.h"
 #include "technique/BumpDecision.h"
@@ -27,12 +23,8 @@
 typedef struct Strategy
 {
 	BasicStage *basicStage;
-//	Seesaw *seesaw;
-//	LookUpGate *lookUpGate;
-//	GarageIn *garageIn;
 	Distance *distance;
 	BOOL initBasicStageFlag;
-	GrayDecision *grayDecision;
 	BOOL startGrayDecision;
 
 	LineChange *lineChange;

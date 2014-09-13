@@ -19,16 +19,12 @@
 #include "technique/Wheel.h"
 #include "technique/Communication.h"
 #include "technique/Commander.h"
-#include "technique/GrayDecision.h"
 #include "technique/Distance.h"
 #include "technique/Dash.h"
 #include "competision/BasicStage.h"
 #include "competision/Competision.h"
-//#include "competision/GarageIn.h"
 #include "competision/LineTracer.h"
-//#include "competision/LookUpGate.h"
 #include "competision/Runner.h"
-//#include "competision/Seesaw.h"
 #include "competision/Strategy.h"
 
 #include "Info.h"
@@ -86,8 +82,6 @@ Tail tail;
 Wheel wheel;
 Communication communication;
 Commander commander;
-GrayDecision grayDecision;
-//WheelAverage wheelAverage;
 Distance distance;
 Distance garageInDistance;
 Dash dash;
@@ -98,11 +92,8 @@ Distance basicStageDistance;
 // 競技オブジェクト
 Competision competision;
 BasicStage basicStage;
-//GarageIn garageIn;
 LineTracer lineTracer;
-//LookUpGate lookUpGate;
 Runner runner;
-//Seesaw seesaw;
 Strategy strategy;
 
 // 2014年度
@@ -177,33 +168,15 @@ TASK(TaskInit)
 	communication.command = &command;
 	commander.command = &command;
 	commander.communication = &communication;
-//	wheelAverage.wheel = &wheel;
-	grayDecision.lightSensor = &lightSensor;
-	grayDecision.timer = &grayDecisionTimer;
 	// 競技オブジェクト
 	competision.lineTracer = &lineTracer;
 	competision.strategy = &strategy;
 	competision.runner = &runner;
 	lineTracer.lightSensor = &lightSensor;
 	lineTracer.pidControl = &pidControl;
-	lineTracer.grayDecision = &grayDecision;
 	strategy.basicStage = &basicStage;
-//	strategy.garageIn = &garageIn;
-//	strategy.lookUpGate = &lookUpGate;
-//	strategy.seesaw = &seesaw;
-	strategy.grayDecision = &grayDecision;
 	strategy.distance = &strategyDistance;
-	//runner.balanceControl = &balanceControl;
-	//runner.tail = &tail;
-	//runner.wheel = &wheel;
 	// 戦略オブジェクト
-//	lookUpGate.sonarSensor = &sonarSensor;
-//	lookUpGate.timer = &lookUpGateTimer;
-//	lookUpGate.distance = &lookupGageDistance;
-//	seesaw.gyroSensor = &gyroSensor;
-//	seesaw.wheelAverage = &wheelAverage;
-//	garageIn.distance = &garageInDistance;
-//	runner.dash = &dash;
 	basicStage.distance = &basicStageDistance;
 
 	// 競技オブジェクト(2014年度追加分)
@@ -229,7 +202,6 @@ TASK(TaskInit)
 
 	// 各オブジェクトを初期化する
 	Bluetooth_init(&bluetooth);
-//	Motor_init(&tailMotor, NXT_PORT_A);
 	Motor_init(&leftMotor, NXT_PORT_C);
 	Motor_init(&rightMotor, NXT_PORT_B);
 	CheckStart_init(&checkStart);
@@ -240,12 +212,8 @@ TASK(TaskInit)
 	TouchSensor_init(&touchSensor, NXT_PORT_S4);
 	GyroSensor_init(&gyroSensor, NXT_PORT_S1);
 	LCD_init(&lcd);
-//	LookUpGate_init(&lookUpGate);
-	GrayDecision_init(&grayDecision);
 	Timer_init(&lookUpGateTimer);
 	Timer_init(&grayDecisionTimer);
-//	Seesaw_init(&seesaw);
-//	WheelAverage_init(&wheelAverage);
 	Distance_init(&distance);
 	Distance_init(&garageInDistance);
 	Distance_init(&strategyDistance);
@@ -297,8 +265,6 @@ TASK(TaskInit)
 
 	// キャリブレーション
 //	Calibration_MeasureLight(&calibration);
-	// 灰色検知用の白色基準値をセット
-//	GrayDecision_setTarget(&grayDecision, (int) calibration.white);
 
 	LCD_DisplayClear(&lcd);
 
@@ -311,24 +277,6 @@ TASK(TaskInit)
 	LCD_SetPointXY(&lcd, 3, 1);
 	LCD_DisplayInt(&lcd, (int)info.settingInfo->target);
 	*/
-
-	//テスト用
-	// マニュアル走行 引数： 前進, 旋回, 走行状態, 終了時間, 終了距離
-//	OrderList_manualRunning(&orderList, 100, 0, TURN_DRIVING, 7000, 0);
-//	OrderList_manualRunning(&orderList, 100, 0, TURN_DRIVING, 0, 1000);
-//	OrderList_manualRunning(&orderList, 20, 0, TURN_DRIVING, 0, 100);
-	//OrderList_manualRunning(&orderList, -60, 0, TURN_DRIVING, 0, 1000);
-
-//	OrderList_manualRunning(&orderList, 60, 0, TURN_DRIVING, 0, 180);
-//	OrderList_manualRunning(&orderList, 0, 0, TURN_DRIVING, 1000, 0);
-//	OrderList_manualRunning(&orderList, -60, 0, TURN_DRIVING, 0, 180);
-//	OrderList_manualRunning(&orderList, 0, 0, TURN_DRIVING, 1000, 0);
-//	OrderList_manualRunning(&orderList, 60, 0, TURN_DRIVING, 0, 1000);
-
-	//OrderList_finishOrder(&orderList, 1);
-	//OrderList_lineTraceRunning(&orderList, 40, 570, TURN_FRONT, 0, 0);
-	//OrderList_lineTraceRunning(&orderList, 70, 460, TURN_DRIVING, 0, 0);
-	//OrderList_stop(&orderList);
 
 	display_goto_xy(1, 1);
 	display_int(orderList.orderIndex, 14);

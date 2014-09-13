@@ -1,5 +1,5 @@
 build/technique/LineChange.o: technique/LineChange.c \
-  technique/LineChange.h OrderList.h \
+  technique/LineChange.h competision/OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
@@ -41,4 +41,5 @@ build/technique/LineChange.o: technique/LineChange.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h \
+  competision/Order.h

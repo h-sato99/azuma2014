@@ -43,10 +43,27 @@ build/competision/Strategy.o: competision/Strategy.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h CourseInfo.h \
   SettingInfo.h RunnerInfo.h SettingInfo.h competision/BasicStage.h \
-  RunnerInfo.h technique/Distance.h CourseInfo.h technique/GrayDecision.h \
-  Info.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  device/Timer.h ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+  RunnerInfo.h technique/Distance.h CourseInfo.h technique/LineChange.h \
+  competision/OrderList.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
+  technique/BumpDecision.h device/GyroSensor.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  device/LightSensor.h technique/LineChange.h OrderList.h \
-  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Jump.h OrderList.h
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Runner.h \
+  Info.h RunnerInfo.h CourseInfo.h technique/Tail.h device/Motor.h \
+  technique/Wheel.h technique/BalanceControl.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/syslimits.h \
+  ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/javavm/limits.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
+  technique/Wheel.h technique/Distance.h technique/Dash.h Info.h \
+  technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Jump.h \
+  competision/OrderList.h competision/Mogul.h

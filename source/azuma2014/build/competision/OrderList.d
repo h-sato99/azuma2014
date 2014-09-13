@@ -1,6 +1,12 @@
-build/technique/WheelAverage.o: technique/WheelAverage.c \
-  technique/WheelAverage.h technique/Wheel.h device/Motor.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+build/competision/OrderList.o: competision/OrderList.c \
+  competision/OrderList.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/t_stddef.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/tool_defs.h \
+  kernel_id.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/mytypes.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/interrupts.h \
   ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/platform/nxt/aic.h \
@@ -36,9 +42,5 @@ build/technique/WheelAverage.o: technique/WheelAverage.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/t_stddef.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/tool_defs.h
+  competision/Order.h ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+  kernel_id.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h

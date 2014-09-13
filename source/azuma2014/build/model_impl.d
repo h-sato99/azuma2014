@@ -61,19 +61,25 @@ build/model_impl.o: model_impl.c device/Bluetooth.h \
   SettingInfo.h RunnerInfo.h technique/Tail.h device/Motor.h \
   technique/Wheel.h technique/Communication.h command.h device/Logger.h \
   device/Bluetooth.h technique/Commander.h Command.h \
-  technique/Communication.h technique/GrayDecision.h device/Timer.h \
-  device/LightSensor.h technique/Distance.h technique/Dash.h \
+  technique/Communication.h technique/Distance.h technique/Dash.h \
   competision/BasicStage.h Info.h RunnerInfo.h SettingInfo.h \
   technique/Distance.h competision/Competision.h competision/LineTracer.h \
-  device/LightSensor.h technique/PidControl.h technique/GrayDecision.h \
-  competision/Strategy.h competision/BasicStage.h technique/LineChange.h \
-  OrderList.h technique/BumpDecision.h device/GyroSensor.h \
-  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
-  OrderList.h competision/Runner.h CourseInfo.h technique/Tail.h \
-  technique/Wheel.h technique/BalanceControl.h technique/Dash.h \
+  device/LightSensor.h technique/PidControl.h competision/Strategy.h \
+  competision/BasicStage.h technique/LineChange.h competision/OrderList.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
+  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/Runner.h Info.h RunnerInfo.h \
+  CourseInfo.h technique/Tail.h technique/Wheel.h \
+  technique/BalanceControl.h technique/Dash.h technique/DrivingWheel.h \
+  technique/FrontWheel.h competision/LineTracer.h competision/Jump.h \
+  competision/OrderList.h competision/Mogul.h competision/Runner.h \
+  competision/RoboControl.h competision/OrderList.h competision/Runner.h \
   competision/LineTracer.h competision/Runner.h competision/Strategy.h \
   Info.h Calibration.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Command.h \
-  CheckStart.h technique/LineChange.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Jump.h
+  CheckStart.h competision/OrderList.h competision/RoboControl.h \
+  competision/Jump.h competision/Mogul.h technique/DrivingWheel.h \
+  technique/FrontWheel.h technique/LineChange.h technique/TrialDecision.h \
+  technique/BumpDecision.h

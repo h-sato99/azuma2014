@@ -16,7 +16,7 @@ DEVICE_PATH = device
 DEVICE_SOURCES = $(DEVICE_PATH)/Bluetooth.c $(DEVICE_PATH)/GyroSensor.c $(DEVICE_PATH)/TouchSensor.c $(DEVICE_PATH)/Motor.c $(DEVICE_PATH)/LightSensor.c $(DEVICE_PATH)/SonarSensor.c $(DEVICE_PATH)/LCD.c $(DEVICE_PATH)/Logger.c $(DEVICE_PATH)/Timer.c
 # 「要素技術」のソースファイル
 TECHNIQUE = technique
-TECHNIQUE_SOURCES = $(TECHNIQUE)/Tail.c $(TECHNIQUE)/Wheel.c $(TECHNIQUE)/BalanceControl.c $(TECHNIQUE)/PidControl.c $(TECHNIQUE)/Communication.c $(TECHNIQUE)/Commander.c $(TECHNIQUE)/GrayDecision.c $(TECHNIQUE)/WheelAverage.c $(TECHNIQUE)/Distance.c $(TECHNIQUE)/Dash.c
+TECHNIQUE_SOURCES = $(TECHNIQUE)/Tail.c $(TECHNIQUE)/Wheel.c $(TECHNIQUE)/BalanceControl.c $(TECHNIQUE)/PidControl.c $(TECHNIQUE)/Communication.c $(TECHNIQUE)/Commander.c $(TECHNIQUE)/Distance.c $(TECHNIQUE)/Dash.c
 TECHNIQUE_SOURCES_2014 = $(TECHNIQUE)/FrontWheel.c $(TECHNIQUE)/DrivingWheel.c $(TECHNIQUE)/BumpDecision.c $(TECHNIQUE)/TrialDecision.c $(TECHNIQUE)/LineChange.c
 # 「競技」のソースファイル
 COMPETISION = competision
