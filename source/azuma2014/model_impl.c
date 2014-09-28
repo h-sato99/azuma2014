@@ -4,6 +4,8 @@
 **  詳細        ：特定のクラスに収まらない処理を行う
 *******************************************************************************/
 
+#include <string.h>
+
 #include "device/Bluetooth.h"
 #include "device/Logger.h"
 #include "device/Motor.h"
@@ -26,6 +28,7 @@
 #include "competision/LineTracer.h"
 #include "competision/Runner.h"
 #include "competision/Strategy.h"
+#include "competision/Course.h"
 
 #include "Info.h"
 
@@ -45,6 +48,8 @@
 #include "technique/TrialDecision.h"
 #include "technique/BumpDecision.h"
 
+#include "competision/OrderTest.h"
+
 #include "kernel.h"
 #include "kernel_id.h"
 #include "ecrobot_interface.h"
@@ -54,6 +59,8 @@
 #define C_TAIL_ANGL_DEFAULT     105
 #define C_TARGET 550
 #define C_COURSE 0
+#define C_COURSE_IN 1
+#define C_COURSE_OUT 0
 
 // オブジェクトを静的に確保する
 Bluetooth bluetooth;
@@ -107,6 +114,95 @@ TrialDecision trialDicision;
 BumpDecision bumpDecision;
 Jump jump;
 Mogul mogul;
+Course course;
+
+OrderTest orderTest;
+
+// Bluetooth送信用に各部品の情報を加工する
+void test_data_send()
+{
+	char buf[BT_MAX_RX_BUF_SIZE];
+	char* bufPos = &buf;
+	int data = 100;
+	int len;
+	int bufLen = 0;
+	int time = systick_get_ms();
+	int pidP = info.settingInfo->pidP * 100;
+	int pidI = info.settingInfo->pidI * 100;
+	int pidD = info.settingInfo->pidD * 100;
+	int fP = pidControl.f_p * 100;
+	int fI = pidControl.f_i * 100;
+	int fD = pidControl.f_d * 100;
+	int target = lineTracer.target;
+	int brightness = lineTracer.brightness;
+	int turn = LineTracer_getTurn(&lineTracer);
+	char code[12] = "azumaTest-->";
+
+	len = sizeof(code);
+	memcpy(bufPos, code, len);
+	bufPos += len;
+	bufLen += len;
+
+	/*
+	len = sizeof(time);
+	memcpy(bufPos, time, len);
+	bufPos += len;
+	bufLen += len;
+	*/
+
+	len = sizeof(data);
+	memcpy(bufPos, &data, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(pidP);
+	memcpy(bufPos, &pidP, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(pidI);
+	memcpy(bufPos, &pidI, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(pidD);
+	memcpy(bufPos, &pidD, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(target);
+	memcpy(bufPos, &target, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(brightness);
+	memcpy(bufPos, &brightness, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(fP);
+	memcpy(bufPos, &fP, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(fI);
+	memcpy(bufPos, &fI, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(fD);
+	memcpy(bufPos, &fD, len);
+	bufPos += len;
+	bufLen += len;
+
+	len = sizeof(turn);
+	memcpy(bufPos, &turn, len);
+	bufPos += len;
+	bufLen += len;
+
+	Communication_setSendData(&communication, buf, bufLen);
+}
+//
 
 // タスクの宣言
 DeclareCounter(SysTimerCnt);
@@ -194,11 +290,16 @@ TASK(TaskInit)
 	strategy.trialDecision = &trialDicision;
 	strategy.jump = &jump;
 	strategy.mogul = &mogul;
+	strategy.course = &course;
+	strategy.orderTest = &orderTest;
 	bumpDecision.gyroSensor = &gyroSensor;
 	trialDicision.bumpDecision = &bumpDecision;
 	trialDicision.orderList = &orderList;
 	jump.orderList = &orderList;
 	mogul.orderList = &orderList;
+	course.orderList = &orderList;
+
+	orderTest.orderList = &orderList;
 
 	// 各オブジェクトを初期化する
 	Bluetooth_init(&bluetooth);
@@ -232,13 +333,17 @@ TASK(TaskInit)
 	TrialDecision_init(&trialDicision);
 	Jump_init(&jump);
 	Mogul_init(&mogul);
+	Course_init(&course);
+
+	OrderTest_init(&orderTest);
 
 	// コマンドの初期化
 	command.command = 0;
 	command.value = 0;
 	// 情報の初期化
 	info.loggerFlag = FALSE;
-	info.autoStrategyFlag = TRUE;
+//	info.autoStrategyFlag = TRUE;
+	info.autoStrategyFlag = FALSE;
 	info.strategyState = 0;
 	info.startFlag = FALSE;
 	info.measureInfo->countGrayMarker  = 0;
@@ -248,16 +353,20 @@ TASK(TaskInit)
 	info.runnerInfo->forward = 0.0;
 	info.runnerInfo->tail = C_TAIL_ANGL_DEFAULT;
 	info.runnerInfo->turn = 0.0;
-	info.settingInfo->courseType = C_COURSE;
+	info.settingInfo->courseType = C_COURSE_IN;
 	info.runnerInfo->gyroOffset = 608;
 	info.runnerInfo->chengeLineEdgeFlag = FALSE;
 	info.runnerInfo->dashFlag = FALSE;
 	info.runnerInfo->emergencyStopCheckFlag = TRUE;
 	info.runnerInfo->emergencyStopFlag = FALSE;
 	info.settingInfo->lineTraceFlg = TRUE;
-	info.settingInfo->pidD = 0.05;
-	info.settingInfo->pidI = 0.07;
-	info.settingInfo->pidP = 0.5;
+//	info.settingInfo->pidD = 0.05;
+	info.settingInfo->pidD = 0.09;
+//	info.settingInfo->pidI = 0.07;
+//	info.settingInfo->pidI = 0.1;
+	info.settingInfo->pidI = 0.08;
+	info.settingInfo->pidP = 0.6;
+//	info.settingInfo->pidP = 0.5;
 	info.settingInfo->target = C_TARGET;
 	info.settingInfo->targetwait = 0;
 	info.settingInfo->targetbas = 0;
@@ -268,19 +377,29 @@ TASK(TaskInit)
 
 	LCD_DisplayClear(&lcd);
 
+	//test
+	//OrderList_lineTraceRunning(&orderList, 23, 570, TURN_FRONT, 0, 0);
+	//OrderList_lineTraceRunning(&orderList, 20, 570, TURN_FRONT, 0, 0);
+//	OrderList_lineTraceRunning(&orderList, 0, 550, TURN_FRONT, 0, 0);
+	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
+	//test
+
 	/*
 	//コースタイプ表示
 	LCD_SetPointXY(&lcd, 3, 0);
 	LCD_DisplayInt(&lcd, info.settingInfo->courseType);
+
 
 	//ライントレースしきい値
 	LCD_SetPointXY(&lcd, 3, 1);
 	LCD_DisplayInt(&lcd, (int)info.settingInfo->target);
 	*/
 
+	/*
 	display_goto_xy(1, 1);
 	display_int(orderList.orderIndex, 14);
 	display_update();
+	*/
 
 	TerminateTask();
 }
@@ -297,6 +416,10 @@ TASK(TaskMain)
 		pidControl.deff2 = LightSensor_getBrightness(&lightSensor) - settingInfo.target;
 		// スタート待機
 		CheckStart_waitStart(&checkStart, &info);
+
+		//test
+		//FrontWheel_setAngle(&frontWheel, 100);
+		//test
 	}
 
 	TerminateTask();
@@ -304,6 +427,7 @@ TASK(TaskMain)
 
 TASK(TaskBuletooth)
 {
+	test_data_send();
 	Communication_setLogData2(&communication, info.strategyState);
 	// PCとの通信処理
 	Communication_communicate(&communication);
