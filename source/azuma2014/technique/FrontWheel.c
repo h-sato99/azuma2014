@@ -11,7 +11,7 @@
 #define PWM_ABS_MAX          100 // 完全停止用モータ制御PWM絶対最大値
 #define C_ANGLE              3.5
 #define C_PWM                3.5
-
+//#define C_PWM                10
 
 void FrontWheel_init(FrontWheel* this)
 {
@@ -57,6 +57,8 @@ void FrontWheel_setAngle(FrontWheel* this, int angle)
 	{
 		pwm = -PWM_ABS_MAX;
 	}
+
+	this->pwm = pwm;
 
 	Motor_rotate(this->frontMotor, pwm);
 }

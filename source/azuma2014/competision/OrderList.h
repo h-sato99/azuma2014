@@ -31,5 +31,6 @@ BOOL OrderList_checkFinished(OrderList* this, int orderIndex);
 int OrderList_manualRunning(OrderList* this, int forward, int turn, int turnState, int finishTime, int finishDistance);
 int OrderList_lineTraceRunning(OrderList* this, int forward, int target, int turnState, int finishTime, int finishDistance);
 int OrderList_stop(OrderList* this);
+int OrderList_setPID(OrderList* this, int p, int i, int d);
 
 #endif /* _OrderList_H_ */

@@ -3,8 +3,7 @@
 **  概要        ：
 **  詳細        ：
 *******************************************************************************/
-//TODO:finishOrderが正常に動作しない。
-//TODO:Jumpの挙動がおかしい。正しく状態遷移できてない？
+//TODO:指示が0件時の挙動がおかしい。正しく状態遷移できてない？
 
 #include "OrderList.h"
 
@@ -21,9 +20,11 @@ void OrderList_init(OrderList* this)
 	this->orderCount = 0;
 	this->orderIndex = 0;
 //	ecrobot_sound_tone(800, 200, 95);
+	/*
 	display_goto_xy(3, 1);
 	display_int(this->orderIndex, 14);
 	display_update();
+	*/
 
 	for(int i=0; i<ORDER_LIST_MAX; i++)
 	{
@@ -41,9 +42,11 @@ int OrderList_addOrder(OrderList* this, int type, int value1, int value2, int va
 	int orderIndex;
 
 	orderIndex = this->orderIndex;
+	/*
 	display_goto_xy(1, 5);
 	display_int(orderIndex, 14);
 	display_update();
+	*/
 
 	this->orderLists[this->orderIndex].type = type;
 	this->orderLists[this->orderIndex].value1 = value1;
@@ -62,13 +65,14 @@ int OrderList_addOrder(OrderList* this, int type, int value1, int value2, int va
 
 void OrderList_finishOrder(OrderList* this, int orderIndex)
 {
+	/*
 	display_goto_xy(1, 2);
 	display_int(orderIndex, 14);
 	display_update();
+	*/
 	if(this->orderLists[orderIndex].type != ORDER_TYPE_NONE)
 	{
-		//Order_init(&(this->orderLists[orderIndex]));
-		ecrobot_sound_tone(800, 200, 95);
+		//ecrobot_sound_tone(800, 200, 95);
 		this->orderLists[orderIndex].isFinished = TRUE;
 		this->orderCount--;
 	}
@@ -98,4 +102,9 @@ int OrderList_lineTraceRunning(OrderList* this, int forward, int target, int tur
 
 int OrderList_stop(OrderList* this){
 	return OrderList_addOrder(this, ORDER_TYPE_STOP, 0, 0, 0, 0, 0);
+}
+
+int OrderList_setPID(OrderList* this, int p, int i, int d)
+{
+	return OrderList_addOrder(this, ORDER_TYPE_SET_PID, p, i, d, 0, 0);
 }

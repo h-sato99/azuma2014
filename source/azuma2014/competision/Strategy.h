@@ -17,6 +17,9 @@
 #include "technique/TrialDecision.h"
 #include "competision/Jump.h"
 #include "competision/Mogul.h"
+#include "competision/Course.h"
+
+#include "competision/OrderTest.h"
 
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
@@ -27,11 +30,14 @@ typedef struct Strategy
 	BOOL initBasicStageFlag;
 	BOOL startGrayDecision;
 
+	Course *course;
 	LineChange *lineChange;
 	BumpDecision *bumpDecision;
 	TrialDecision *trialDecision;
 	Jump *jump;
 	Mogul *mogul;
+
+	OrderTest *orderTest;
 } Strategy;
 
 // ŒöŠJ‘€ì

@@ -46,6 +46,9 @@ F32 PidControl_MathLimit(float pid)
 /*------------------------------------------------------------------------------
 --  関数名      ：PidControl_CalTurn
 --  概要        ：旋回量を計算をする。
+--              ：  Ｐ制御 → 旋回量を決めるベースとなる。
+--              ：  Ｉ制御 → 過去の情報を蓄積し、Ｐ制御の値を抑止する。
+--              ：  Ｄ制御 → 光センサ値の偏差の変化から旋回量を決める。
 --              ：
 --  引数        ：settingInfo  設定情報（P・I・Dの定数、目標値を利用）
 --              ：brightness   光センサーで観測した値
@@ -53,9 +56,11 @@ F32 PidControl_MathLimit(float pid)
 ------------------------------------------------------------------------------*/
 F32 PidControl_calcTurn(PidControl* this, SettingInfo* settingInfo, int brightness)
 {
+	/*
 	float f_p;
 	float f_i;
 	float f_d;
+	*/
 	float f_turn;
 
 	this->deff1 = this->deff2;
@@ -65,14 +70,14 @@ F32 PidControl_calcTurn(PidControl* this, SettingInfo* settingInfo, int brightne
 	this->integral += (this->deff2 + this->deff1) / 2.0 * C_DELTA_T;
 
 	// Ｐ制御
-	f_p = settingInfo->pidP * this->deff2;
+	this->f_p = settingInfo->pidP * this->deff2;
 	// Ｉ制御
-	f_i = settingInfo->pidI * this->integral;
+	this->f_i = settingInfo->pidI * this->integral;
 	// Ｄ制御
-	f_d = settingInfo->pidD * (this->deff2 - this->deff1) / C_DELTA_T;
+	this->f_d = settingInfo->pidD * (this->deff2 - this->deff1) / C_DELTA_T;
 
 	// 旋回量の計算
-	f_turn = f_p + f_i + f_d;
+	f_turn = this->f_p + this->f_i + this->f_d;
 	return PidControl_MathLimit(f_turn);
 }
 

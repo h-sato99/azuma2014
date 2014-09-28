@@ -28,44 +28,82 @@ void Strategy_action(Strategy* this, Info* info)
 {
 	Strategy_checkState(this, info);
 
-	switch(info->strategyState)
+	// test
+	if(info->autoStrategyFlag == FALSE)
 	{
-		case(1):
+		//OrderTest_tailRun(this->orderTest);
+		//OrderTest_figureL(this->orderTest);
+		//OrderTest_strateRun(this->orderTest);
+		//Course_strateRunIN(this->course);
+		Course_stableRunIN(this->course);
+	}
+	// test
+
+	if(info->settingInfo->courseType == 1){
+		switch(info->strategyState)
 		{
-			// ベーシックステージ
-			BasicStage_action(this->basicStage, info);
-			break;
-		}
-		case(2):
-		{
-			// 難所用
-			break;
-		}
-		case(3):
-		{
-			// 難所用
-			break;
-		}
-		case(4):
-		{
-			// 難所用
-			break;
-		}
-		case(10):
-		{
-			if(TrialDecision_action(this->trialDecision))
+			case(1):
 			{
-				Jump_action(this->jump);
+				if(Course_strateRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 2;
+				}
+				break;
 			}
-			break;
-		}
-		case(11):
-		{
-			if(TrialDecision_action(this->trialDecision))
+			case(2):
 			{
-				Mogul_main(this->mogul);
+				if(Course_stableRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 3;
+				}
+				break;
 			}
-			break;
+			case(3):
+			{
+				// 難所用
+				break;
+			}
+			case(4):
+			{
+				// 難所用
+				break;
+			}
+			case(10):
+			{
+				if(TrialDecision_action(this->trialDecision))
+				{
+					Jump_action(this->jump);
+				}
+				break;
+			}
+			case(11):
+			{
+				if(TrialDecision_action(this->trialDecision))
+				{
+					Mogul_main(this->mogul);
+				}
+				break;
+			}
+		}
+	}
+	else
+	{
+		switch(info->strategyState)
+		{
+			case(1):
+			{
+				Course_resetMode(this->course);
+				info->strategyState = 2;
+				break;
+			}
+			case(2):
+			{
+				Course_strateRunOUT(this->course);
+				info->strategyState = 3;
+				break;
+			}
 		}
 	}
 }
@@ -79,7 +117,7 @@ void Strategy_action(Strategy* this, Info* info)
 ------------------------------------------------------------------------------*/
 static void Strategy_checkState(Strategy* this, Info* info)
 {
-	BOOL check;
+	//BOOL check;
 
 }
 

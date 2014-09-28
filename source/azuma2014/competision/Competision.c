@@ -26,6 +26,6 @@ void Competision_action(Competision* this, Info *info)
 
 	Strategy_action(this->strategy, info);
 
-	RoboControl_control(this->roboControl);
+	RoboControl_control(this->roboControl, info);
 	//Runner_run(this->runner, info);
 }

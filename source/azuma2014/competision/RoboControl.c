@@ -3,14 +3,14 @@
 **  概要        ：
 **  詳細        ：
 *******************************************************************************/
-//TODO:currentOrderIndexはOrderListへ移動。
-//TODO:OrderListはリスト構造を実現できるよう、RoboControlと役割分担を明確にする。
+
 #include "RoboControl.h"
 
 static BOOL RoboControl_checkFinishTime(RoboControl* this, Order* order);
 static BOOL RoboControl_checkFinishValue(RoboControl* this, Order* order);
 static void RoboControl_startOrder(RoboControl* this);
 static void RoboControl_finishOrder(RoboControl* this);
+static void RoboControl_setPID(RoboControl* this, Order* order, Info* info);
 
 /*------------------------------------------------------------------------------
 --  関数名      ：RoboControl_init
@@ -29,7 +29,7 @@ void RoboControl_init(RoboControl* this)
 	this->value = 0;
 }
 
-void RoboControl_control(RoboControl* this)
+void RoboControl_control(RoboControl* this, Info* info)
 {
 	Order *order;
 
@@ -45,9 +45,11 @@ void RoboControl_control(RoboControl* this)
 		RoboControl_startOrder(this);
 	}
 
+
 	display_goto_xy(1, 1);
 	display_int(this->currentOrderIndex, 14);
 	display_update();
+
 
 
 	switch(order->type)
@@ -65,6 +67,10 @@ void RoboControl_control(RoboControl* this)
 			break;
 		case ORDER_TYPE_STOP:
 			Runner_run(this->runner, 0, 0, 0, MUNUAL, TURN_INIT);
+			break;
+		case ORDER_TYPE_SET_PID:
+			RoboControl_setPID(this, order, info);
+			OrderList_finishOrder(this->orderList, this->currentOrderIndex);
 			break;
 	}
 
@@ -141,7 +147,7 @@ static BOOL RoboControl_checkFinishValue(RoboControl* this, Order* order)
 
 static void RoboControl_startOrder(RoboControl* this)
 {
-	ecrobot_sound_tone(659, 100, 90);
+	//ecrobot_sound_tone(659, 100, 90);
 	this->time = 0;
 	this->value = Runner_getDistance(this->runner);
 	this->isInitialized = TRUE;
@@ -170,4 +176,11 @@ static void RoboControl_finishOrder(RoboControl* this)
 	display_int(order->value2, 14);
 	display_update();
 	*/
+}
+
+static void RoboControl_setPID(RoboControl* this, Order* order, Info* info)
+{
+	info->settingInfo->pidP = (F32)order->value1 / 100;
+	info->settingInfo->pidI = (F32)order->value2 / 100;
+	info->settingInfo->pidD = (F32)order->value3 / 100;
 }

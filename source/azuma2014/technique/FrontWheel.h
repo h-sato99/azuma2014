@@ -13,6 +13,7 @@
 typedef struct FrontWheel
 {
 	Motor *frontMotor;
+	int pwm;
 } FrontWheel;
 
 // ŒöŠJ‘€ì

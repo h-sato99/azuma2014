@@ -13,6 +13,7 @@
 void Motor_init(Motor* this, MOTOR_PORT_T outputPort)
 {
 	this->outputPort = outputPort;
+	this->mode = 1;
 }
 
 // 回転角度をリセットする
@@ -31,5 +32,10 @@ long Motor_getAngle(Motor* this)
 void Motor_rotate(Motor* this, int pwm)
 {
 	// 3番目の引数は0(フロートモード), 1(ブレーキモード)を表す。
-	nxt_motor_set_speed(this->outputPort, pwm, 1);
+	nxt_motor_set_speed(this->outputPort, pwm, this->mode);
+}
+
+void Motor_setMode(Motor* this, int mode)
+{
+	this->mode = mode;
 }

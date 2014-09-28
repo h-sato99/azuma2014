@@ -20,6 +20,9 @@ typedef struct PidControl
 	float deff1;
 	float deff2;
 	float integral;
+	float f_p;
+	float f_i;
+	float f_d;
 } PidControl;
 
 

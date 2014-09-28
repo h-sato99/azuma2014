@@ -13,6 +13,8 @@
 #include "competision/OrderList.h"
 #include "competision/Runner.h"
 
+#include "Info.h"
+
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct RoboControl
 {
@@ -28,6 +30,6 @@ typedef struct RoboControl
 
 // ŒöŠJ‘€ì
 void RoboControl_init(RoboControl* this);
-void RoboControl_control(RoboControl* this);
+void RoboControl_control(RoboControl* this, Info* info);
 
 #endif /* _RoboControl_H_ */
