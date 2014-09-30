@@ -69,5 +69,6 @@ build/competision/Competision.o: competision/Competision.c \
   technique/Wheel.h technique/Distance.h technique/Dash.h \
   technique/DrivingWheel.h technique/FrontWheel.h \
   competision/LineTracer.h competision/Jump.h competision/OrderList.h \
-  competision/Mogul.h competision/Runner.h competision/RoboControl.h \
-  competision/OrderList.h competision/Runner.h
+  competision/Mogul.h competision/Course.h competision/Runner.h \
+  competision/PendingArea.h competision/OrderTest.h competision/Runner.h \
+  competision/RoboControl.h competision/OrderList.h competision/Runner.h

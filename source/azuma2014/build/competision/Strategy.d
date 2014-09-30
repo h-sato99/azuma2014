@@ -66,4 +66,5 @@ build/competision/Strategy.o: competision/Strategy.c \
   competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Jump.h \
-  competision/OrderList.h competision/Mogul.h
+  competision/OrderList.h competision/Mogul.h competision/Course.h \
+  competision/Runner.h competision/PendingArea.h competision/OrderTest.h

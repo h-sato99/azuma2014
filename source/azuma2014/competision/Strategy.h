@@ -18,6 +18,7 @@
 #include "competision/Jump.h"
 #include "competision/Mogul.h"
 #include "competision/Course.h"
+#include "competision/PendingArea.h"
 
 #include "competision/OrderTest.h"
 
@@ -36,6 +37,7 @@ typedef struct Strategy
 	TrialDecision *trialDecision;
 	Jump *jump;
 	Mogul *mogul;
+	PendingArea *pendingArea;
 
 	OrderTest *orderTest;
 } Strategy;

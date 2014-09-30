@@ -6,8 +6,8 @@
 
 #include "BumpDecision.h"
 
-#define TARGET_LOW		500		//閾値
-#define TARGET_HIGH		700		//閾値
+#define TARGET_LOW		300		//閾値
+#define TARGET_HIGH		800		//閾値
 
 // 初期化する
 void BumpDecision_init(BumpDecision* this)

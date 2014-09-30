@@ -1,5 +1,16 @@
-build/model_impl.o: model_impl.c device/Bluetooth.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
+build/model_impl.o: model_impl.c \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/string.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/_ansi.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/newlib.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/config.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/machine/ieeefp.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/reent.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/_ansi.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/_types.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/lock.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/stddef.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/string.h \
+  device/Bluetooth.h ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/osek.h \
@@ -73,13 +84,15 @@ build/model_impl.o: model_impl.c device/Bluetooth.h \
   CourseInfo.h technique/Tail.h technique/Wheel.h \
   technique/BalanceControl.h technique/Dash.h technique/DrivingWheel.h \
   technique/FrontWheel.h competision/LineTracer.h competision/Jump.h \
-  competision/OrderList.h competision/Mogul.h competision/Runner.h \
-  competision/RoboControl.h competision/OrderList.h competision/Runner.h \
-  competision/LineTracer.h competision/Runner.h competision/Strategy.h \
-  Info.h Calibration.h \
+  competision/OrderList.h competision/Mogul.h competision/Course.h \
+  competision/Runner.h competision/PendingArea.h competision/OrderTest.h \
+  competision/Runner.h competision/RoboControl.h competision/OrderList.h \
+  competision/Runner.h competision/LineTracer.h competision/Runner.h \
+  competision/Strategy.h competision/Course.h Info.h Calibration.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Command.h \
   CheckStart.h competision/OrderList.h competision/RoboControl.h \
-  competision/Jump.h competision/Mogul.h technique/DrivingWheel.h \
-  technique/FrontWheel.h technique/LineChange.h technique/TrialDecision.h \
-  technique/BumpDecision.h
+  competision/Jump.h competision/Mogul.h competision/PendingArea.h \
+  technique/DrivingWheel.h technique/FrontWheel.h technique/LineChange.h \
+  technique/TrialDecision.h technique/BumpDecision.h \
+  competision/OrderTest.h

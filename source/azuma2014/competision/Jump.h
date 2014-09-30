@@ -21,7 +21,8 @@ typedef enum State
 {
 	START,
 	CHECK_HOLE,
-	DASH_RUN,
+	TAIL_CHANGE,
+	TAIL_RUN,
 	FINISHED
 } State;
 

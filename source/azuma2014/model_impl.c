@@ -42,6 +42,7 @@
 #include "competision/RoboControl.h"
 #include "competision/Jump.h"
 #include "competision/Mogul.h"
+#include "competision/PendingArea.h"
 #include "technique/DrivingWheel.h"
 #include "technique/FrontWheel.h"
 #include "technique/LineChange.h"
@@ -115,6 +116,7 @@ BumpDecision bumpDecision;
 Jump jump;
 Mogul mogul;
 Course course;
+PendingArea pendingArea;
 
 OrderTest orderTest;
 
@@ -291,6 +293,7 @@ TASK(TaskInit)
 	strategy.jump = &jump;
 	strategy.mogul = &mogul;
 	strategy.course = &course;
+	strategy.pendingArea = &pendingArea;
 	strategy.orderTest = &orderTest;
 	bumpDecision.gyroSensor = &gyroSensor;
 	trialDicision.bumpDecision = &bumpDecision;
@@ -298,6 +301,7 @@ TASK(TaskInit)
 	jump.orderList = &orderList;
 	mogul.orderList = &orderList;
 	course.orderList = &orderList;
+	pendingArea.orderList = &orderList;
 
 	orderTest.orderList = &orderList;
 
@@ -334,6 +338,7 @@ TASK(TaskInit)
 	Jump_init(&jump);
 	Mogul_init(&mogul);
 	Course_init(&course);
+	PendingArea_init(&pendingArea);
 
 	OrderTest_init(&orderTest);
 
