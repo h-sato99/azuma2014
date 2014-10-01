@@ -13,10 +13,11 @@
 typedef struct LineChange
 {
 	OrderList *orderList;
+	int orderNum;
 } LineChange;
 
 // ŒöŠJ‘€ì
 void LineChange_init(LineChange* this);
-void LineChange_action(LineChange* this);
+BOOL LineChange_action(LineChange* this);
 
 #endif /* LINECHANGE_H_ */
