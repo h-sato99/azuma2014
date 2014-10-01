@@ -302,6 +302,7 @@ TASK(TaskInit)
 	mogul.orderList = &orderList;
 	course.orderList = &orderList;
 	pendingArea.orderList = &orderList;
+	lineChange.orderList = &orderList;
 
 	orderTest.orderList = &orderList;
 

@@ -33,7 +33,7 @@ BOOL LineChange_action(LineChange* this)
 	{
 		// ラインの逆側へ走行が完了した場合、エッジ切替処理を行い、trueを返す
 		// TODO エッジ切替処理が必要
-		retun TRUE;
+		return TRUE;
 	}
 	// falseを返す
 	return FALSE;

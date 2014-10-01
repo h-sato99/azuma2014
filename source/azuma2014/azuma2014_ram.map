@@ -180,7 +180,7 @@ almcb_cycle         0x8               build/./kernel_cfg.o
 tcxb_sp             0xc               build/./kernel_cfg.o
 uart                0x44              ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
 competision         0x10              build/model_impl.o
-lineChange          0x4               build/model_impl.o
+lineChange          0x8               build/model_impl.o
 sample              0x324             ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
 almcb_next          0x2               build/./kernel_cfg.o
 mogul               0x8               build/model_impl.o
@@ -883,257 +883,257 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x00206f28       0x14 build/model_impl.o
                 0x00206f28                user_1ms_isr_type2
  .text.TaskMainTaskInit
-                0x00206f3c      0x338 build/model_impl.o
+                0x00206f3c      0x334 build/model_impl.o
                 0x00206f3c                TaskMainTaskInit
  .text.TaskMainTaskMain
-                0x00207274       0x74 build/model_impl.o
-                0x00207274                TaskMainTaskMain
+                0x00207270       0x74 build/model_impl.o
+                0x00207270                TaskMainTaskMain
  .text.TaskMainTaskBuletooth
-                0x002072e8       0x3c build/model_impl.o
-                0x002072e8                TaskMainTaskBuletooth
+                0x002072e4       0x3c build/model_impl.o
+                0x002072e4                TaskMainTaskBuletooth
  .text.Bluetooth_init
-                0x00207324        0xc build/device/Bluetooth.o
-                0x00207324                Bluetooth_init
+                0x00207320        0xc build/device/Bluetooth.o
+                0x00207320                Bluetooth_init
  .text.Bluetooth_start
-                0x00207330        0xc build/device/Bluetooth.o
-                0x00207330                Bluetooth_start
+                0x0020732c        0xc build/device/Bluetooth.o
+                0x0020732c                Bluetooth_start
  .text.Bluetooth_checkConnection
-                0x0020733c       0x14 build/device/Bluetooth.o
-                0x0020733c                Bluetooth_checkConnection
+                0x00207338       0x14 build/device/Bluetooth.o
+                0x00207338                Bluetooth_checkConnection
  .text.Bluetooth_terminate
-                0x00207350        0xc build/device/Bluetooth.o
-                0x00207350                Bluetooth_terminate
+                0x0020734c        0xc build/device/Bluetooth.o
+                0x0020734c                Bluetooth_terminate
  .text.Bluetooth_receive
-                0x0020735c       0x10 build/device/Bluetooth.o
-                0x0020735c                Bluetooth_receive
+                0x00207358       0x10 build/device/Bluetooth.o
+                0x00207358                Bluetooth_receive
  .text.Bluetooth_send
-                0x0020736c       0x10 build/device/Bluetooth.o
-                0x0020736c                Bluetooth_send
+                0x00207368       0x10 build/device/Bluetooth.o
+                0x00207368                Bluetooth_send
  .text.GyroSensor_init
-                0x0020737c        0xc build/device/GyroSensor.o
-                0x0020737c                GyroSensor_init
+                0x00207378        0xc build/device/GyroSensor.o
+                0x00207378                GyroSensor_init
  .text.GyroSensor_getAngularVelocity
-                0x00207388        0xc build/device/GyroSensor.o
-                0x00207388                GyroSensor_getAngularVelocity
+                0x00207384        0xc build/device/GyroSensor.o
+                0x00207384                GyroSensor_getAngularVelocity
  .text.TouchSensor_init
-                0x00207394        0x4 build/device/TouchSensor.o
-                0x00207394                TouchSensor_init
+                0x00207390        0x4 build/device/TouchSensor.o
+                0x00207390                TouchSensor_init
  .text.TouchSensor_isPressed
-                0x00207398        0xc build/device/TouchSensor.o
-                0x00207398                TouchSensor_isPressed
+                0x00207394        0xc build/device/TouchSensor.o
+                0x00207394                TouchSensor_isPressed
  .text.Motor_init
-                0x002073a4        0x8 build/device/Motor.o
-                0x002073a4                Motor_init
+                0x002073a0        0x8 build/device/Motor.o
+                0x002073a0                Motor_init
  .text.Motor_getAngle
-                0x002073ac        0xc build/device/Motor.o
-                0x002073ac                Motor_getAngle
+                0x002073a8        0xc build/device/Motor.o
+                0x002073a8                Motor_getAngle
  .text.Motor_rotate
-                0x002073b8       0x10 build/device/Motor.o
-                0x002073b8                Motor_rotate
+                0x002073b4       0x10 build/device/Motor.o
+                0x002073b4                Motor_rotate
  .text.LightSensor_init
-                0x002073c8        0x4 build/device/LightSensor.o
-                0x002073c8                LightSensor_init
+                0x002073c4        0x4 build/device/LightSensor.o
+                0x002073c4                LightSensor_init
  .text.LightSensor_getBrightness
-                0x002073cc        0xc build/device/LightSensor.o
-                0x002073cc                LightSensor_getBrightness
+                0x002073c8        0xc build/device/LightSensor.o
+                0x002073c8                LightSensor_getBrightness
  .text.SonarSensor_init
-                0x002073d8       0x14 build/device/SonarSensor.o
-                0x002073d8                SonarSensor_init
+                0x002073d4       0x14 build/device/SonarSensor.o
+                0x002073d4                SonarSensor_init
  .text.SonarSensor_term
-                0x002073ec        0xc build/device/SonarSensor.o
-                0x002073ec                SonarSensor_term
+                0x002073e8        0xc build/device/SonarSensor.o
+                0x002073e8                SonarSensor_term
  .text.LCD_init
-                0x002073f8        0x8 build/device/LCD.o
-                0x002073f8                LCD_init
+                0x002073f4        0x8 build/device/LCD.o
+                0x002073f4                LCD_init
  .text.LCD_DisplayClear
-                0x00207400       0x10 build/device/LCD.o
-                0x00207400                LCD_DisplayClear
+                0x002073fc       0x10 build/device/LCD.o
+                0x002073fc                LCD_DisplayClear
  .text.Timer_init
-                0x00207410        0x8 build/device/Timer.o
-                0x00207410                Timer_init
+                0x0020740c        0x8 build/device/Timer.o
+                0x0020740c                Timer_init
  .text.Competision_action
-                0x00207418       0x24 build/competision/Competision.o
-                0x00207418                Competision_action
+                0x00207414       0x24 build/competision/Competision.o
+                0x00207414                Competision_action
  .text.Strategy_action
-                0x0020743c       0xa4 build/competision/Strategy.o
-                0x0020743c                Strategy_action
+                0x00207438       0xa4 build/competision/Strategy.o
+                0x00207438                Strategy_action
  .text.LineTracer_init
-                0x002074e0        0xc build/competision/LineTracer.o
-                0x002074e0                LineTracer_init
+                0x002074dc        0xc build/competision/LineTracer.o
+                0x002074dc                LineTracer_init
  .text.LineTracer_trace
-                0x002074ec       0x2c build/competision/LineTracer.o
-                0x002074ec                LineTracer_trace
+                0x002074e8       0x2c build/competision/LineTracer.o
+                0x002074e8                LineTracer_trace
  .text.LineTracer_getTurn
-                0x00207518        0x4 build/competision/LineTracer.o
-                0x00207518                LineTracer_getTurn
+                0x00207514        0x4 build/competision/LineTracer.o
+                0x00207514                LineTracer_getTurn
  .text.LineTracer_setTarget
-                0x0020751c        0x4 build/competision/LineTracer.o
-                0x0020751c                LineTracer_setTarget
+                0x00207518        0x4 build/competision/LineTracer.o
+                0x00207518                LineTracer_setTarget
  .text.Runner_getDistance
-                0x00207520       0x28 build/competision/Runner.o
-                0x00207520                Runner_getDistance
+                0x0020751c       0x28 build/competision/Runner.o
+                0x0020751c                Runner_getDistance
  .text.Runner_lineTraceRun
-                0x00207548       0x1c build/competision/Runner.o
+                0x00207544       0x1c build/competision/Runner.o
  .text.Runner_turnByFrontWheel
-                0x00207564       0x2c build/competision/Runner.o
+                0x00207560       0x2c build/competision/Runner.o
  .text.Runner_turnByDrivingWheel
-                0x00207590       0x9c build/competision/Runner.o
+                0x0020758c       0x9c build/competision/Runner.o
  .text.Runner_fowardFrontWheel
-                0x0020762c       0x24 build/competision/Runner.o
+                0x00207628       0x24 build/competision/Runner.o
  .text.Runner_run
-                0x00207650       0x80 build/competision/Runner.o
-                0x00207650                Runner_run
+                0x0020764c       0x80 build/competision/Runner.o
+                0x0020764c                Runner_run
  .text.PidControl_init
-                0x002076d0       0x10 build/technique/PidControl.o
-                0x002076d0                PidControl_init
+                0x002076cc       0x10 build/technique/PidControl.o
+                0x002076cc                PidControl_init
  .text.PidControl_calcTurn
-                0x002076e0       0xe4 build/technique/PidControl.o
-                0x002076e0                PidControl_calcTurn
+                0x002076dc       0xe4 build/technique/PidControl.o
+                0x002076dc                PidControl_calcTurn
  .text.Communication_init
-                0x002077c4        0xc build/technique/Communication.o
-                0x002077c4                Communication_init
+                0x002077c0        0xc build/technique/Communication.o
+                0x002077c0                Communication_init
  .text.Communication_setSendData
-                0x002077d0       0x1c build/technique/Communication.o
-                0x002077d0                Communication_setSendData
+                0x002077cc       0x1c build/technique/Communication.o
+                0x002077cc                Communication_setSendData
  .text.Communication_communicate
-                0x002077ec       0x54 build/technique/Communication.o
-                0x002077ec                Communication_communicate
+                0x002077e8       0x54 build/technique/Communication.o
+                0x002077e8                Communication_communicate
  .text.Communication_setLogData1
-                0x00207840        0x8 build/technique/Communication.o
-                0x00207840                Communication_setLogData1
+                0x0020783c        0x8 build/technique/Communication.o
+                0x0020783c                Communication_setLogData1
  .text.Communication_setLogData2
-                0x00207848        0x8 build/technique/Communication.o
-                0x00207848                Communication_setLogData2
+                0x00207844        0x8 build/technique/Communication.o
+                0x00207844                Communication_setLogData2
  .text.Communication_getCommand
-                0x00207850       0x70 build/technique/Communication.o
-                0x00207850                Communication_getCommand
+                0x0020784c       0x70 build/technique/Communication.o
+                0x0020784c                Communication_getCommand
  .text.Commander_setCommandResult
-                0x002078c0       0x2c build/technique/Commander.o
+                0x002078bc       0x2c build/technique/Commander.o
  .text.Commander_action
-                0x002078ec      0x1b4 build/technique/Commander.o
-                0x002078ec                Commander_action
+                0x002078e8      0x1b4 build/technique/Commander.o
+                0x002078e8                Commander_action
  .text.Distance_init
-                0x00207aa0        0x8 build/technique/Distance.o
-                0x00207aa0                Distance_init
+                0x00207a9c        0x8 build/technique/Distance.o
+                0x00207a9c                Distance_init
  .text.Dash_init
-                0x00207aa8        0x8 build/technique/Dash.o
-                0x00207aa8                Dash_init
+                0x00207aa4        0x8 build/technique/Dash.o
+                0x00207aa4                Dash_init
  .text.CheckStart_init
-                0x00207ab0        0x8 build/CheckStart.o
-                0x00207ab0                CheckStart_init
+                0x00207aac        0x8 build/CheckStart.o
+                0x00207aac                CheckStart_init
  .text.CheckStart_isStart
-                0x00207ab8       0x10 build/CheckStart.o
-                0x00207ab8                CheckStart_isStart
+                0x00207ab4       0x10 build/CheckStart.o
+                0x00207ab4                CheckStart_isStart
  .text.CheckStart_start
-                0x00207ac8       0x30 build/CheckStart.o
+                0x00207ac4       0x30 build/CheckStart.o
  .text.CheckStart_waitStart
-                0x00207af8       0x30 build/CheckStart.o
-                0x00207af8                CheckStart_waitStart
+                0x00207af4       0x30 build/CheckStart.o
+                0x00207af4                CheckStart_waitStart
  .text.RoboControl_init
-                0x00207b28        0xc build/competision/RoboControl.o
-                0x00207b28                RoboControl_init
+                0x00207b24        0xc build/competision/RoboControl.o
+                0x00207b24                RoboControl_init
  .text.RoboControl_control
-                0x00207b34      0x164 build/competision/RoboControl.o
-                0x00207b34                RoboControl_control
+                0x00207b30      0x164 build/competision/RoboControl.o
+                0x00207b30                RoboControl_control
  .text.Order_init
-                0x00207c98       0x14 build/competision/Order.o
-                0x00207c98                Order_init
+                0x00207c94       0x14 build/competision/Order.o
+                0x00207c94                Order_init
  .text.OrderList_init
-                0x00207cac       0x28 build/competision/OrderList.o
-                0x00207cac                OrderList_init
+                0x00207ca8       0x28 build/competision/OrderList.o
+                0x00207ca8                OrderList_init
  .text.OrderList_getOrder
-                0x00207cd4        0xc build/competision/OrderList.o
-                0x00207cd4                OrderList_getOrder
+                0x00207cd0        0xc build/competision/OrderList.o
+                0x00207cd0                OrderList_getOrder
  .text.OrderList_addOrder
-                0x00207ce0       0x7c build/competision/OrderList.o
-                0x00207ce0                OrderList_addOrder
+                0x00207cdc       0x7c build/competision/OrderList.o
+                0x00207cdc                OrderList_addOrder
  .text.OrderList_finishOrder
-                0x00207d5c       0x1c build/competision/OrderList.o
-                0x00207d5c                OrderList_finishOrder
+                0x00207d58       0x1c build/competision/OrderList.o
+                0x00207d58                OrderList_finishOrder
  .text.OrderList_checkFinished
-                0x00207d78       0x18 build/competision/OrderList.o
-                0x00207d78                OrderList_checkFinished
+                0x00207d74       0x18 build/competision/OrderList.o
+                0x00207d74                OrderList_checkFinished
  .text.OrderList_manualRunning
-                0x00207d90       0x24 build/competision/OrderList.o
-                0x00207d90                OrderList_manualRunning
+                0x00207d8c       0x24 build/competision/OrderList.o
+                0x00207d8c                OrderList_manualRunning
  .text.OrderList_lineTraceRunning
-                0x00207db4       0x24 build/competision/OrderList.o
-                0x00207db4                OrderList_lineTraceRunning
+                0x00207db0       0x24 build/competision/OrderList.o
+                0x00207db0                OrderList_lineTraceRunning
  .text.OrderList_stop
-                0x00207dd8       0x1c build/competision/OrderList.o
-                0x00207dd8                OrderList_stop
+                0x00207dd4       0x1c build/competision/OrderList.o
+                0x00207dd4                OrderList_stop
  .text.OrderList_setPID
-                0x00207df4       0x24 build/competision/OrderList.o
-                0x00207df4                OrderList_setPID
+                0x00207df0       0x24 build/competision/OrderList.o
+                0x00207df0                OrderList_setPID
  .text.Jump_init
-                0x00207e18        0x8 build/competision/Jump.o
-                0x00207e18                Jump_init
+                0x00207e14        0x8 build/competision/Jump.o
+                0x00207e14                Jump_init
  .text.Jump_action
-                0x00207e20       0xa8 build/competision/Jump.o
-                0x00207e20                Jump_action
+                0x00207e1c       0xa8 build/competision/Jump.o
+                0x00207e1c                Jump_action
  .text.Mogul_init
-                0x00207ec8        0x8 build/competision/Mogul.o
-                0x00207ec8                Mogul_init
+                0x00207ec4        0x8 build/competision/Mogul.o
+                0x00207ec4                Mogul_init
  .text.Mogul_main
-                0x00207ed0       0x34 build/competision/Mogul.o
-                0x00207ed0                Mogul_main
+                0x00207ecc       0x34 build/competision/Mogul.o
+                0x00207ecc                Mogul_main
  .text.OrderTest_init
-                0x00207f04        0x8 build/competision/OrderTest.o
-                0x00207f04                OrderTest_init
+                0x00207f00        0x8 build/competision/OrderTest.o
+                0x00207f00                OrderTest_init
  .text.Course_init
-                0x00207f0c       0x10 build/competision/Course.o
-                0x00207f0c                Course_init
+                0x00207f08       0x10 build/competision/Course.o
+                0x00207f08                Course_init
  .text.Course_resetMode
-                0x00207f1c        0x8 build/competision/Course.o
-                0x00207f1c                Course_resetMode
+                0x00207f18        0x8 build/competision/Course.o
+                0x00207f18                Course_resetMode
  .text.Course_strateRunIN
-                0x00207f24       0x6c build/competision/Course.o
-                0x00207f24                Course_strateRunIN
+                0x00207f20       0x6c build/competision/Course.o
+                0x00207f20                Course_strateRunIN
  .text.Course_strateRunOUT
-                0x00207f90       0x6c build/competision/Course.o
-                0x00207f90                Course_strateRunOUT
+                0x00207f8c       0x6c build/competision/Course.o
+                0x00207f8c                Course_strateRunOUT
  .text.Course_stableRunIN
-                0x00207ffc       0x6c build/competision/Course.o
-                0x00207ffc                Course_stableRunIN
+                0x00207ff8       0x6c build/competision/Course.o
+                0x00207ff8                Course_stableRunIN
  .text.PendingArea_init
-                0x00208068        0xc build/competision/PendingArea.o
-                0x00208068                PendingArea_init
+                0x00208064        0xc build/competision/PendingArea.o
+                0x00208064                PendingArea_init
  .text.FrontWheel_init
-                0x00208074        0x4 build/technique/FrontWheel.o
-                0x00208074                FrontWheel_init
+                0x00208070        0x4 build/technique/FrontWheel.o
+                0x00208070                FrontWheel_init
  .text.FrontWheel_setAngle
-                0x00208078       0x68 build/technique/FrontWheel.o
-                0x00208078                FrontWheel_setAngle
+                0x00208074       0x68 build/technique/FrontWheel.o
+                0x00208074                FrontWheel_setAngle
  .text.FrontWheel_getAngle
-                0x002080e0        0xc build/technique/FrontWheel.o
-                0x002080e0                FrontWheel_getAngle
+                0x002080dc        0xc build/technique/FrontWheel.o
+                0x002080dc                FrontWheel_getAngle
  .text.DrivingWheel_init
-                0x002080ec        0x4 build/technique/DrivingWheel.o
-                0x002080ec                DrivingWheel_init
+                0x002080e8        0x4 build/technique/DrivingWheel.o
+                0x002080e8                DrivingWheel_init
  .text.DrivingWheel_setPwm
-                0x002080f0       0x20 build/technique/DrivingWheel.o
-                0x002080f0                DrivingWheel_setPwm
+                0x002080ec       0x20 build/technique/DrivingWheel.o
+                0x002080ec                DrivingWheel_setPwm
  .text.DrivingWheel_getLeftAngle
-                0x00208110        0xc build/technique/DrivingWheel.o
-                0x00208110                DrivingWheel_getLeftAngle
+                0x0020810c        0xc build/technique/DrivingWheel.o
+                0x0020810c                DrivingWheel_getLeftAngle
  .text.DrivingWheel_getRightAngle
-                0x0020811c        0xc build/technique/DrivingWheel.o
-                0x0020811c                DrivingWheel_getRightAngle
+                0x00208118        0xc build/technique/DrivingWheel.o
+                0x00208118                DrivingWheel_getRightAngle
  .text.BumpDecision_init
-                0x00208128        0x8 build/technique/BumpDecision.o
-                0x00208128                BumpDecision_init
+                0x00208124        0x8 build/technique/BumpDecision.o
+                0x00208124                BumpDecision_init
  .text.BumpDecision_checkBump
-                0x00208130       0x28 build/technique/BumpDecision.o
-                0x00208130                BumpDecision_checkBump
+                0x0020812c       0x28 build/technique/BumpDecision.o
+                0x0020812c                BumpDecision_checkBump
  .text.TrialDecision_init
-                0x00208158        0x8 build/technique/TrialDecision.o
-                0x00208158                TrialDecision_init
+                0x00208154        0x8 build/technique/TrialDecision.o
+                0x00208154                TrialDecision_init
  .text.TrialDecision_action
-                0x00208160       0xa4 build/technique/TrialDecision.o
-                0x00208160                TrialDecision_action
+                0x0020815c       0xa4 build/technique/TrialDecision.o
+                0x0020815c                TrialDecision_action
  .text.LineChange_init
-                0x00208204        0x4 build/technique/LineChange.o
-                0x00208204                LineChange_init
+                0x00208200        0x8 build/technique/LineChange.o
+                0x00208200                LineChange_init
  .text.ecrobot_get_gyro_sensor
                 0x00208208       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_HiTechnic.o)
                 0x00208208                ecrobot_get_gyro_sensor
@@ -1446,7 +1446,7 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x00209ce0                __dtor_end = .
                 0x00209ce0                . = ALIGN (0x10)
 
-.bss            0x00209ce0     0x1d80
+.bss            0x00209ce0     0x1d84
  *(*.bss *.bss.*)
  .bss.ready_primap
                 0x00209ce0        0x2 build/kernel/task.o
@@ -1598,7 +1598,7 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x0020b114                tcxb_sp
                 0x0020b120                almcb_next
                 0x0020b124                cntcb_curval
- COMMON         0x0020b128      0x5c4 build/model_impl.o
+ COMMON         0x0020b128      0x5c8 build/model_impl.o
                 0x0020b128                info
                 0x0020b144                wheel
                 0x0020b14c                basicStageDistance
@@ -1646,24 +1646,24 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x0020b6b4                grayDecisionTimer
                 0x0020b6b8                competision
                 0x0020b6c8                lineChange
-                0x0020b6cc                mogul
-                0x0020b6d4                roboControl
- COMMON         0x0020b6ec       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
-                0x0020b6ec                uart
- COMMON         0x0020b730        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
-                0x0020b730                data_abort_pc
- COMMON         0x0020b734        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
-                0x0020b734                display_x
-                0x0020b738                display_y
- COMMON         0x0020b73c      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
-                0x0020b73c                sample
+                0x0020b6d0                mogul
+                0x0020b6d8                roboControl
+ COMMON         0x0020b6f0       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
+                0x0020b6f0                uart
+ COMMON         0x0020b734        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
+                0x0020b734                data_abort_pc
+ COMMON         0x0020b738        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
+                0x0020b738                display_x
+                0x0020b73c                display_y
+ COMMON         0x0020b740      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
+                0x0020b740                sample
                 0x00209ce0                __bss_start__ = ADDR (.bss)
-                0x0020ba60                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
-                0x0020ba60                PROVIDE (end, .)
+                0x0020ba64                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
+                0x0020ba64                PROVIDE (end, .)
 
-.heap_area      0x0020ba60     0x4118
+.heap_area      0x0020ba64     0x4114
                 0x0020fb78                . = (. + (0x20fb78 - end))
- *fill*         0x0020ba60     0x4118 00
+ *fill*         0x0020ba64     0x4114 00
 
 .stack          0x0020fb78      0x488
                 0x0020fbf8                . = (. + 0x80)
@@ -2145,6 +2145,7 @@ NXT_Entry_Point                                   build/nxt_entry_point.o
                                                   build/nxt_binary_header.o
 OrderList_addOrder                                build/competision/OrderList.o
 OrderList_checkFinished                           build/competision/OrderList.o
+                                                  build/technique/LineChange.o
                                                   build/technique/TrialDecision.o
                                                   build/competision/PendingArea.o
                                                   build/competision/Course.o
@@ -2166,6 +2167,7 @@ OrderList_lineTraceRunning                        build/competision/OrderList.o
                                                   build/competision/Jump.o
                                                   build/model_impl.o
 OrderList_manualRunning                           build/competision/OrderList.o
+                                                  build/technique/LineChange.o
                                                   build/technique/TrialDecision.o
                                                   build/competision/PendingArea.o
                                                   build/competision/OrderTest.o
