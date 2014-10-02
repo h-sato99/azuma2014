@@ -11,11 +11,14 @@ static void Runner_run_LINETRACE(Runner* this, float target, F32 forward, F32 tu
 static void Runner_run_TURN_INIT(Runner* this, int turnState);
 static void Runner_run_TURN_FRONT(Runner* this, int turnState);
 static void Runner_run_TURN_DRIVING(Runner* this, int turnState);
+static void Runner_run_TURN_SPOT(Runner* this, int turnState);
 static void Runner_manualRun(Runner* this, F32 forward, F32 turn);
 static void Runner_lineTraceRun(Runner* this, F32 forward, F32 turn);
 static void Runner_fowardFrontWheel(Runner* this);
 static void Runner_turnByFrontWheel(Runner* this);
 static void Runner_turnByDrivingWheel(Runner* this);
+static void Runner_turnOnSpotLeft(Runner* this);
+static void Runner_turnOnSpotRight(Runner* this);
 
 void Runner_init(Runner* this)
 {
@@ -65,6 +68,12 @@ void Runner_run(Runner* this, F32 forward, F32 turn, float target, int runningSt
 			break;
 		case TURN_FRONT:
 			Runner_run_TURN_FRONT(this, turnState);
+			break;
+		case TURN_LEFT:
+			Runner_run_TURN_SPOT(this, turnState);
+			break;
+		case TURN_RIGHT:
+			Runner_run_TURN_SPOT(this, turnState);
 			break;
 	}
 }
@@ -147,6 +156,25 @@ static void Runner_run_TURN_DRIVING(Runner* this, int turnState)
 	{
 		this->turnState = TURN_DRIVING;
 		Runner_turnByDrivingWheel(this);
+	}
+	else
+	{
+		this->turnState = TURN_INIT;
+		Runner_fowardFrontWheel(this);
+	}
+}
+
+static void Runner_run_TURN_SPOT(Runner* this, int turnState)
+{
+	if(turnState == TURN_LEFT)
+	{
+		this->turnState = TURN_LEFT;
+		Runner_turnOnSpotLeft(this);
+	}
+	else if(turnState == TURN_RIGHT)
+	{
+		this->turnState = TURN_RIGHT;
+		Runner_turnOnSpotRight(this);
 	}
 	else
 	{
@@ -248,5 +276,78 @@ static void Runner_turnByDrivingWheel(Runner* this)
 		}
 	}
 
+	DrivingWheel_setPwm(this->drivingWheel ,leftPwm, rightPwm);
+}
+
+static void Runner_turnOnSpotLeft(Runner* this)
+{
+	int frontWheelAngle;
+	int leftPwm;
+	int rightPwm;
+
+	// 前後進命令と旋回量からモータPWM出力値を算出
+	frontWheelAngle = this->turn;
+	leftPwm = (int)(this->forward * -1);
+	rightPwm = (int)(this->forward);
+
+	/*
+	* PWM出力値がMAX値内になるように調整
+	*/
+	// 左モータPWM出力値調整
+	if(leftPwm > 100)
+	{
+		leftPwm = 100;
+	}
+	else if(leftPwm < -100)
+	{
+		leftPwm = -100;
+	}
+	// 右モータPWM出力値調整
+	if(rightPwm > 100)
+	{
+		rightPwm = 100;
+	}
+	else if(rightPwm <-100)
+	{
+		rightPwm = -100;
+	}
+
+	FrontWheel_setAngle(this->frontWheel, frontWheelAngle);
+	DrivingWheel_setPwm(this->drivingWheel ,leftPwm, rightPwm);
+}
+static void Runner_turnOnSpotRight(Runner* this)
+{
+	int frontWheelAngle;
+	int leftPwm;
+	int rightPwm;
+
+	// 前後進命令と旋回量からモータPWM出力値を算出
+	frontWheelAngle = this->turn;
+	leftPwm = (int)(this->forward);
+	rightPwm = (int)(this->forward * -1);
+
+	/*
+	* PWM出力値がMAX値内になるように調整
+	*/
+	// 左モータPWM出力値調整
+	if(leftPwm > 100)
+	{
+		leftPwm = 100;
+	}
+	else if(leftPwm < -100)
+	{
+		leftPwm = -100;
+	}
+	// 右モータPWM出力値調整
+	if(rightPwm > 100)
+	{
+		rightPwm = 100;
+	}
+	else if(rightPwm <-100)
+	{
+		rightPwm = -100;
+	}
+
+	FrontWheel_setAngle(this->frontWheel, frontWheelAngle);
 	DrivingWheel_setPwm(this->drivingWheel ,leftPwm, rightPwm);
 }

@@ -10,7 +10,6 @@
 #define NORMAL			50		// 通常
 #define TURN			30		// 旋回値
 #define DISTANCE		3000	// 走行距離
-#define FRONT			1		// 前輪
 
 void LineChange_init(LineChange* this)
 {
@@ -27,7 +26,7 @@ void LineChange_init(LineChange* this)
 BOOL LineChange_action(LineChange* this)
 {
 	// ラインの逆側へ走行する
-	this->orderNum = OrderList_manualRunning(this->orderList,NORMAL,TURN,FRONT,NONE,DISTANCE);
+	this->orderNum = OrderList_manualRunning(this->orderList,NORMAL,TURN,TURN_FRONT,NONE,DISTANCE);
 
 	if(OrderList_checkFinished(this->orderList,this->orderNum))
 	{

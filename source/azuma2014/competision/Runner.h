@@ -28,7 +28,9 @@ typedef enum TurnState
 {
 	TURN_INIT,
 	TURN_FRONT,
-	TURN_DRIVING
+	TURN_DRIVING,
+	TURN_LEFT,
+	TURN_RIGHT
 } TurnState;
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`

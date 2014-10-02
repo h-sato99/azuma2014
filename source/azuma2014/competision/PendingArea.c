@@ -5,12 +5,16 @@
 *******************************************************************************/
 #include "PendingArea.h"
 
-#define NONE				0		// 初期値
-#define NORMAL				40		// 通常
-#define TURN_LEFT			90		// 左旋回
-#define TURN_RIGHT			-90		// 右旋回
-#define STRAIGHT_DISTANCE	3000	// 走行距離(直進)
-#define OBLIQUE_DISTANCE	5000	// 走行距離(斜め)
+#define NONE						0		// 初期値
+#define NORMAL						40		// 通常
+#define TURN_LEFT_ANGLE				90		// 左旋回
+#define TURN_RIGHT_ANGLE			-90		// 右旋回
+#define TURN_LEFT_OBLIQUE_ANGLE		50		// 左斜め旋回
+#define TURN_RIGHT_OBLIQUE_ANGLE	-50		// 右斜め旋回
+#define STRAIGHT_DISTANCE			3000	// 走行距離(直進)
+#define OBLIQUE_DISTANCE			5000	// 走行距離(斜め)
+#define TURN_DISTANCE 				6000	// 走行距離(その場旋回)
+#define STOP_TIME 					3000	// 停止時間
 
 /*------------------------------------------------------------------------------
 --  関数名      ：PendingArea_init
@@ -77,20 +81,27 @@ BOOL PendingArea_straight(PendingArea* this)
 	switch(this->privateMode)
 	{
 	case PENDINGAREA_START:
+		// 直進する
 		this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, NONE, NONE, NONE, STRAIGHT_DISTANCE);
-		this->mode = PENDINGAREA_CHECK_POINT1;
+		this->privateMode = PENDINGAREA_CHECK_POINT1;
 		break;
 
 	case PENDINGAREA_CHECK_POINT1:
 		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
-			this->mode = PENINGAREA_FINISHED;
+			// 直進が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, TURN_INIT, STOP_TIME, NONE);
+			this->privateMode = PENINGAREA_FINISHED;
 		}
 		break;
 
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
 	return FALSE;
@@ -108,17 +119,45 @@ BOOL PendingArea_left(PendingArea* this)
 	switch(this->privateMode)
 	{
 	case PENDINGAREA_START:
-//		this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, NONE, NONE, STRAIGHT_DISTANCE);
-		this->mode = PENDINGAREA_CHECK_POINT1;
+		// 左旋回する
+		this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_LEFT_ANGLE, TURN_LEFT, NONE, TURN_DISTANCE);
+		this->privateMode = PENDINGAREA_CHECK_POINT1;
 		break;
 
 	case PENDINGAREA_CHECK_POINT1:
-		this->mode = PENINGAREA_FINISHED;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 左旋回が完了した場合、直進する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, NONE, NONE, NONE, STRAIGHT_DISTANCE);
+			this->privateMode = PENDINGAREA_CHECK_POINT2;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT2:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 直進が完了した場合、右旋回する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_RIGHT_ANGLE, TURN_RIGHT, NONE, TURN_DISTANCE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT3:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 右旋回が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, TURN_INIT, STOP_TIME, NONE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
 		break;
 
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
 	return FALSE;
@@ -136,17 +175,45 @@ BOOL PendingArea_right(PendingArea* this)
 	switch(this->privateMode)
 	{
 	case PENDINGAREA_START:
-//		this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, NONE, NONE, STRAIGHT_DISTANCE);
-		this->mode = PENDINGAREA_CHECK_POINT1;
+		// 右旋回する
+		this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_RIGHT_ANGLE, TURN_RIGHT, NONE, TURN_DISTANCE);
+		this->privateMode = PENDINGAREA_CHECK_POINT1;
 		break;
 
 	case PENDINGAREA_CHECK_POINT1:
-		this->mode = PENINGAREA_FINISHED;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 右旋回が完了した場合、直進する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, NONE, NONE, NONE, STRAIGHT_DISTANCE);
+			this->privateMode = PENDINGAREA_CHECK_POINT2;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT2:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 直進が完了した場合、左旋回する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_LEFT_ANGLE, TURN_LEFT, NONE, TURN_DISTANCE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT3:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 左旋回が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, TURN_INIT, STOP_TIME, NONE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
 		break;
 
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
 	return FALSE;
@@ -164,17 +231,36 @@ BOOL PendingArea_leftOblique(PendingArea* this)
 	switch(this->privateMode)
 	{
 	case PENDINGAREA_START:
-//		this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, NONE, NONE, STRAIGHT_DISTANCE);
-		this->mode = PENDINGAREA_CHECK_POINT1;
+		// 左斜めに旋回しつつ前進する
+		this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_LEFT_OBLIQUE_ANGLE, TURN_FRONT, NONE, STRAIGHT_DISTANCE);
+		this->privateMode = PENDINGAREA_CHECK_POINT1;
 		break;
 
 	case PENDINGAREA_CHECK_POINT1:
-		this->mode = PENINGAREA_FINISHED;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 左斜め旋回が完了した場合、右斜めに旋回しつつ直進する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_RIGHT_OBLIQUE_ANGLE, TURN_FRONT, NONE, STRAIGHT_DISTANCE);
+			this->privateMode = PENDINGAREA_CHECK_POINT2;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT2:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 右斜め旋回が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, TURN_INIT, STOP_TIME, NONE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
 		break;
 
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
 	return FALSE;
@@ -192,17 +278,36 @@ BOOL PendingArea_rightOblique(PendingArea* this)
 	switch(this->privateMode)
 	{
 	case PENDINGAREA_START:
-//		this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, NONE, NONE, STRAIGHT_DISTANCE);
-		this->mode = PENDINGAREA_CHECK_POINT1;
+		// 右斜めに旋回しつつ前進する
+		this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_RIGHT_OBLIQUE_ANGLE, TURN_FRONT, NONE, STRAIGHT_DISTANCE);
+		this->privateMode = PENDINGAREA_CHECK_POINT1;
 		break;
 
 	case PENDINGAREA_CHECK_POINT1:
-		this->mode = PENINGAREA_FINISHED;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 右斜め旋回が完了した場合、左斜めに旋回しつつ直進する
+			this->orderNum = OrderList_manualRunning(this->orderList, NORMAL, TURN_LEFT_OBLIQUE_ANGLE, TURN_FRONT, NONE, STRAIGHT_DISTANCE);
+			this->privateMode = PENDINGAREA_CHECK_POINT2;
+		}
+		break;
+
+	case PENDINGAREA_CHECK_POINT2:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 左斜め旋回が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList, NONE, NONE, TURN_INIT, STOP_TIME, NONE);
+			this->privateMode = PENINGAREA_FINISHED;
+		}
 		break;
 
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
 	return FALSE;

@@ -79,11 +79,11 @@ build/model_impl.o: model_impl.c \
   competision/BasicStage.h technique/LineChange.h competision/OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
-  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Runner.h Info.h RunnerInfo.h \
-  CourseInfo.h technique/Tail.h technique/Wheel.h \
-  technique/BalanceControl.h technique/Dash.h technique/DrivingWheel.h \
-  technique/FrontWheel.h competision/LineTracer.h competision/Jump.h \
+  competision/Runner.h Info.h RunnerInfo.h CourseInfo.h technique/Tail.h \
+  technique/Wheel.h technique/BalanceControl.h technique/Dash.h \
+  technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h technique/BumpDecision.h device/GyroSensor.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
   competision/OrderList.h competision/Mogul.h competision/Course.h \
   competision/Runner.h competision/PendingArea.h competision/OrderTest.h \
   competision/Runner.h competision/RoboControl.h competision/OrderList.h \

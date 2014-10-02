@@ -54,10 +54,8 @@ build/competision/Competision.o: competision/Competision.c \
   competision/OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
-  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Runner.h Info.h RunnerInfo.h \
-  CourseInfo.h technique/Tail.h device/Motor.h technique/Wheel.h \
-  technique/BalanceControl.h \
+  competision/Runner.h Info.h RunnerInfo.h CourseInfo.h technique/Tail.h \
+  device/Motor.h technique/Wheel.h technique/BalanceControl.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
   /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
@@ -66,9 +64,11 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
-  technique/Wheel.h technique/Distance.h technique/Dash.h \
-  technique/DrivingWheel.h technique/FrontWheel.h \
-  competision/LineTracer.h competision/Jump.h competision/OrderList.h \
-  competision/Mogul.h competision/Course.h competision/Runner.h \
-  competision/PendingArea.h competision/OrderTest.h competision/Runner.h \
-  competision/RoboControl.h competision/OrderList.h competision/Runner.h
+  device/GyroSensor.h technique/Wheel.h technique/Distance.h \
+  technique/Dash.h technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h technique/BumpDecision.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
+  competision/OrderList.h competision/Mogul.h competision/Course.h \
+  competision/Runner.h competision/PendingArea.h competision/OrderTest.h \
+  competision/Runner.h competision/RoboControl.h competision/OrderList.h \
+  competision/Runner.h

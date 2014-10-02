@@ -8,6 +8,7 @@
 #define PENDINGAREA_H_
 
 #include "competision/OrderList.h"
+#include "competision/Runner.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct PendingArea{
