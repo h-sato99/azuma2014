@@ -315,6 +315,7 @@ static void Runner_turnOnSpotLeft(Runner* this)
 	FrontWheel_setAngle(this->frontWheel, frontWheelAngle);
 	DrivingWheel_setPwm(this->drivingWheel ,leftPwm, rightPwm);
 }
+
 static void Runner_turnOnSpotRight(Runner* this)
 {
 	int frontWheelAngle;

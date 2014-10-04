@@ -31,7 +31,7 @@ typedef enum PendingAreaState
 
 // ŒöŠJ‘€ì
 void PendingArea_init(PendingArea* this);
-BOOL PendingArea_main(PendingArea* this);
+BOOL PendingArea_action(PendingArea* this);
 
 
 #endif /* PENDINGAREA_H_ */

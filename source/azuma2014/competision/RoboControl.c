@@ -46,10 +46,11 @@ void RoboControl_control(RoboControl* this, Info* info)
 	}
 
 
+	/*
 	display_goto_xy(1, 1);
 	display_int(this->currentOrderIndex, 14);
 	display_update();
-
+	*/
 
 
 	switch(order->type)

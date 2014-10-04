@@ -35,7 +35,7 @@ void Strategy_action(Strategy* this, Info* info)
 		//OrderTest_figureL(this->orderTest);
 		//OrderTest_strateRun(this->orderTest);
 		//Course_strateRunIN(this->course);
-		Course_stableRunIN(this->course);
+		//Course_stableRunIN(this->course);
 	}
 	// test
 
@@ -100,9 +100,40 @@ void Strategy_action(Strategy* this, Info* info)
 			}
 			case(2):
 			{
-				Course_strateRunOUT(this->course);
-				info->strategyState = 3;
+				if(Course_strateRunOUT(this->course))
+				{
+					info->strategyState = 3;
+				}
 				break;
+			}
+			case(3):
+			{
+				if(Jump_action(this->jump))
+				{
+					info->strategyState = 4;
+				}
+				break;
+			}
+			case(4):
+			{
+				Course_resetMode(this->course);
+				info->strategyState = 5;
+				break;
+			}
+			case(5):
+			{
+				if(Course_stableRunOUT(this->course))
+				{
+					info->strategyState = 6;
+				}
+				break;
+			}
+			case(6):
+			{
+				if(PendingArea_action(this->pendingArea))
+				{
+					info->strategyState = 7;
+				}
 			}
 		}
 	}

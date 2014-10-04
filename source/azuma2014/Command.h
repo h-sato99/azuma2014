@@ -15,7 +15,12 @@
 typedef struct Command
 {
 	int command;
-	int value;
+	int value1;
+	int value2;
+	int value3;
+	int value4;
+	int value5;
+	int value6;
 } Command;
 
 // ŒöŠJ‘€ì

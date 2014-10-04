@@ -141,13 +141,20 @@ void Communication_setLogData2(Communication* this, S8 data)
 void Communication_getCommand(Communication* this)
 {
 	int intCommand;
-	int intValue;
+//	int intValue;
+	int intBufIndex;
+
+	intBufIndex = 0;
 
 	this->command->command = 0;
-	this->command->value = 0;
+	this->command->value1 = 0;
+	this->command->value2 = 0;
+	this->command->value3 = 0;
+	this->command->value4 = 0;
+	this->command->value5 = 0;
 
 	// データサイズのチェック
-	if(this->dataLength < 5)
+	if(this->dataLength < 32)
 	{
 		return;
 	}
@@ -156,7 +163,44 @@ void Communication_getCommand(Communication* this)
 	intCommand = ((int)this->buf[0]) * 10 + ((int)this->buf[1]);
 	this->command->command = intCommand;
 
+	intBufIndex = 2;
+
 	// 値
+	this->command->value1 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	this->command->value2 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	this->command->value3 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	this->command->value4 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	this->command->value5 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	this->command->value6 = Communication_getCommandValue(this, this->buf, intBufIndex);
+	intBufIndex += 5;
+	/*
+	if(this->dataLength >= 12)
+	{
+		this->command->value2 = Communication_getCommandValue(this, this->buf, intBufIndex);
+		intBufIndex += 5;
+	}
+	if(this->dataLength >= 17)
+	{
+		this->command->value3 = Communication_getCommandValue(this, this->buf, intBufIndex);
+		intBufIndex += 5;
+	}
+	if(this->dataLength >= 22)
+	{
+		this->command->value4 = Communication_getCommandValue(this, this->buf, intBufIndex);
+		intBufIndex += 5;
+	}
+	if(this->dataLength >= 27)
+	{
+		this->command->value5 = Communication_getCommandValue(this, this->buf, intBufIndex);
+		intBufIndex += 5;
+	}
+	*/
+
 	/*
 	intValue = ((int)this->buf[3]) * 1000 + ((int)this->buf[4]) * 100 + ((int)this->buf[5]) * 10 + ((int)this->buf[6]);
 
@@ -167,7 +211,20 @@ void Communication_getCommand(Communication* this)
 
 	this->command->value = intValue;
 	*/
-	this->command->value = Communication_getCommandValue(this, this->buf, 2);
+
+	display_goto_xy(2, 1);
+	display_int(this->command->value1, 14);
+	display_goto_xy(2, 2);
+	display_int(this->command->value2, 14);
+	display_goto_xy(2, 3);
+	display_int(this->command->value3, 14);
+	display_goto_xy(2, 4);
+	display_int(this->command->value4, 14);
+	display_goto_xy(2, 5);
+	display_int(this->command->value5, 14);
+	display_update();
+
+	this->command->value1 = Communication_getCommandValue(this, this->buf, 2);
 }
 
 /*------------------------------------------------------------------------------

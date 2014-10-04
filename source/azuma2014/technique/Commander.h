@@ -10,12 +10,15 @@
 #include "Command.h"
 #include "Info.h"
 #include "technique/Communication.h"
+//#include "competision/Order.h"
+#include "competision/OrderList.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct Commander
 {
 	Command *command;
 	Communication *communication;
+	OrderList *orderList;
 } Commander;
 
 // ŒöŠJ‘€ì

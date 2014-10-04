@@ -62,29 +62,29 @@ void Commander_runComand(Commander* this, Info *info)
 		// 尻尾角度変更
 		case(5):
 		{
-			info->runnerInfo->tail = this->command->value;
+			info->runnerInfo->tail = this->command->value1;
 			break;
 		}
 		// 前進値変更
 		case(10):
 		{
-			info->runnerInfo->forward = this->command->value;
+			info->runnerInfo->forward = this->command->value1;
 			break;
 		}
 		// 旋回量変更
 		case(11):
 		{
-			info->runnerInfo->turn = this->command->value;
+			info->runnerInfo->turn = this->command->value1;
 			break;
 		}
 		// ライントレース実行フラグ変更
 		case(12):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->settingInfo->lineTraceFlg = FALSE;
 			}
-			else if(this->command->value == 1)
+			else if(this->command->value1 == 1)
 			{
 				info->settingInfo->lineTraceFlg = TRUE;
 			}
@@ -93,11 +93,11 @@ void Commander_runComand(Commander* this, Info *info)
 		// ルックアップゲート実行フラグ変更
 		case(13):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->strategyState = 1;
 			}
-			else if(this->command->value == 1)
+			else if(this->command->value1 == 1)
 			{
 				info->strategyState = 3;
 			}
@@ -106,7 +106,7 @@ void Commander_runComand(Commander* this, Info *info)
 		// 倒立制御実行フラグ変更
 		case(14):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->runnerInfo->balanceFlag = FALSE;
 			}
@@ -119,13 +119,13 @@ void Commander_runComand(Commander* this, Info *info)
 		// 戦略フラグ変更
 		case(15):
 		{
-			info->strategyState = this->command->value;
+			info->strategyState = this->command->value1;
 			break;
 		}
 		// ラインエッジ切替フラグ変更
 		case(16):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->runnerInfo->chengeLineEdgeFlag = FALSE;
 			}
@@ -138,14 +138,14 @@ void Commander_runComand(Commander* this, Info *info)
 		// ジャイロセンサのオフセット値変更
 		case(21):
 		{
-			info->runnerInfo->gyroOffset = this->command->value;
+			info->runnerInfo->gyroOffset = this->command->value1;
 			break;
 		}
 
 		// 閾値変更
 		case(22):
 		{
-			info->settingInfo->target = this->command->value;
+			info->settingInfo->target = this->command->value1;
 			break;
 		}
 
@@ -154,7 +154,7 @@ void Commander_runComand(Commander* this, Info *info)
 		{
 			if(info->runnerInfo->dashFlag == FALSE)
 			{
-				info->runnerInfo->dashvol = this->command->value;
+				info->runnerInfo->dashvol = this->command->value1;
 				info->runnerInfo->dashFlag = TRUE;
 				break;
 			}
@@ -167,7 +167,7 @@ void Commander_runComand(Commander* this, Info *info)
 		// ダッシュ機能で使う、オフセット値を上げる間隔（秒）
 		case(24):
 		{
-			info->runnerInfo->dashlim = this->command->value;
+			info->runnerInfo->dashlim = this->command->value1;
 			info->runnerInfo->dashlim = info->runnerInfo->dashlim * 250;
 			break;
 		}
@@ -175,25 +175,25 @@ void Commander_runComand(Commander* this, Info *info)
 		// P制御値変更
 		case(31):
 		{
-			info->settingInfo->pidP = this->command->value / 100;
+			info->settingInfo->pidP = this->command->value1 / 100;
 			break;
 		}
 		// I制御値変更
 		case(32):
 		{
-			info->settingInfo->pidI = this->command->value / 100;
+			info->settingInfo->pidI = this->command->value1 / 100;
 			break;
 		}
 		// D制御値変更
 		case(33):
 		{
-			info->settingInfo->pidD = this->command->value / 100;
+			info->settingInfo->pidD = this->command->value1 / 100;
 			break;
 		}
 		// 自動戦略切替フラグ
 		case(50):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->autoStrategyFlag = FALSE;
 			}
@@ -206,18 +206,18 @@ void Commander_runComand(Commander* this, Info *info)
 		// コース切替
 		case(51):
 		{
-			info->settingInfo->courseType = this->command->value;
+			info->settingInfo->courseType = this->command->value1;
 			break;
 		}
 
 		// ジャンプ台
 		case(60):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->strategyState = 1;
 			}
-			else if(this->command->value == 1)
+			else if(this->command->value1 == 1)
 			{
 				info->strategyState = 10;
 			}
@@ -226,13 +226,41 @@ void Commander_runComand(Commander* this, Info *info)
 		// モーグル
 		case(61):
 		{
-			if(this->command->value == 0)
+			if(this->command->value1 == 0)
 			{
 				info->strategyState = 1;
 			}
-			else if(this->command->value == 1)
+			else if(this->command->value1 == 1)
 			{
 				info->strategyState = 11;
+			}
+			break;
+		}
+		// 指示リスト追加
+		case(70):
+		{
+			switch(this->command->value1)
+			{
+				case(0):
+				{
+					OrderList_manualRunning(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5, this->command->value6);
+					break;
+				}
+				case(1):
+				{
+					OrderList_lineTraceRunning(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5, this->command->value6);
+					break;
+				}
+				case(2):
+				{
+					OrderList_stop(this->orderList);
+					break;
+				}
+				case(3):
+				{
+					OrderList_setPID(this->orderList, this->command->value2, this->command->value3, this->command->value4);
+					break;
+				}
 			}
 			break;
 		}

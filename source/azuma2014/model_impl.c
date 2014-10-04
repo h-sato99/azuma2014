@@ -266,6 +266,7 @@ TASK(TaskInit)
 	communication.command = &command;
 	commander.command = &command;
 	commander.communication = &communication;
+	commander.orderList = &orderList;
 	// 競技オブジェクト
 	competision.lineTracer = &lineTracer;
 	competision.strategy = &strategy;
@@ -345,7 +346,7 @@ TASK(TaskInit)
 
 	// コマンドの初期化
 	command.command = 0;
-	command.value = 0;
+	command.value1 = 0;
 	// 情報の初期化
 	info.loggerFlag = FALSE;
 //	info.autoStrategyFlag = TRUE;
@@ -387,7 +388,7 @@ TASK(TaskInit)
 	//OrderList_lineTraceRunning(&orderList, 23, 570, TURN_FRONT, 0, 0);
 	//OrderList_lineTraceRunning(&orderList, 20, 570, TURN_FRONT, 0, 0);
 //	OrderList_lineTraceRunning(&orderList, 0, 550, TURN_FRONT, 0, 0);
-	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
+	//OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
 	//test
 
 	/*
