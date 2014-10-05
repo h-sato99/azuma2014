@@ -28,7 +28,6 @@
 #include "competision/LineTracer.h"
 #include "competision/Runner.h"
 #include "competision/Strategy.h"
-#include "competision/Course.h"
 
 #include "Info.h"
 
@@ -43,6 +42,8 @@
 #include "competision/Jump.h"
 #include "competision/Mogul.h"
 #include "competision/PendingArea.h"
+#include "competision/Course.h"
+#include "competision/FigureL.h"
 #include "technique/DrivingWheel.h"
 #include "technique/FrontWheel.h"
 #include "technique/LineChange.h"
@@ -117,6 +118,7 @@ Jump jump;
 Mogul mogul;
 Course course;
 PendingArea pendingArea;
+FigureL figureL;
 
 OrderTest orderTest;
 
@@ -296,6 +298,7 @@ TASK(TaskInit)
 	strategy.course = &course;
 	strategy.pendingArea = &pendingArea;
 	strategy.orderTest = &orderTest;
+	strategy.figureL = &figureL;
 	bumpDecision.gyroSensor = &gyroSensor;
 	trialDicision.bumpDecision = &bumpDecision;
 	trialDicision.orderList = &orderList;
@@ -304,6 +307,7 @@ TASK(TaskInit)
 	course.orderList = &orderList;
 	pendingArea.orderList = &orderList;
 	lineChange.orderList = &orderList;
+	figureL.orderList = &orderList;
 
 	orderTest.orderList = &orderList;
 
@@ -341,6 +345,7 @@ TASK(TaskInit)
 	Mogul_init(&mogul);
 	Course_init(&course);
 	PendingArea_init(&pendingArea);
+	FigureL_init(&figureL);
 
 	OrderTest_init(&orderTest);
 
@@ -349,9 +354,10 @@ TASK(TaskInit)
 	command.value1 = 0;
 	// 情報の初期化
 	info.loggerFlag = FALSE;
-//	info.autoStrategyFlag = TRUE;
-	info.autoStrategyFlag = FALSE;
-	info.strategyState = 0;
+	info.autoStrategyFlag = TRUE;
+//	info.autoStrategyFlag = FALSE;
+//	info.strategyState = 0;
+	info.strategyState = 7;
 	info.startFlag = FALSE;
 	info.measureInfo->countGrayMarker  = 0;
 	info.measureInfo->leftMotorAngle = 0;
@@ -377,6 +383,10 @@ TASK(TaskInit)
 	info.settingInfo->target = C_TARGET;
 	info.settingInfo->targetwait = 0;
 	info.settingInfo->targetbas = 0;
+
+	// Buletooth通信設定
+	communication.isSendData = FALSE;
+	communication.isSendLog = TRUE;
 	ecrobot_sound_tone(659, 100, 95);
 
 	// キャリブレーション
@@ -388,7 +398,7 @@ TASK(TaskInit)
 	//OrderList_lineTraceRunning(&orderList, 23, 570, TURN_FRONT, 0, 0);
 	//OrderList_lineTraceRunning(&orderList, 20, 570, TURN_FRONT, 0, 0);
 //	OrderList_lineTraceRunning(&orderList, 0, 550, TURN_FRONT, 0, 0);
-	//OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
+//	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
 	//test
 
 	/*
@@ -434,7 +444,10 @@ TASK(TaskMain)
 
 TASK(TaskBuletooth)
 {
-	test_data_send();
+	if(communication.isSendData)
+	{
+		test_data_send();
+	}
 	Communication_setLogData2(&communication, info.strategyState);
 	// PCとの通信処理
 	Communication_communicate(&communication);

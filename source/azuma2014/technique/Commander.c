@@ -236,6 +236,13 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			break;
 		}
+		// 戦略切替
+		case(69):
+		{
+			info->settingInfo->courseType = this->command->value1;
+			info->strategyState = this->command->value2;
+			break;
+		}
 		// 指示リスト追加
 		case(70):
 		{
@@ -243,22 +250,38 @@ void Commander_runComand(Commander* this, Info *info)
 			{
 				case(0):
 				{
+					// マニュアル走行
 					OrderList_manualRunning(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5, this->command->value6);
 					break;
 				}
 				case(1):
 				{
+					// ライントレース走行
 					OrderList_lineTraceRunning(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5, this->command->value6);
 					break;
 				}
 				case(2):
 				{
+					// 停止
 					OrderList_stop(this->orderList);
 					break;
 				}
 				case(3):
 				{
+					// PID制御定数設定
 					OrderList_setPID(this->orderList, this->command->value2, this->command->value3, this->command->value4);
+					break;
+				}
+				case(4):
+				{
+					// 小範囲左旋回
+					OrderList_turnOnSpotLeft(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5);
+					break;
+				}
+				case(5):
+				{
+					// 小範囲右旋回
+					OrderList_turnOnSpotRight(this->orderList, this->command->value2, this->command->value3, this->command->value4, this->command->value5);
 					break;
 				}
 			}

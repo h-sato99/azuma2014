@@ -129,6 +129,16 @@ static void Runner_run_TURN_INIT(Runner* this, int turnState)
 		this->turnState = TURN_DRIVING;
 		Runner_turnByDrivingWheel(this);
 	}
+	else if(frontWheelAngle == 0 && turnState == TURN_LEFT)
+	{
+		this->turnState = TURN_LEFT;
+		Runner_turnOnSpotLeft(this);
+	}
+	else if(frontWheelAngle == 0 && turnState == TURN_RIGHT)
+	{
+		this->turnState = TURN_RIGHT;
+		Runner_turnOnSpotRight(this);
+	}
 	else
 	{
 		this->turnState = TURN_INIT;
@@ -287,7 +297,13 @@ static void Runner_turnOnSpotLeft(Runner* this)
 
 	// 前後進命令と旋回量からモータPWM出力値を算出
 	frontWheelAngle = this->turn;
-	leftPwm = (int)(this->forward * -1);
+	if(frontWheelAngle >= 0)
+	{
+		// 前輪の旋回量は左向きが負の数なので、プラスの場合は-1を掛ける
+		frontWheelAngle *= -1;
+	}
+	//leftPwm = (int)(this->forward * -1);
+	leftPwm = 0;
 	rightPwm = (int)(this->forward);
 
 	/*
@@ -324,8 +340,14 @@ static void Runner_turnOnSpotRight(Runner* this)
 
 	// 前後進命令と旋回量からモータPWM出力値を算出
 	frontWheelAngle = this->turn;
+	if(frontWheelAngle < 0)
+	{
+		// 前輪の旋回量は右向きが正の数なので、マイナスの場合は-1を掛ける
+		frontWheelAngle *= -1;
+	}
 	leftPwm = (int)(this->forward);
-	rightPwm = (int)(this->forward * -1);
+	//rightPwm = (int)(this->forward * -1);
+	rightPwm = 0;
 
 	/*
 	* PWM出力値がMAX値内になるように調整

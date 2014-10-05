@@ -32,8 +32,14 @@ void Communication_communicate(Communication* this)
 	if(isConnection == TRUE)
 	{
 		// Ú‘±’†‚Ìê‡
-		//Communication_sendLogData(this);
-		Communication_sendData(this);
+		if(this->isSendLog)
+		{
+			Communication_sendLogData(this);
+		}
+		if(this->isSendData)
+		{
+			Communication_sendData(this);
+		}
 		Communication_receiveData(this);
 	}
 	else
@@ -212,6 +218,7 @@ void Communication_getCommand(Communication* this)
 	this->command->value = intValue;
 	*/
 
+	/*
 	display_goto_xy(2, 1);
 	display_int(this->command->value1, 14);
 	display_goto_xy(2, 2);
@@ -223,6 +230,7 @@ void Communication_getCommand(Communication* this)
 	display_goto_xy(2, 5);
 	display_int(this->command->value5, 14);
 	display_update();
+	*/
 
 	this->command->value1 = Communication_getCommandValue(this, this->buf, 2);
 }

@@ -23,6 +23,8 @@ typedef struct Communication
 	char sendBuf[BT_MAX_RX_BUF_SIZE];
 	int dataLength;
 	int sendBufLength;
+	BOOL isSendLog;
+	BOOL isSendData;
 } Communication;
 
 // ŒöŠJ‘€ì

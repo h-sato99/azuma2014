@@ -108,3 +108,13 @@ int OrderList_setPID(OrderList* this, int p, int i, int d)
 {
 	return OrderList_addOrder(this, ORDER_TYPE_SET_PID, p, i, d, 0, 0);
 }
+
+int OrderList_turnOnSpotLeft(OrderList* this, int forward, int turn, int finishTime, int finishDistance)
+{
+	return OrderList_addOrder(this, ORDER_TYPE_TURN_SPOT_LEFT, forward, turn, TURN_LEFT, finishTime, finishDistance);
+}
+
+int OrderList_turnOnSpotRight(OrderList* this, int forward, int turn, int finishTime, int finishDistance)
+{
+	return OrderList_addOrder(this, ORDER_TYPE_TURN_SPOT_RIGHT, forward, turn, TURN_RIGHT, finishTime, finishDistance);
+}

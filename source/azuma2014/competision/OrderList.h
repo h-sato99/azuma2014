@@ -11,6 +11,7 @@
 #include "kernel_id.h"
 #include "ecrobot_interface.h"
 #include "competision/Order.h"
+#include "competision/Runner.h"
 
 #define ORDER_LIST_MAX 20
 
@@ -32,5 +33,7 @@ int OrderList_manualRunning(OrderList* this, int forward, int turn, int turnStat
 int OrderList_lineTraceRunning(OrderList* this, int forward, int target, int turnState, int finishTime, int finishDistance);
 int OrderList_stop(OrderList* this);
 int OrderList_setPID(OrderList* this, int p, int i, int d);
+int OrderList_turnOnSpotLeft(OrderList* this, int forward, int turn, int finishTime, int finishDistance);
+int OrderList_turnOnSpotRight(OrderList* this, int forward, int turn, int finishTime, int finishDistance);
 
 #endif /* _OrderList_H_ */

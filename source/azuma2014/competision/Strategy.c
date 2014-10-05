@@ -36,58 +36,112 @@ void Strategy_action(Strategy* this, Info* info)
 		//OrderTest_strateRun(this->orderTest);
 		//Course_strateRunIN(this->course);
 		//Course_stableRunIN(this->course);
+		return;
 	}
 	// test
 
+	// インコース
 	if(info->settingInfo->courseType == 1){
 		switch(info->strategyState)
 		{
+			// コースクラス初期化
 			case(1):
+			{
+				Course_resetMode(this->course);
+				info->strategyState++;
+				break;
+			}
+			// スタート直後の直線
+			case(2):
 			{
 				if(Course_strateRunIN(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
-					info->strategyState = 2;
+					info->strategyState++;
 				}
 				break;
 			}
-			case(2):
+			// モーグルまでのカーブ
+			case(3):
 			{
 				if(Course_stableRunIN(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
-					info->strategyState = 3;
+					info->strategyState++;
 				}
 				break;
 			}
-			case(3):
+			// 衝撃検知
+			case(14):
 			{
-				// 難所用
+				if(TrialDecision_action(this->trialDecision))
+				{
+					info->strategyState++;
+				}
 				break;
 			}
+			// モーグル
 			case(4):
 			{
-				// 難所用
+				if(Mogul_main(this->mogul))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			case(5):
+			{
+				if(Course_strateRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 6;
+				}
+				break;
+			}
+			case(6):
+			{
+				if(Course_stableRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 7;
+				}
+				break;
+			}
+			case(7):
+			{
+				//ecrobot_sound_tone(800, 200, 95);
+				if(FigureL_action(this->figureL))
+				{
+					info->strategyState = 8;
+				}
+				break;
+			}
+			case(8):
+			{
+				if(Course_strateRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 9;
+				}
+				break;
+			}
+			case(9):
+			{
+				if(Course_stableRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState = 10;
+				}
 				break;
 			}
 			case(10):
 			{
-				if(TrialDecision_action(this->trialDecision))
-				{
-					Jump_action(this->jump);
-				}
-				break;
-			}
-			case(11):
-			{
-				if(TrialDecision_action(this->trialDecision))
-				{
-					Mogul_main(this->mogul);
-				}
+				// stop
 				break;
 			}
 		}
 	}
+	// アウトコース
 	else
 	{
 		switch(info->strategyState)

@@ -73,10 +73,12 @@ void CheckStart_start(CheckStart* this, Info* info)
 	ecrobot_sound_tone(659, 100, 70);
 	this->started = 1;
 	info->runnerInfo->tail = 0;
+	/*
 	info->strategyState = 9;
 	if(info->autoStrategyFlag == TRUE)
 	{
 		info->strategyState = 1;
 	}
+	*/
 }
 

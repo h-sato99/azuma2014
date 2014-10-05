@@ -39,6 +39,51 @@ void PendingArea_init(PendingArea* this)
 ------------------------------------------------------------------------------*/
 BOOL PendingArea_action(PendingArea* this)
 {
+	/*
+	switch(this->mode)
+	{
+	case PENDINGAREA_START:
+		PendingArea_privateModeInit(this);
+		this->mode = 1;
+		break;
+	case 1:
+		ecrobot_sound_tone(800, 200, 95);
+		if(PendingArea_straight(this))
+		{
+			this->mode = 2;
+			break;
+		}
+	case 1:
+		ecrobot_sound_tone(800, 200, 95);
+		if(PendingArea_left(this))
+		{
+			this->mode = 2;
+			break;
+		}
+	case 1:
+		ecrobot_sound_tone(800, 200, 95);
+		if(PendingArea_straight)
+		{
+			this->mode = 2;
+			break;
+		}
+	case 1:
+		ecrobot_sound_tone(800, 200, 95);
+		if(PendingArea_straight)
+		{
+			this->mode = 2;
+			break;
+		}
+	case 1:
+		ecrobot_sound_tone(800, 200, 95);
+		if(PendingArea_straight)
+		{
+			this->mode = 2;
+			break;
+		}
+	}
+	*/
+	/*
 	switch(this->mode)
 	{
 	case PENDINGAREA_START:
@@ -53,6 +98,7 @@ BOOL PendingArea_action(PendingArea* this)
 		// true‚ð•Ô‚·
 		return TRUE;
 	}
+	*/
 	// false‚ð•Ô‚·
 	return FALSE;
 }

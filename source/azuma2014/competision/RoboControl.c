@@ -29,6 +29,13 @@ void RoboControl_init(RoboControl* this)
 	this->value = 0;
 }
 
+/*------------------------------------------------------------------------------
+--  関数名      ：RoboControl_control
+--  概要        ：指示リストに従い、指示を実行する。
+--              ：
+--  引数        ：なし
+--  戻り値      ：なし
+------------------------------------------------------------------------------*/
 void RoboControl_control(RoboControl* this, Info* info)
 {
 	Order *order;
@@ -73,14 +80,23 @@ void RoboControl_control(RoboControl* this, Info* info)
 			RoboControl_setPID(this, order, info);
 			OrderList_finishOrder(this->orderList, this->currentOrderIndex);
 			break;
+		case ORDER_TYPE_TURN_SPOT_LEFT:
+			Runner_run(this->runner, order->value1, order->value2, 0, MUNUAL, TURN_LEFT);
+			break;
+		case ORDER_TYPE_TURN_SPOT_RIGHT:
+			Runner_run(this->runner, order->value1, order->value2, 0, MUNUAL, TURN_RIGHT);
+			break;
 	}
 
+	// 指示で定義されている終了条件の確認
 	if(RoboControl_checkFinishTime(this, order) || RoboControl_checkFinishValue(this, order))
 	{
 		OrderList_finishOrder(this->orderList, this->currentOrderIndex);
 	}
+	// 指示が終了したか確認
 	if(OrderList_checkFinished(this->orderList, this->currentOrderIndex))
 	{
+		// 指示を終了する
 		RoboControl_finishOrder(this);
 	}
 }
@@ -127,6 +143,12 @@ static BOOL RoboControl_checkFinishValue(RoboControl* this, Order* order)
 				break;
 			case ORDER_TYPE_STOP:
 				return FALSE;
+			case ORDER_TYPE_TURN_SPOT_LEFT:
+				diffValue = Runner_getDistance(this->runner) - this->value;
+				break;
+			case ORDER_TYPE_TURN_SPOT_RIGHT:
+				diffValue = Runner_getDistance(this->runner) - this->value;
+				break;
 		}
 
 		if(diffValue < 0)
