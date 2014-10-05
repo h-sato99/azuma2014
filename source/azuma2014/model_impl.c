@@ -307,6 +307,7 @@ TASK(TaskInit)
 	course.orderList = &orderList;
 	pendingArea.orderList = &orderList;
 	lineChange.orderList = &orderList;
+	lineChange.lineTracer = &lineTracer;
 	figureL.orderList = &orderList;
 
 	orderTest.orderList = &orderList;
@@ -383,6 +384,8 @@ TASK(TaskInit)
 	info.settingInfo->target = C_TARGET;
 	info.settingInfo->targetwait = 0;
 	info.settingInfo->targetbas = 0;
+
+	lineTracer.lineEge = LINE_EGE_RIGHT;
 
 	// Buletooth’ÊMİ’è
 	communication.isSendData = FALSE;

@@ -134,6 +134,13 @@ static BOOL RoboControl_checkFinishValue(RoboControl* this, Order* order)
 		switch(order->type)
 		{
 			case ORDER_TYPE_NONE:
+			case ORDER_TYPE_STOP:
+				return FALSE;
+		}
+		/*
+		switch(order->type)
+		{
+			case ORDER_TYPE_NONE:
 				return FALSE;
 			case ORDER_TYPE_MANUAL_RUNNING:
 				diffValue = Runner_getDistance(this->runner) - this->value;
@@ -150,6 +157,8 @@ static BOOL RoboControl_checkFinishValue(RoboControl* this, Order* order)
 				diffValue = Runner_getDistance(this->runner) - this->value;
 				break;
 		}
+		*/
+		diffValue = Runner_getDistance(this->runner) - this->value;
 
 		if(diffValue < 0)
 		{

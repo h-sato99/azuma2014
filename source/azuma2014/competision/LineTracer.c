@@ -6,7 +6,7 @@
 
 #include "LineTracer.h"
 
-static void LineTracer_checDerailment(LineTracer* this, Info* info);
+//static void LineTracer_checDerailment(LineTracer* this, Info* info);
 
 // 初期化する
 void LineTracer_init(LineTracer* this)
@@ -64,6 +64,21 @@ void LineTracer_setTarget(LineTracer* this, float target)
 	//ecrobot_sound_tone(659, 100, 95);
 }
 
+void LineTracer_setRightEdge(LineTracer* this)
+{
+	this->lineEge = LINE_EGE_RIGHT;
+}
+
+void LineTracer_setLeftEdge(LineTracer* this)
+{
+	this->lineEge = LINE_EGE_LEFT;
+}
+
+int LineTracer_getEdge(LineTracer* this)
+{
+	return this->lineEge;
+}
+
 /*------------------------------------------------------------------------------
 --  関数名      ：LineTracer_checDerailment
 --  概要        ：コースから脱線しているかを判断する
@@ -71,6 +86,7 @@ void LineTracer_setTarget(LineTracer* this, float target)
 --  引数        ：info 情報
 --  戻り値      ：なし
 ------------------------------------------------------------------------------*/
+/*
 static void LineTracer_checDerailment(LineTracer* this, Info* info)
 {
 	BOOL check;
@@ -98,4 +114,4 @@ static void LineTracer_checDerailment(LineTracer* this, Info* info)
 
 	info->measureInfo->derailmentFlag = check;
 }
-
+*/

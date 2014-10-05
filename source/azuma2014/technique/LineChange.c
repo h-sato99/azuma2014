@@ -14,6 +14,7 @@
 void LineChange_init(LineChange* this)
 {
 	this->orderNum = NONE;
+	this->mode = 0;
 }
 
 /*------------------------------------------------------------------------------
@@ -25,6 +26,42 @@ void LineChange_init(LineChange* this)
 ------------------------------------------------------------------------------*/
 BOOL LineChange_action(LineChange* this)
 {
+	int edge;
+	int turn;
+	//ecrobot_sound_tone(659, 70, 95);
+	switch(this->mode)
+	{
+	case 0:
+		// ラインの逆側へ走行する
+		ecrobot_sound_tone(659, 70, 95);
+		edge = LineTracer_getEdge(this->lineTracer);
+		if(edge == LINE_EGE_LEFT)
+		{
+			turn = TURN;
+		}
+		else
+		{
+			turn = TURN * -1;
+		}
+		OrderList_manualRunning(this->orderList,NORMAL,turn,TURN_FRONT,NONE,DISTANCE);
+		this->mode = 1;
+		break;
+	case 1:
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			if(edge == LINE_EGE_LEFT)
+			{
+				LineTracer_setLeftEdge(this->lineTracer);
+			}
+			else
+			{
+				LineTracer_setRightEdge(this->lineTracer);
+			}
+			return TRUE;
+		}
+		break;
+	}
+	/*
 	// ラインの逆側へ走行する
 	this->orderNum = OrderList_manualRunning(this->orderList,NORMAL,TURN,TURN_FRONT,NONE,DISTANCE);
 
@@ -34,6 +71,8 @@ BOOL LineChange_action(LineChange* this)
 		// TODO エッジ切替処理が必要
 		return TRUE;
 	}
+	*/
+
 	// falseを返す
 	return FALSE;
 }

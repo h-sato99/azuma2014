@@ -9,12 +9,15 @@
 
 #include "competision/OrderList.h"
 #include "competision/Runner.h"
+#include "competision/LineTracer.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct LineChange
 {
 	OrderList *orderList;
+	LineTracer *lineTracer;
 	int orderNum;
+	int mode;
 } LineChange;
 
 // ŒöŠJ‘€ì

@@ -10,6 +10,11 @@
 #include "device/LightSensor.h"
 #include "technique/PidControl.h"
 
+typedef enum LineEge
+{
+	LINE_EGE_RIGHT,
+	LINE_EGE_LEFT
+}LineEge;
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct LineTracer
@@ -22,6 +27,7 @@ typedef struct LineTracer
 	int count;
 	F32 turn;
 	float target;
+	int lineEge;
 } LineTracer;
 
 
@@ -30,5 +36,8 @@ void LineTracer_init(LineTracer* this);
 void LineTracer_trace(LineTracer* this, Info* info);
 F32 LineTracer_getTurn(LineTracer* this);
 void LineTracer_setTarget(LineTracer* this, float target);
+void LineTracer_setRightEdge(LineTracer* this);
+void LineTracer_setLeftEdge(LineTracer* this);
+int LineTracer_getEdge(LineTracer* this);
 #endif /* _LineTracer_H_ */
 
