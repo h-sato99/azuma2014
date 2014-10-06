@@ -18,12 +18,14 @@
 #include "technique/FrontWheel.h"
 #include "LineTracer.h"
 
+// ‘–só‘Ô
 typedef enum RunningState
 {
 	MUNUAL,
 	LINETRACE
 } RunningState;
 
+// ù‰ñó‘Ô
 typedef enum TurnState
 {
 	TURN_INIT,

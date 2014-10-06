@@ -9,7 +9,7 @@
 #define NONE			0		// 初期値
 #define NORMAL			50		// 通常
 #define TURN			30		// 旋回値
-#define DISTANCE		3000	// 走行距離
+#define DISTANCE		100	// 走行距離
 
 void LineChange_init(LineChange* this)
 {
@@ -29,12 +29,13 @@ BOOL LineChange_action(LineChange* this)
 	int edge;
 	int turn;
 	//ecrobot_sound_tone(659, 70, 95);
+	edge = LineTracer_getEdge(this->lineTracer);
 	switch(this->mode)
 	{
 	case 0:
 		// ラインの逆側へ走行する
 		ecrobot_sound_tone(659, 70, 95);
-		edge = LineTracer_getEdge(this->lineTracer);
+		//edge = LineTracer_getEdge(this->lineTracer);
 		if(edge == LINE_EGE_LEFT)
 		{
 			turn = TURN;
@@ -47,15 +48,16 @@ BOOL LineChange_action(LineChange* this)
 		this->mode = 1;
 		break;
 	case 1:
+		// エッジを切替える
 		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
 			if(edge == LINE_EGE_LEFT)
 			{
-				LineTracer_setLeftEdge(this->lineTracer);
+				LineTracer_setRightEdge(this->lineTracer);
 			}
 			else
 			{
-				LineTracer_setRightEdge(this->lineTracer);
+				LineTracer_setLeftEdge(this->lineTracer);
 			}
 			return TRUE;
 		}

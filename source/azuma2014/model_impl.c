@@ -123,6 +123,8 @@ FigureL figureL;
 OrderTest orderTest;
 
 // Bluetooth送信用に各部品の情報を加工する
+// 送信用データは必ずint型に加工しておくこと
+// int型に加工したデータをmemcpyで送信用バッファに格納する
 void test_data_send()
 {
 	char buf[BT_MAX_RX_BUF_SIZE];
@@ -146,13 +148,6 @@ void test_data_send()
 	memcpy(bufPos, code, len);
 	bufPos += len;
 	bufLen += len;
-
-	/*
-	len = sizeof(time);
-	memcpy(bufPos, time, len);
-	bufPos += len;
-	bufLen += len;
-	*/
 
 	len = sizeof(data);
 	memcpy(bufPos, &data, len);
@@ -206,7 +201,6 @@ void test_data_send()
 
 	Communication_setSendData(&communication, buf, bufLen);
 }
-//
 
 // タスクの宣言
 DeclareCounter(SysTimerCnt);
@@ -357,8 +351,8 @@ TASK(TaskInit)
 	info.loggerFlag = FALSE;
 	info.autoStrategyFlag = TRUE;
 //	info.autoStrategyFlag = FALSE;
-//	info.strategyState = 0;
-	info.strategyState = 7;
+	info.strategyState = 0;
+//	info.strategyState = 7;
 	info.startFlag = FALSE;
 	info.measureInfo->countGrayMarker  = 0;
 	info.measureInfo->leftMotorAngle = 0;
@@ -401,7 +395,8 @@ TASK(TaskInit)
 	//OrderList_lineTraceRunning(&orderList, 23, 570, TURN_FRONT, 0, 0);
 	//OrderList_lineTraceRunning(&orderList, 20, 570, TURN_FRONT, 0, 0);
 //	OrderList_lineTraceRunning(&orderList, 0, 550, TURN_FRONT, 0, 0);
-//	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
+	LineTracer_setLeftEdge(&lineTracer);
+	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
 	//test
 
 	/*

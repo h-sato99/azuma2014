@@ -13,14 +13,14 @@
 #include "competision/Order.h"
 #include "competision/Runner.h"
 
-#define ORDER_LIST_MAX 20
+#define ORDER_LIST_MAX 30
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`
 typedef struct OrderList
 {
 	int orderCount;
 	int orderIndex;
-	Order orderLists[20];
+	Order orderLists[ORDER_LIST_MAX];
 } OrderList;
 
 // ŒöŠJ‘€ì

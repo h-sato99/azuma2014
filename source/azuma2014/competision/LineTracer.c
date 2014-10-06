@@ -34,6 +34,11 @@ void LineTracer_trace(LineTracer* this, Info* info)
 	// 旋回量を取得する
 	info->settingInfo->target = this->target;
 	calcTurn = PidControl_calcTurn(this->pidControl, info->settingInfo, this->brightness);
+	if(this->lineEge == LINE_EGE_LEFT)
+	{
+		// 左エッジの場合、旋回量を反転させる
+		calcTurn *= -1;
+	}
 	this->turn = calcTurn;
 
 	/*

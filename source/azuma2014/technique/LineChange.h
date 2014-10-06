@@ -8,7 +8,6 @@
 #define LINECHANGE_H_
 
 #include "competision/OrderList.h"
-#include "competision/Runner.h"
 #include "competision/LineTracer.h"
 
 // ‘®«‚ğ•Û‚·‚é‚½‚ß‚Ì\‘¢‘Ì‚Ì’è‹`

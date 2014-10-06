@@ -72,7 +72,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// ÕŒ‚ŒŸ’m
-			case(14):
+			case(4):
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
@@ -81,20 +81,11 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// ƒ‚[ƒOƒ‹
-			case(4):
+			case(5):
 			{
 				if(Mogul_main(this->mogul))
 				{
 					info->strategyState++;
-				}
-				break;
-			}
-			case(5):
-			{
-				if(Course_strateRunIN(this->course) == TRUE)
-				{
-					Course_resetMode(this->course);
-					info->strategyState = 6;
 				}
 				break;
 			}
@@ -103,38 +94,46 @@ void Strategy_action(Strategy* this, Info* info)
 				if(Course_stableRunIN(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
-					info->strategyState = 7;
+					info->strategyState++;
 				}
 				break;
 			}
 			case(7):
 			{
-				//ecrobot_sound_tone(800, 200, 95);
-				if(FigureL_action(this->figureL))
+				if(LineChange_action(this->lineChange) == TRUE)
 				{
-					info->strategyState = 8;
+					info->strategyState++;
 				}
 				break;
 			}
 			case(8):
 			{
-				if(Course_strateRunIN(this->course) == TRUE)
+				//ecrobot_sound_tone(800, 200, 95);
+				if(FigureL_action(this->figureL))
 				{
-					Course_resetMode(this->course);
-					info->strategyState = 9;
+					info->strategyState++;
 				}
 				break;
 			}
 			case(9):
 			{
-				if(Course_stableRunIN(this->course) == TRUE)
+				if(Course_strateRunIN(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
-					info->strategyState = 10;
+					info->strategyState++;
 				}
 				break;
 			}
 			case(10):
+			{
+				if(Course_stableRunIN(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			case(11):
 			{
 				// stop
 				break;
