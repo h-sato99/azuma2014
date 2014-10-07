@@ -72,27 +72,29 @@ build/model_impl.o: model_impl.c \
   SettingInfo.h RunnerInfo.h technique/Tail.h device/Motor.h \
   technique/Wheel.h technique/Communication.h command.h device/Logger.h \
   device/Bluetooth.h technique/Commander.h Command.h \
-  technique/Communication.h technique/Distance.h technique/Dash.h \
-  competision/BasicStage.h Info.h RunnerInfo.h SettingInfo.h \
-  technique/Distance.h competision/Competision.h competision/LineTracer.h \
-  device/LightSensor.h technique/PidControl.h competision/Strategy.h \
-  competision/BasicStage.h technique/LineChange.h competision/OrderList.h \
+  technique/Communication.h competision/OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
   competision/Runner.h Info.h RunnerInfo.h CourseInfo.h technique/Tail.h \
-  technique/Wheel.h technique/BalanceControl.h technique/Dash.h \
+  technique/Wheel.h technique/BalanceControl.h technique/Dash.h Info.h \
   technique/DrivingWheel.h technique/FrontWheel.h \
-  competision/LineTracer.h technique/BumpDecision.h device/GyroSensor.h \
-  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
+  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
+  technique/Distance.h technique/Dash.h competision/BasicStage.h Info.h \
+  RunnerInfo.h SettingInfo.h technique/Distance.h \
+  competision/Competision.h competision/LineTracer.h \
+  competision/Strategy.h competision/BasicStage.h technique/LineChange.h \
+  competision/OrderList.h competision/LineTracer.h \
+  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
   competision/OrderList.h competision/Mogul.h competision/Course.h \
-  competision/Runner.h competision/PendingArea.h competision/OrderTest.h \
+  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h \
   competision/Runner.h competision/RoboControl.h competision/OrderList.h \
   competision/Runner.h competision/LineTracer.h competision/Runner.h \
-  competision/Strategy.h competision/Course.h Info.h Calibration.h \
+  competision/Strategy.h Info.h Calibration.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Command.h \
   CheckStart.h competision/OrderList.h competision/RoboControl.h \
   competision/Jump.h competision/Mogul.h competision/PendingArea.h \
-  technique/DrivingWheel.h technique/FrontWheel.h technique/LineChange.h \
-  technique/TrialDecision.h technique/BumpDecision.h \
-  competision/OrderTest.h
+  competision/Course.h competision/FigureL.h technique/DrivingWheel.h \
+  technique/FrontWheel.h technique/LineChange.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/OrderTest.h

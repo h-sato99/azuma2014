@@ -61,4 +61,5 @@ build/competision/RoboControl.o: competision/RoboControl.c \
   technique/Dash.h Info.h technique/DrivingWheel.h technique/FrontWheel.h \
   competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  competision/Runner.h Info.h

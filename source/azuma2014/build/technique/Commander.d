@@ -55,4 +55,22 @@ build/technique/Commander.o: technique/Commander.c technique/Commander.h \
   /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/sys-include/sys/string.h \
   command.h device/Logger.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h device/Bluetooth.h
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h device/Bluetooth.h \
+  competision/OrderList.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
+  competision/Runner.h Info.h RunnerInfo.h CourseInfo.h technique/Tail.h \
+  device/Motor.h technique/Wheel.h technique/BalanceControl.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
+  /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/syslimits.h \
+  ../nxtOSEK/ecrobot/../lejos_nxj/src//nxtvm/javavm/limits.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
+  ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
+  CourseInfo.h device/GyroSensor.h technique/Wheel.h technique/Distance.h \
+  technique/Dash.h Info.h technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h

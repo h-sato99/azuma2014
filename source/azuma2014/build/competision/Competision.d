@@ -66,9 +66,10 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
   device/GyroSensor.h technique/Wheel.h technique/Distance.h \
   technique/Dash.h technique/DrivingWheel.h technique/FrontWheel.h \
-  competision/LineTracer.h technique/BumpDecision.h \
-  technique/TrialDecision.h technique/BumpDecision.h competision/Jump.h \
+  competision/LineTracer.h competision/LineTracer.h \
+  technique/BumpDecision.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
   competision/OrderList.h competision/Mogul.h competision/Course.h \
-  competision/Runner.h competision/PendingArea.h competision/OrderTest.h \
+  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h \
   competision/Runner.h competision/RoboControl.h competision/OrderList.h \
   competision/Runner.h

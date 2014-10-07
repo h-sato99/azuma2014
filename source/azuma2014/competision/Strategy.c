@@ -54,25 +54,64 @@ void Strategy_action(Strategy* this, Info* info)
 			// スタート直後の直線
 			case(2):
 			{
-				if(Course_strateRunIN(this->course) == TRUE)
+				if(Course_IN_StartToCurve(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
 				break;
 			}
-			// モーグルまでのカーブ
+			// カーブ
 			case(3):
 			{
-				if(Course_stableRunIN(this->course) == TRUE)
+				if(Course_IN_CurveToLineChange(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
 				break;
 			}
-			// 衝撃検知
+			// ライン切替
 			case(4):
+			{
+				if(LineChange_action(this->lineChange) == TRUE)
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			// 2周目スタート地点
+			case(5):
+			{
+				if(Course_IN_LineChangeToReStart(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// スタート直後の直線
+			case(6):
+			{
+				if(Course_IN_StartToCurve(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 2周目カーブ
+			case(7):
+			{
+				if(Course_IN_CurveToMogul(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 難所検知
+			case(8):
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
@@ -81,7 +120,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// モーグル
-			case(5):
+			case(9):
 			{
 				if(Mogul_main(this->mogul))
 				{
@@ -89,24 +128,37 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
-			case(6):
+			// マニュアル走行切替
+			case(10):
 			{
-				if(Course_stableRunIN(this->course) == TRUE)
+				if(Course_IN_MogulToManual(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
 				break;
 			}
-			case(7):
+			// マニュアル走行
+			case(11):
 			{
-				if(LineChange_action(this->lineChange) == TRUE)
+				if(Course_IN_ManualToFigureL(this->course) == TRUE)
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 難所検知
+			case(12):
+			{
+				if(TrialDecision_action(this->trialDecision))
 				{
 					info->strategyState++;
 				}
 				break;
 			}
-			case(8):
+			// フィギュアL
+			case(13):
 			{
 				//ecrobot_sound_tone(800, 200, 95);
 				if(FigureL_action(this->figureL))
@@ -115,25 +167,18 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
-			case(9):
+			// 停止位置まで走行
+			case(14):
 			{
-				if(Course_strateRunIN(this->course) == TRUE)
+				if(Course_IN_FigureLToStop(this->course) == TRUE)
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
 				break;
 			}
-			case(10):
-			{
-				if(Course_stableRunIN(this->course) == TRUE)
-				{
-					Course_resetMode(this->course);
-					info->strategyState++;
-				}
-				break;
-			}
-			case(11):
+			// 停止
+			case(15):
 			{
 				// stop
 				break;
@@ -145,48 +190,124 @@ void Strategy_action(Strategy* this, Info* info)
 	{
 		switch(info->strategyState)
 		{
+			// コースクラス初期化
 			case(1):
 			{
 				Course_resetMode(this->course);
-				info->strategyState = 2;
+				info->strategyState++;
 				break;
 			}
+			// スタート
 			case(2):
 			{
-				if(Course_strateRunOUT(this->course))
+				if(Course_OUT_StartToCurve(this->course))
 				{
-					info->strategyState = 3;
+					Course_resetMode(this->course);
+					info->strategyState++;
 				}
 				break;
 			}
+			// 第1カーブ
 			case(3):
+			{
+				if(Course_OUT_CurveToJump(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 難所検知
+			case(4):
+			{
+				if(TrialDecision_action(this->trialDecision))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			// ジャンプ台
+			case(5):
 			{
 				if(Jump_action(this->jump))
 				{
-					info->strategyState = 4;
+					info->strategyState++;
 				}
 				break;
 			}
-			case(4):
-			{
-				Course_resetMode(this->course);
-				info->strategyState = 5;
-				break;
-			}
-			case(5):
-			{
-				if(Course_stableRunOUT(this->course))
-				{
-					info->strategyState = 6;
-				}
-				break;
-			}
+			// ダッシュ開始
 			case(6):
+			{
+				if(Course_OUT_JumpToDashStart(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// ダッシュ
+			case(7):
+			{
+				if(Course_OUT_DashStartToDashEnd(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// ダッシュ終了
+			case(8):
+			{
+				if(Course_OUT_DashEndToPending(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 難所検知
+			case(9):
+			{
+				if(TrialDecision_action(this->trialDecision))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			// 仕様未確定エリア
+			case(10):
 			{
 				if(PendingArea_action(this->pendingArea))
 				{
-					info->strategyState = 7;
+					info->strategyState++;
 				}
+				break;
+			}
+			// 第4カーブ
+			case(11):
+			{
+				if(Course_OUT_PendingToCurve(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// ゴール
+			case(12):
+			{
+				if(Course_OUT_CurveToGoal(this->course))
+				{
+					Course_resetMode(this->course);
+					info->strategyState++;
+				}
+				break;
+			}
+			// 停止
+			case(13):
+			{
+				// stop
+				break;
 			}
 		}
 	}
