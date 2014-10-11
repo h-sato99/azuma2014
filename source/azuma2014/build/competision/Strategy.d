@@ -64,8 +64,9 @@ build/competision/Strategy.o: competision/Strategy.c \
   competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  competision/LineTracer.h technique/BumpDecision.h \
-  technique/TrialDecision.h technique/BumpDecision.h competision/Runner.h \
-  competision/Jump.h competision/OrderList.h competision/Mogul.h \
-  competision/Course.h competision/PendingArea.h competision/FigureL.h \
-  competision/OrderTest.h
+  competision/LineTracer.h technique/LineComeBack.h \
+  technique/ColorJudgement.h device/LightSensor.h \
+  technique/BumpDecision.h technique/TrialDecision.h \
+  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
+  competision/OrderList.h competision/Mogul.h competision/Course.h \
+  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h

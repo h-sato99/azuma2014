@@ -13,6 +13,7 @@
 #include "technique/Distance.h"
 
 #include "technique/LineChange.h"
+#include "technique/LineComeBack.h"
 #include "technique/BumpDecision.h"
 #include "technique/TrialDecision.h"
 #include "competision/Jump.h"
@@ -34,6 +35,7 @@ typedef struct Strategy
 
 	Course *course;
 	LineChange *lineChange;
+	LineComeback *lineComeback;
 	BumpDecision *bumpDecision;
 	TrialDecision *trialDecision;
 	Jump *jump;

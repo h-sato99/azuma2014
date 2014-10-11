@@ -128,8 +128,17 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
-			// マニュアル走行切替
+			// ライン復帰
 			case(10):
+			{
+				if(LineComeback_main(this->lineComeback,1))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			// マニュアル走行切替
+			case(11):
 			{
 				if(Course_IN_MogulToManual(this->course) == TRUE)
 				{
@@ -139,7 +148,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// マニュアル走行
-			case(11):
+			case(12):
 			{
 				if(Course_IN_ManualToFigureL(this->course) == TRUE)
 				{
@@ -149,7 +158,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// 難所検知
-			case(12):
+			case(13):
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
@@ -158,7 +167,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// フィギュアL
-			case(13):
+			case(14):
 			{
 				//ecrobot_sound_tone(800, 200, 95);
 				if(FigureL_action(this->figureL))
@@ -167,8 +176,17 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
+			// ライン復帰
+			case(15):
+			{
+				if(LineComeback_main(this->lineComeback,1))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
 			// 停止位置まで走行
-			case(14):
+			case(16):
 			{
 				if(Course_IN_FigureLToStop(this->course) == TRUE)
 				{
@@ -178,11 +196,37 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// 停止
-			case(15):
+			case(17):
 			{
 				// stop
+				Course_stop(this->course);
 				break;
 			}
+			//テスト用
+			case(50):
+				if(Mogul_main(this->mogul))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
+			case(51):
+				if(FigureL_action(this->figureL))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
+			case(52):
+				if(LineComeback_main(this->lineComeback,0))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
+			case(53):
+				if(LineComeback_main(this->lineComeback,1))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
 		}
 	}
 	// アウトコース
@@ -235,8 +279,17 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
-			// ダッシュ開始
+			// ライン復帰
 			case(6):
+			{
+				if(LineComeback_main(this->lineComeback,1))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
+			// ダッシュ開始
+			case(7):
 			{
 				if(Course_OUT_JumpToDashStart(this->course))
 				{
@@ -246,7 +299,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// ダッシュ
-			case(7):
+			case(8):
 			{
 				if(Course_OUT_DashStartToDashEnd(this->course))
 				{
@@ -256,7 +309,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// ダッシュ終了
-			case(8):
+			case(9):
 			{
 				if(Course_OUT_DashEndToPending(this->course))
 				{
@@ -266,7 +319,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// 難所検知
-			case(9):
+			case(10):
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
@@ -275,7 +328,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// 仕様未確定エリア
-			case(10):
+			case(11):
 			{
 				if(PendingArea_action(this->pendingArea))
 				{
@@ -283,8 +336,17 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			}
+			// ライン復帰
+			case(12):
+			{
+				if(LineComeback_main(this->lineComeback,1))
+				{
+					info->strategyState++;
+				}
+				break;
+			}
 			// 第4カーブ
-			case(11):
+			case(13):
 			{
 				if(Course_OUT_PendingToCurve(this->course))
 				{
@@ -294,7 +356,7 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// ゴール
-			case(12):
+			case(14):
 			{
 				if(Course_OUT_CurveToGoal(this->course))
 				{
@@ -304,11 +366,25 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			}
 			// 停止
-			case(13):
+			case(15):
 			{
 				// stop
+				Course_stop(this->course);
 				break;
 			}
+			//テスト用
+			case(50):
+				if(Jump_action(this->jump))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
+			case(51):
+				if(PendingArea_action(this->pendingArea))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
 		}
 	}
 }

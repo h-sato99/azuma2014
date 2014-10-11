@@ -30,6 +30,10 @@ void Course_resetMode(Course* this)
 	this->mode = 0;
 }
 
+void Course_stop(Course* this){
+	OrderList_stop(this->orderList);
+}
+
 // INコース部品
 /*------------------------------------------------------------------------------
 --  関数名      ：Course_IN_StartToCurve

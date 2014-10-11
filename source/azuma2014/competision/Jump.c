@@ -14,6 +14,7 @@
 #define HOLE_DISTANCE	3000	// 走行距離(穴)
 #define BACK_DISTANCE	500		// 走行距離(後退)
 #define FINISH_DISTANCE	5000	// 走行距離(攻略)
+#define STOP_TIME		2000	// 停止時間
 
 void Jump_init(Jump* this)
 {
@@ -56,15 +57,18 @@ BOOL Jump_action(Jump* this)
 		// 尻尾走行が完了したか判定する
 		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
-			OrderList_stop(this->orderList);
+			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,NONE,STOP_TIME);
 			// 尻尾走行が完了した場合、終了処理を実行する
 			this->mode = FINISHED;
 		}
 		break;
 
 	case FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 一定時間停止した場合、trueを返す
+			return TRUE;
+		}
 	}
 	// falseを返す
 	return FALSE;

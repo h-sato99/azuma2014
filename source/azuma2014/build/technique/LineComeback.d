@@ -1,5 +1,5 @@
-build/competision/Competision.o: competision/Competision.c \
-  competision/Competision.h Info.h \
+build/technique/LineComeback.o: technique/LineComeback.c \
+  technique/LineComeback.h competision/OrderList.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/lego_nxt/sys_defs.h \
   ../nxtOSEK/ecrobot/../toppers_osek/config/at91sam7s-gnu/cpu_defs.h \
@@ -41,21 +41,14 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_bluetooth.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_usb.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_rs485.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h CourseInfo.h \
-  SettingInfo.h RunnerInfo.h competision/LineTracer.h \
-  device/LightSensor.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h \
-  technique/PidControl.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_mindsensors.h \
+  competision/Order.h competision/Runner.h Info.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Info.h \
-  competision/Strategy.h SettingInfo.h competision/BasicStage.h \
-  RunnerInfo.h technique/Distance.h CourseInfo.h technique/LineChange.h \
-  competision/OrderList.h \
-  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
-  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h competision/Order.h \
-  competision/Runner.h Info.h RunnerInfo.h CourseInfo.h technique/Tail.h \
-  device/Motor.h technique/Wheel.h technique/BalanceControl.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h CourseInfo.h \
+  SettingInfo.h RunnerInfo.h RunnerInfo.h CourseInfo.h technique/Tail.h \
+  device/Motor.h ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h technique/Wheel.h \
+  technique/BalanceControl.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rtwtypes.h \
   /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/include/limits.h \
@@ -64,13 +57,9 @@ build/competision/Competision.o: competision/Competision.c \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/rt_SATURATE.h \
   ../nxtOSEK/ecrobot/nxtway_gs_balancer/balancer_types.h RunnerInfo.h \
-  device/GyroSensor.h technique/Wheel.h technique/Distance.h \
-  technique/Dash.h technique/DrivingWheel.h technique/FrontWheel.h \
-  competision/LineTracer.h competision/LineTracer.h \
-  technique/LineComeBack.h technique/ColorJudgement.h \
-  device/LightSensor.h technique/BumpDecision.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
-  competision/OrderList.h competision/Mogul.h competision/Course.h \
-  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h \
-  competision/Runner.h competision/RoboControl.h competision/OrderList.h \
-  competision/Runner.h
+  CourseInfo.h device/GyroSensor.h technique/Wheel.h technique/Distance.h \
+  technique/Dash.h Info.h technique/DrivingWheel.h technique/FrontWheel.h \
+  competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
+  ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
+  ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
+  technique/ColorJudgement.h device/LightSensor.h

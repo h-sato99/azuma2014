@@ -48,16 +48,12 @@ void Commander_runComand(Commander* this, Info *info)
 	switch(this->command->command){
 		// 緊急停止
 		case(99):
-		{
 			info->runnerInfo->emergencyStopFlag = TRUE;
 			break;
-		}
 		// リモートスタート
 		case(1):
-		{
 			info->startFlag = TRUE;
 			break;
-		}
 
 		// 尻尾角度変更
 		case(5):
@@ -219,11 +215,12 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			else if(this->command->value1 == 1)
 			{
-				info->strategyState = 10;
+				info->settingInfo->courseType = 0;
+				info->strategyState = 50;
 			}
 			break;
 		}
-		// モーグル
+		// 仕様未確定
 		case(61):
 		{
 			if(this->command->value1 == 0)
@@ -232,7 +229,64 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			else if(this->command->value1 == 1)
 			{
-				info->strategyState = 11;
+				info->settingInfo->courseType = 0;
+				info->strategyState = 51;
+			}
+			break;
+		}
+		// モーグル
+		case(62):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 50;
+			}
+			break;
+		}
+		// フィギュアL
+		case(63):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 51;
+			}
+			break;
+		}
+		// ライン復帰(左旋回)
+		case(64):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 52;
+			}
+			break;
+		}
+		// ライン復帰(左旋回)
+		case(65):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 53;
 			}
 			break;
 		}

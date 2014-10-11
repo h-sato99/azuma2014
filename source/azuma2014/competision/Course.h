@@ -22,6 +22,7 @@ typedef struct Course{
 // ŒöŠJ‘€ì
 void Course_init(Course* this);
 void Course_resetMode(Course* this);
+void Course_stop(Course* this);
 BOOL Course_IN_StartToCurve(Course* this);
 BOOL Course_IN_CurveToLineChange(Course* this);
 BOOL Course_IN_LineChangeToReStart(Course* this);

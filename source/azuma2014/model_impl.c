@@ -300,7 +300,7 @@ TASK(TaskInit)
 	strategy.pendingArea = &pendingArea;
 	strategy.orderTest = &orderTest;
 	strategy.figureL = &figureL;
-//	strategy.lineComeback = &lineComeback;
+	strategy.lineComeback = &lineComeback;
 	bumpDecision.gyroSensor = &gyroSensor;
 	trialDicision.bumpDecision = &bumpDecision;
 	trialDicision.orderList = &orderList;

@@ -84,13 +84,14 @@ build/model_impl.o: model_impl.c \
   competision/Competision.h competision/LineTracer.h \
   competision/Strategy.h competision/BasicStage.h technique/LineChange.h \
   competision/OrderList.h competision/LineTracer.h \
-  technique/BumpDecision.h device/GyroSensor.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
-  competision/OrderList.h competision/Mogul.h competision/Course.h \
-  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h \
-  competision/Runner.h competision/RoboControl.h competision/OrderList.h \
-  competision/Runner.h competision/LineTracer.h competision/Runner.h \
-  competision/Strategy.h Info.h Calibration.h \
+  technique/LineComeBack.h technique/ColorJudgement.h \
+  device/LightSensor.h technique/BumpDecision.h device/GyroSensor.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Runner.h \
+  competision/Jump.h competision/OrderList.h competision/Mogul.h \
+  competision/Course.h competision/PendingArea.h competision/FigureL.h \
+  competision/OrderTest.h competision/Runner.h competision/RoboControl.h \
+  competision/OrderList.h competision/Runner.h competision/LineTracer.h \
+  competision/Runner.h competision/Strategy.h Info.h Calibration.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h Command.h \
   CheckStart.h competision/OrderList.h competision/RoboControl.h \
@@ -98,5 +99,4 @@ build/model_impl.o: model_impl.c \
   competision/Course.h competision/FigureL.h technique/DrivingWheel.h \
   technique/FrontWheel.h technique/LineChange.h technique/TrialDecision.h \
   technique/BumpDecision.h technique/ColorJudgement.h \
-  device/LightSensor.h technique/LineComeback.h \
-  technique/ColorJudgement.h competision/OrderTest.h
+  technique/LineComeback.h competision/OrderTest.h
