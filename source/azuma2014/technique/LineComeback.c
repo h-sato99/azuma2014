@@ -13,7 +13,7 @@
 #define COMEBACK_FINISH_DISTANCE	100		// ライン復帰用終了距離
 #define COMEBACK_STOP_TIME			2000	// ライン復帰用終了時間
 
-int i = 0;
+int i;
 
 /*------------------------------------------------------------------------------
 --  関数名      ：LineComeback_init
@@ -24,6 +24,7 @@ int i = 0;
 ------------------------------------------------------------------------------*/
 void LineComeback_init(LineComeback* this){
 	this->mode = STOP;
+	i = 0;
 }
 
 
@@ -84,28 +85,25 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 		 * （上記は未実装。実機確認した結果、必要な場合入れる。）
 		*/
 
-		switch(i)
+		if (i == 0)
 		{
-		case (0):
 			OrderList_finishOrder(this->orderList,this->orderNum);
 			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
-			i++;
-			break;
-		case (1):
+			i = 1;
+		}
+		else
+		{
 			if (OrderList_checkFinished(this->orderList,this->orderNum)){
 				ecrobot_sound_tone(659, 70, 95);
 				return TRUE;
 			}
-			break;
 		}
 
-/*
-		// ラインを見つけたら走行停止
-		OrderList_stop(this->orderList);
-		// ライン復帰の音を鳴らし、TRUEを返す
-		ecrobot_sound_tone(659, 70, 95);
-		return TRUE;
-*/
+//		// ラインを見つけたら走行停止
+//		OrderList_stop(this->orderList);
+//		// ライン復帰の音を鳴らし、TRUEを返す
+//		ecrobot_sound_tone(659, 70, 95);
+//		return TRUE;
 	}
 	return FALSE;
 }

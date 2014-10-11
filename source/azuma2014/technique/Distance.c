@@ -73,6 +73,15 @@ static int Distance_calc(Distance* this, MeasureInfo* measureInfo)
 {
 	int calcWork;
 
+	if(measureInfo->leftMotorAngle < 0)
+	{
+		measureInfo->leftMotorAngle = measureInfo->leftMotorAngle * -1;
+	}
+	if(measureInfo->rightMotorAngle < 0)
+	{
+		measureInfo->rightMotorAngle = measureInfo->rightMotorAngle * -1;
+	}
+
 	calcWork = (measureInfo->leftMotorAngle + measureInfo->rightMotorAngle) / 2;
 
 	return calcWork;

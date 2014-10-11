@@ -13,6 +13,7 @@
 typedef struct Mogul{
 	OrderList *orderList;
 	int orderNum;				//
+	int mode;
 } Mogul;
 
 // ŒöŠJ‘€ì

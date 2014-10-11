@@ -302,8 +302,8 @@ static void Runner_turnOnSpotLeft(Runner* this)
 		// 前輪の旋回量は左向きが負の数なので、プラスの場合は-1を掛ける
 		frontWheelAngle *= -1;
 	}
-	//leftPwm = (int)(this->forward * -1);
-	leftPwm = 0;
+	leftPwm = (int)(this->forward * -1);
+//	leftPwm = 0;
 	rightPwm = (int)(this->forward);
 
 	/*
@@ -346,8 +346,8 @@ static void Runner_turnOnSpotRight(Runner* this)
 		frontWheelAngle *= -1;
 	}
 	leftPwm = (int)(this->forward);
-	//rightPwm = (int)(this->forward * -1);
-	rightPwm = 0;
+	rightPwm = (int)(this->forward * -1);
+//	rightPwm = 0;
 
 	/*
 	* PWM出力値がMAX値内になるように調整

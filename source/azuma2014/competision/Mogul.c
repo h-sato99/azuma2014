@@ -24,6 +24,7 @@ int i = 0;
 ------------------------------------------------------------------------------*/
 void Mogul_init(Mogul* this){
 	this->orderNum = 0;
+	this->mode = 0;
 }
 
 
@@ -35,6 +36,9 @@ void Mogul_init(Mogul* this){
 --  戻り値      ：BOOL
 ------------------------------------------------------------------------------*/
 BOOL Mogul_main(Mogul* this){
+	switch(this->mode)
+	{
+	case 0:
 		//マニュアル走行
 		this->orderNum = OrderList_manualRunning(
 				this->orderList,
@@ -43,26 +47,22 @@ BOOL Mogul_main(Mogul* this){
 				MOGUL_TURN_STATE,
 				MOGUL_FINISH_TIME,
 				MOGUL_FINISH_DISTANCE);
-
-		//走行停止
+		this->mode = 1;
+		break;
+	case 1:
 		if(OrderList_checkFinished(this->orderList, this->orderNum)){
-			switch(i)
-			{
-			case (0):
-				OrderList_finishOrder(this->orderList,this->orderNum);
-				this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,MOGUL_STOP_TIME,NONE);
-				i++;
-				break;
-			case (1):
-				if (OrderList_checkFinished(this->orderList,this->orderNum)){
-					ecrobot_sound_tone(659, 70, 95);
-					return TRUE;
-				}
-				break;
-			}
+			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,MOGUL_STOP_TIME,NONE);
+			this->mode = 2;
 		}
-
-		return FALSE;
+		break;
+	case 2:
+		if (OrderList_checkFinished(this->orderList,this->orderNum)){
+			ecrobot_sound_tone(659, 70, 95);
+			return TRUE;
+		}
+		break;
+	}
+	return FALSE;
 }
 
 

@@ -11,9 +11,9 @@
 #define LOW				30		// ’á‘¬
 #define NORMAL			50		// ’Êí
 #define	BACK			-50		// Œã‘Þ
-#define HOLE_DISTANCE	30	// ‘–s‹——£(ŒŠ)
-#define BACK_DISTANCE	50		// ‘–s‹——£(Œã‘Þ)
-#define FINISH_DISTANCE	50	// ‘–s‹——£(U—ª)
+#define HOLE_DISTANCE	30		// ‘–s‹——£(ŒŠ)
+#define BACK_DISTANCE	30		// ‘–s‹——£(Œã‘Þ)
+#define FINISH_DISTANCE	50		// ‘–s‹——£(U—ª)
 #define STOP_TIME		2000	// ’âŽ~ŽžŠÔ
 
 void Jump_init(Jump* this)
@@ -49,7 +49,7 @@ BOOL Jump_action(Jump* this)
 		{
 			this->orderNum = OrderList_manualRunning(this->orderList,NORMAL,NONE,NONE,NONE,FINISH_DISTANCE);
 			// K”ö‘–sØ‘Ö‚ªŠ®—¹‚µ‚½ê‡AK”ö‘–s‚ðŽÀs‚·‚é
-			this->mode = FINISHED;
+			this->mode = TAIL_RUN;
 		}
 		break;
 
