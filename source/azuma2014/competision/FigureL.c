@@ -86,6 +86,19 @@ BOOL FigureL_action(FigureL* this){
 		//‘–s’âŽ~
 		if(OrderList_checkFinished(this->orderList, this->orderNum)){
 			ecrobot_sound_tone(659, 70, 95);
+			this->orderNum = OrderList_manualRunning(
+					this->orderList,
+					0,
+					0,
+					0,
+					2000,
+					0);
+		}
+		break;
+	case 4:
+		//‘–s’âŽ~
+		if(OrderList_checkFinished(this->orderList, this->orderNum)){
+			ecrobot_sound_tone(659, 70, 95);
 			return TRUE;
 		}
 		break;

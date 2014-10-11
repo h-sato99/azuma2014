@@ -38,7 +38,7 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 	switch(this->mode){
 	case STOP:
 		// ‘–s’âŽ~‚·‚é
-		this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,NONE,COMEBACK_STOP_TIME);
+		this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
 		if(turnDirection==LEFT){
 			this->mode = TURNLEFT;
 		}
@@ -88,7 +88,7 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 		{
 		case (0):
 			OrderList_finishOrder(this->orderList,this->orderNum);
-			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,NONE,COMEBACK_STOP_TIME);
+			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
 			i++;
 			break;
 		case (1):

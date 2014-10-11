@@ -11,6 +11,9 @@
 #define MOGUL_FINISH_TIME 		 0             // モーグル用終了時間
 #define MOGUL_FINISH_DISTANCE 	 200       // モーグル用終了距離
 
+#define NONE					0
+#define MOGUL_STOP_TIME			200
+int i = 0;
 
 /*------------------------------------------------------------------------------
 --  関数名      ：Mogul_init
@@ -43,7 +46,20 @@ BOOL Mogul_main(Mogul* this){
 
 		//走行停止
 		if(OrderList_checkFinished(this->orderList, this->orderNum)){
-			return TRUE;
+			switch(i)
+			{
+			case (0):
+				OrderList_finishOrder(this->orderList,this->orderNum);
+				this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,MOGUL_STOP_TIME,NONE);
+				i++;
+				break;
+			case (1):
+				if (OrderList_checkFinished(this->orderList,this->orderNum)){
+					ecrobot_sound_tone(659, 70, 95);
+					return TRUE;
+				}
+				break;
+			}
 		}
 
 		return FALSE;
