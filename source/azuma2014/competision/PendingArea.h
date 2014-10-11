@@ -32,6 +32,12 @@ typedef enum PendingAreaState
 // ŒöŠJ‘€ì
 void PendingArea_init(PendingArea* this);
 BOOL PendingArea_action(PendingArea* this);
+void PendingArea_privateModeInit(PendingArea* this);
+BOOL PendingArea_straight(PendingArea* this);
+BOOL PendingArea_left(PendingArea* this);
+BOOL PendingArea_right(PendingArea* this);
+BOOL PendingArea_leftOblique(PendingArea* this);
+BOOL PendingArea_rightOblique(PendingArea* this);
 
 
 #endif /* PENDINGAREA_H_ */

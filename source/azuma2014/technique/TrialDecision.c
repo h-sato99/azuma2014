@@ -7,13 +7,13 @@
 #include "TrialDecision.h"
 
 #define NONE			0		// 初期値
-#define TARGET			500		// 閾値
-#define LOW				20		// 低速
+#define TARGET			550		// 閾値
+#define LOW				25		// 低速
 #define NORMAL			50		// 通常
 #define HIGH			100		// 高速
 #define	BACK			-40		// 後退
-#define BACK_DISTANCE	20		// 走行距離(後退)
-#define DASH_DISTANCE	30		// 走行距離(加速)
+#define BACK_DISTANCE	100		// 走行距離(後退)
+#define DASH_DISTANCE	140		// 走行距離(加速)
 #define STOP_TIME		2000	// 停止時間
 
 typedef enum State
@@ -44,7 +44,7 @@ BOOL TrialDecision_action(TrialDecision* this)
 	{
 	case START:
 		// 低速走行に切り替える
-		this->orderNum = OrderList_lineTraceRunning(this->orderList,TARGET,LOW,NONE,NONE,NONE);
+		this->orderNum = OrderList_lineTraceRunning(this->orderList,LOW,TARGET,TURN_FRONT,NONE,NONE);
 		this->mode = CHECK_BUMP;
 		break;
 

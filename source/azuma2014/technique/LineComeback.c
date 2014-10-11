@@ -6,7 +6,7 @@
 
 #include "LineComeback.h"
 #define NONE						0
-#define COMEBACK_FORWARD			40		// ライン復帰用前進値
+#define COMEBACK_FORWARD			50		// ライン復帰用前進値
 #define COMEBACK_TURN				100		// ライン復帰用旋回値
 #define COMEBACK_TURN_STATE			1		// ライン復帰用旋回状態
 #define COMEBACK_FINISH_TIME		0		// ライン復帰用終了時間
@@ -78,6 +78,7 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 
 	// 色判定を使って黒を探す
 	if(ColorJudgement_judgeColor(this->colorJudgement)==BLACK){
+		ecrobot_sound_tone(790, 70, 95);
 		/*
 		 * // 現在の走行状態取得を指示
 		 * OrderList_nowOrder();

@@ -11,9 +11,9 @@
 #define LOW				30		// 低速
 #define NORMAL			50		// 通常
 #define	BACK			-50		// 後退
-#define HOLE_DISTANCE	30		// 走行距離(穴)
-#define BACK_DISTANCE	30		// 走行距離(後退)
-#define FINISH_DISTANCE	50		// 走行距離(攻略)
+#define HOLE_DISTANCE	100		// 走行距離(穴)
+#define BACK_DISTANCE	50		// 走行距離(後退)
+#define FINISH_DISTANCE	150		// 走行距離(攻略)
 #define STOP_TIME		2000	// 停止時間
 
 void Jump_init(Jump* this)

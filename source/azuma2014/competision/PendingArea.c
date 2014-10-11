@@ -7,13 +7,13 @@
 
 #define NONE						0		// 初期値
 #define NORMAL						40		// 通常
-#define TURN_LEFT_ANGLE				90		// 左旋回
-#define TURN_RIGHT_ANGLE			-90		// 右旋回
+#define TURN_LEFT_ANGLE				100		// 左旋回
+#define TURN_RIGHT_ANGLE			-10		// 右旋回
 #define TURN_LEFT_OBLIQUE_ANGLE		50		// 左斜め旋回
 #define TURN_RIGHT_OBLIQUE_ANGLE	-50		// 右斜め旋回
-#define STRAIGHT_DISTANCE			3000	// 走行距離(直進)
-#define OBLIQUE_DISTANCE			5000	// 走行距離(斜め)
-#define TURN_DISTANCE 				6000	// 走行距離(その場旋回)
+#define STRAIGHT_DISTANCE			30		// 走行距離(直進)
+#define OBLIQUE_DISTANCE			50		// 走行距離(斜め)
+#define TURN_DISTANCE 				60		// 走行距離(その場旋回)
 #define STOP_TIME 					3000	// 停止時間
 
 /*------------------------------------------------------------------------------
@@ -39,67 +39,36 @@ void PendingArea_init(PendingArea* this)
 ------------------------------------------------------------------------------*/
 BOOL PendingArea_action(PendingArea* this)
 {
-	/*
+
 	switch(this->mode)
 	{
 	case PENDINGAREA_START:
 		PendingArea_privateModeInit(this);
-		this->mode = 1;
-		break;
-	case 1:
-		ecrobot_sound_tone(800, 200, 95);
-		if(PendingArea_straight(this))
-		{
-			this->mode = 2;
-			break;
-		}
-	case 1:
-		ecrobot_sound_tone(800, 200, 95);
-		if(PendingArea_left(this))
-		{
-			this->mode = 2;
-			break;
-		}
-	case 1:
-		ecrobot_sound_tone(800, 200, 95);
-		if(PendingArea_straight)
-		{
-			this->mode = 2;
-			break;
-		}
-	case 1:
-		ecrobot_sound_tone(800, 200, 95);
-		if(PendingArea_straight)
-		{
-			this->mode = 2;
-			break;
-		}
-	case 1:
-		ecrobot_sound_tone(800, 200, 95);
-		if(PendingArea_straight)
-		{
-			this->mode = 2;
-			break;
-		}
-	}
-	*/
-	/*
-	switch(this->mode)
-	{
-	case PENDINGAREA_START:
 		this->mode = PENDINGAREA_CHECK_POINT1;
 		break;
-
 	case PENDINGAREA_CHECK_POINT1:
-		this->mode = PENINGAREA_FINISHED;
+		if(PendingArea_leftOblique(this))
+		{
+			ecrobot_sound_tone(800, 200, 95);
+			this->mode = PENDINGAREA_CHECK_POINT1;
+		}
 		break;
-
+	case PENDINGAREA_CHECK_POINT2:
+		if(PendingArea_rightOblique(this))
+		{
+			ecrobot_sound_tone(800, 200, 95);
+			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,STOP_TIME,NONE);
+			this->mode = PENINGAREA_FINISHED;
+		}
+		break;
 	case PENINGAREA_FINISHED:
-		// trueを返す
-		return TRUE;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			ecrobot_sound_tone(800, 200, 95);
+			return TRUE;
+		}
+		break;
 	}
-	*/
-	// falseを返す
 	return FALSE;
 }
 
