@@ -233,6 +233,12 @@ void Strategy_action(Strategy* this, Info* info)
 					ecrobot_sound_tone(559, 100, 95);
 				}
 				break;
+			case(55):
+				if(TrialDecision_action(this->trialDecision))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
 		}
 	}
 	// アウトコース

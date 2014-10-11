@@ -12,8 +12,9 @@
 #define NORMAL			50		// 通常
 #define HIGH			100		// 高速
 #define	BACK			-40		// 後退
-#define BACK_DISTANCE	2000	// 走行距離(後退)
-#define DASH_DISTANCE	3000	// 走行距離(加速)
+#define BACK_DISTANCE	20		// 走行距離(後退)
+#define DASH_DISTANCE	30		// 走行距離(加速)
+#define STOP_TIME		2000	// 停止時間
 
 typedef enum State
 {
@@ -53,7 +54,7 @@ BOOL TrialDecision_action(TrialDecision* this)
 		{
 			// 衝撃を検知した場合、後退走行に切り替える
 			OrderList_finishOrder(this->orderList,this->orderNum);
-			this->orderNum = OrderList_manualRunning(this->orderList,BACK,NONE,NONE,BACK_DISTANCE,NONE);
+			this->orderNum = OrderList_manualRunning(this->orderList,BACK,NONE,NONE,NONE,BACK_DISTANCE);
 			this->mode = BACK_RUN;
 		}
 		break;
@@ -63,7 +64,7 @@ BOOL TrialDecision_action(TrialDecision* this)
 		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
 			// 後退走行が完了した場合、加速走行に切り替える
-			this->orderNum = OrderList_manualRunning(this->orderList,HIGH,NONE,NONE,DASH_DISTANCE,NONE);
+			this->orderNum = OrderList_manualRunning(this->orderList,HIGH,NONE,NONE,NONE,DASH_DISTANCE);
 			this->mode = TAIL_CHANGE;
 		}
 		break;
@@ -73,14 +74,19 @@ BOOL TrialDecision_action(TrialDecision* this)
 		if (OrderList_checkFinished(this->orderList,this->orderNum))
 		{
 			// 加速走行が完了した場合、終了処理を実行する
+			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,STOP_TIME,NONE);
 			this->mode = FINISHED;
 		}
 		break;
 
 	case FINISHED:
-		// trueを返す
-		return true;
+		if (OrderList_checkFinished(this->orderList,this->orderNum))
+		{
+			// 一定時間停止した場合、trueを返す
+			return TRUE;
+		}
+		break;
 	}
 	// falseを返す
-	return false;
+	return FALSE;
 }

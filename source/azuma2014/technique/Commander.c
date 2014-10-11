@@ -304,6 +304,20 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			break;
 		}
+		// ÕŒ‚ŒŸ’m
+		case(67):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 55;
+			}
+			break;
+		}
 		// í—ªØ‘Ö
 		case(69):
 		{

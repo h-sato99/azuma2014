@@ -35,6 +35,15 @@ int Runner_getDistance(Runner* this)
 	leftPwm = DrivingWheel_getLeftAngle(this->drivingWheel);
 	rightPwm = DrivingWheel_getRightAngle(this->drivingWheel);
 
+	if (leftPwm < 0)
+	{
+		leftPwm = leftPwm * -1;
+	}
+	if (rightPwm < 0)
+	{
+		rightPwm = rightPwm * -1;
+	}
+
 	calcWork = (leftPwm + rightPwm) / 2;
 	if(calcWork < 0)
 	{

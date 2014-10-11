@@ -741,7 +741,7 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x00205e50                __data_load_start__ = LOADADDR (.data)
                 0x00205ec0                __data_load_end__ = (__data_load_start__ + SIZEOF (.data))
 
-.text           0x00205ec0     0x4cd0
+.text           0x00205ec0     0x4d20
                 0x00205ec0                . = ALIGN (0x10)
  *(*.text *.text.* *.glue*)
  .text.enqueue_alarm
@@ -967,821 +967,820 @@ LOAD /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libg
                 0x002074b0       0x24 build/competision/Competision.o
                 0x002074b0                Competision_action
  .text.Strategy_action
-                0x002074d4      0x160 build/competision/Strategy.o
+                0x002074d4      0x168 build/competision/Strategy.o
                 0x002074d4                Strategy_action
  .text.LineTracer_init
-                0x00207634        0xc build/competision/LineTracer.o
-                0x00207634                LineTracer_init
+                0x0020763c        0xc build/competision/LineTracer.o
+                0x0020763c                LineTracer_init
  .text.LineTracer_trace
-                0x00207640       0x34 build/competision/LineTracer.o
-                0x00207640                LineTracer_trace
+                0x00207648       0x34 build/competision/LineTracer.o
+                0x00207648                LineTracer_trace
  .text.LineTracer_getTurn
-                0x00207674        0x4 build/competision/LineTracer.o
-                0x00207674                LineTracer_getTurn
+                0x0020767c        0x4 build/competision/LineTracer.o
+                0x0020767c                LineTracer_getTurn
  .text.LineTracer_setTarget
-                0x00207678        0x4 build/competision/LineTracer.o
-                0x00207678                LineTracer_setTarget
+                0x00207680        0x4 build/competision/LineTracer.o
+                0x00207680                LineTracer_setTarget
  .text.LineTracer_setRightEdge
-                0x0020767c        0x8 build/competision/LineTracer.o
-                0x0020767c                LineTracer_setRightEdge
- .text.LineTracer_setLeftEdge
                 0x00207684        0x8 build/competision/LineTracer.o
-                0x00207684                LineTracer_setLeftEdge
+                0x00207684                LineTracer_setRightEdge
+ .text.LineTracer_setLeftEdge
+                0x0020768c        0x8 build/competision/LineTracer.o
+                0x0020768c                LineTracer_setLeftEdge
  .text.LineTracer_getEdge
-                0x0020768c        0x4 build/competision/LineTracer.o
-                0x0020768c                LineTracer_getEdge
+                0x00207694        0x4 build/competision/LineTracer.o
+                0x00207694                LineTracer_getEdge
  .text.Runner_getDistance
-                0x00207690       0x28 build/competision/Runner.o
-                0x00207690                Runner_getDistance
+                0x00207698       0x34 build/competision/Runner.o
+                0x00207698                Runner_getDistance
  .text.Runner_lineTraceRun
-                0x002076b8       0x1c build/competision/Runner.o
+                0x002076cc       0x1c build/competision/Runner.o
  .text.Runner_turnByFrontWheel
-                0x002076d4       0x2c build/competision/Runner.o
+                0x002076e8       0x2c build/competision/Runner.o
  .text.Runner_turnByDrivingWheel
-                0x00207700       0x9c build/competision/Runner.o
+                0x00207714       0x9c build/competision/Runner.o
  .text.Runner_turnOnSpotLeft
-                0x0020779c       0x64 build/competision/Runner.o
+                0x002077b0       0x64 build/competision/Runner.o
  .text.Runner_turnOnSpotRight
-                0x00207800       0x68 build/competision/Runner.o
+                0x00207814       0x68 build/competision/Runner.o
  .text.Runner_fowardFrontWheel
-                0x00207868       0x24 build/competision/Runner.o
+                0x0020787c       0x24 build/competision/Runner.o
  .text.Runner_run_TURN_SPOT
-                0x0020788c       0x28 build/competision/Runner.o
+                0x002078a0       0x28 build/competision/Runner.o
  .text.Runner_run
-                0x002078b4       0xac build/competision/Runner.o
-                0x002078b4                Runner_run
+                0x002078c8       0xac build/competision/Runner.o
+                0x002078c8                Runner_run
  .text.PidControl_init
-                0x00207960       0x10 build/technique/PidControl.o
-                0x00207960                PidControl_init
+                0x00207974       0x10 build/technique/PidControl.o
+                0x00207974                PidControl_init
  .text.PidControl_calcTurn
-                0x00207970       0xe4 build/technique/PidControl.o
-                0x00207970                PidControl_calcTurn
+                0x00207984       0xe4 build/technique/PidControl.o
+                0x00207984                PidControl_calcTurn
  .text.Communication_init
-                0x00207a54        0xc build/technique/Communication.o
-                0x00207a54                Communication_init
+                0x00207a68        0xc build/technique/Communication.o
+                0x00207a68                Communication_init
  .text.Communication_setSendData
-                0x00207a60       0x1c build/technique/Communication.o
-                0x00207a60                Communication_setSendData
+                0x00207a74       0x1c build/technique/Communication.o
+                0x00207a74                Communication_setSendData
  .text.Communication_communicate
-                0x00207a7c       0x6c build/technique/Communication.o
-                0x00207a7c                Communication_communicate
+                0x00207a90       0x6c build/technique/Communication.o
+                0x00207a90                Communication_communicate
  .text.Communication_setLogData1
-                0x00207ae8        0x8 build/technique/Communication.o
-                0x00207ae8                Communication_setLogData1
+                0x00207afc        0x8 build/technique/Communication.o
+                0x00207afc                Communication_setLogData1
  .text.Communication_setLogData2
-                0x00207af0        0x8 build/technique/Communication.o
-                0x00207af0                Communication_setLogData2
+                0x00207b04        0x8 build/technique/Communication.o
+                0x00207b04                Communication_setLogData2
  .text.Communication_getCommandValue
-                0x00207af8       0x44 build/technique/Communication.o
+                0x00207b0c       0x44 build/technique/Communication.o
  .text.Communication_getCommand
-                0x00207b3c       0x90 build/technique/Communication.o
-                0x00207b3c                Communication_getCommand
+                0x00207b50       0x90 build/technique/Communication.o
+                0x00207b50                Communication_getCommand
  .text.Commander_setCommandResult
-                0x00207bcc       0x2c build/technique/Commander.o
+                0x00207be0       0x2c build/technique/Commander.o
  .text.Commander_action
-                0x00207bf8      0x2cc build/technique/Commander.o
-                0x00207bf8                Commander_action
+                0x00207c0c      0x2e8 build/technique/Commander.o
+                0x00207c0c                Commander_action
  .text.Distance_init
-                0x00207ec4        0x8 build/technique/Distance.o
-                0x00207ec4                Distance_init
+                0x00207ef4        0x8 build/technique/Distance.o
+                0x00207ef4                Distance_init
  .text.Dash_init
-                0x00207ecc        0x8 build/technique/Dash.o
-                0x00207ecc                Dash_init
+                0x00207efc        0x8 build/technique/Dash.o
+                0x00207efc                Dash_init
  .text.CheckStart_init
-                0x00207ed4        0x8 build/CheckStart.o
-                0x00207ed4                CheckStart_init
+                0x00207f04        0x8 build/CheckStart.o
+                0x00207f04                CheckStart_init
  .text.CheckStart_isStart
-                0x00207edc       0x10 build/CheckStart.o
-                0x00207edc                CheckStart_isStart
+                0x00207f0c       0x10 build/CheckStart.o
+                0x00207f0c                CheckStart_isStart
  .text.CheckStart_start
-                0x00207eec       0x24 build/CheckStart.o
+                0x00207f1c       0x24 build/CheckStart.o
  .text.CheckStart_waitStart
-                0x00207f10       0x30 build/CheckStart.o
-                0x00207f10                CheckStart_waitStart
+                0x00207f40       0x30 build/CheckStart.o
+                0x00207f40                CheckStart_waitStart
  .text.RoboControl_init
-                0x00207f40        0xc build/competision/RoboControl.o
-                0x00207f40                RoboControl_init
+                0x00207f70        0xc build/competision/RoboControl.o
+                0x00207f70                RoboControl_init
  .text.RoboControl_control
-                0x00207f4c      0x16c build/competision/RoboControl.o
-                0x00207f4c                RoboControl_control
+                0x00207f7c      0x16c build/competision/RoboControl.o
+                0x00207f7c                RoboControl_control
  .text.Order_init
-                0x002080b8       0x14 build/competision/Order.o
-                0x002080b8                Order_init
+                0x002080e8       0x14 build/competision/Order.o
+                0x002080e8                Order_init
  .text.OrderList_init
-                0x002080cc       0x28 build/competision/OrderList.o
-                0x002080cc                OrderList_init
+                0x002080fc       0x28 build/competision/OrderList.o
+                0x002080fc                OrderList_init
  .text.OrderList_getOrder
-                0x002080f4        0xc build/competision/OrderList.o
-                0x002080f4                OrderList_getOrder
+                0x00208124        0xc build/competision/OrderList.o
+                0x00208124                OrderList_getOrder
  .text.OrderList_addOrder
-                0x00208100       0x7c build/competision/OrderList.o
-                0x00208100                OrderList_addOrder
+                0x00208130       0x7c build/competision/OrderList.o
+                0x00208130                OrderList_addOrder
  .text.OrderList_finishOrder
-                0x0020817c       0x1c build/competision/OrderList.o
-                0x0020817c                OrderList_finishOrder
+                0x002081ac       0x1c build/competision/OrderList.o
+                0x002081ac                OrderList_finishOrder
  .text.OrderList_checkFinished
-                0x00208198       0x18 build/competision/OrderList.o
-                0x00208198                OrderList_checkFinished
+                0x002081c8       0x18 build/competision/OrderList.o
+                0x002081c8                OrderList_checkFinished
  .text.OrderList_manualRunning
-                0x002081b0       0x24 build/competision/OrderList.o
-                0x002081b0                OrderList_manualRunning
+                0x002081e0       0x24 build/competision/OrderList.o
+                0x002081e0                OrderList_manualRunning
  .text.OrderList_lineTraceRunning
-                0x002081d4       0x24 build/competision/OrderList.o
-                0x002081d4                OrderList_lineTraceRunning
+                0x00208204       0x24 build/competision/OrderList.o
+                0x00208204                OrderList_lineTraceRunning
  .text.OrderList_stop
-                0x002081f8       0x1c build/competision/OrderList.o
-                0x002081f8                OrderList_stop
+                0x00208228       0x1c build/competision/OrderList.o
+                0x00208228                OrderList_stop
  .text.OrderList_setPID
-                0x00208214       0x24 build/competision/OrderList.o
-                0x00208214                OrderList_setPID
+                0x00208244       0x24 build/competision/OrderList.o
+                0x00208244                OrderList_setPID
  .text.OrderList_turnOnSpotLeft
-                0x00208238       0x24 build/competision/OrderList.o
-                0x00208238                OrderList_turnOnSpotLeft
+                0x00208268       0x24 build/competision/OrderList.o
+                0x00208268                OrderList_turnOnSpotLeft
  .text.OrderList_turnOnSpotRight
-                0x0020825c       0x24 build/competision/OrderList.o
-                0x0020825c                OrderList_turnOnSpotRight
+                0x0020828c       0x24 build/competision/OrderList.o
+                0x0020828c                OrderList_turnOnSpotRight
  .text.Jump_init
-                0x00208280        0x8 build/competision/Jump.o
-                0x00208280                Jump_init
+                0x002082b0        0x8 build/competision/Jump.o
+                0x002082b0                Jump_init
  .text.Jump_action
-                0x00208288       0xbc build/competision/Jump.o
-                0x00208288                Jump_action
+                0x002082b8       0xbc build/competision/Jump.o
+                0x002082b8                Jump_action
  .text.Mogul_init
-                0x00208344        0x8 build/competision/Mogul.o
-                0x00208344                Mogul_init
+                0x00208374        0x8 build/competision/Mogul.o
+                0x00208374                Mogul_init
  .text.Mogul_main
-                0x0020834c       0x7c build/competision/Mogul.o
-                0x0020834c                Mogul_main
+                0x0020837c       0x7c build/competision/Mogul.o
+                0x0020837c                Mogul_main
  .text.OrderTest_init
-                0x002083c8        0x8 build/competision/OrderTest.o
-                0x002083c8                OrderTest_init
+                0x002083f8        0x8 build/competision/OrderTest.o
+                0x002083f8                OrderTest_init
  .text.Course_init
-                0x002083d0       0x10 build/competision/Course.o
-                0x002083d0                Course_init
+                0x00208400       0x10 build/competision/Course.o
+                0x00208400                Course_init
  .text.Course_resetMode
-                0x002083e0        0x8 build/competision/Course.o
-                0x002083e0                Course_resetMode
+                0x00208410        0x8 build/competision/Course.o
+                0x00208410                Course_resetMode
  .text.Course_stop
-                0x002083e8        0xc build/competision/Course.o
-                0x002083e8                Course_stop
+                0x00208418        0xc build/competision/Course.o
+                0x00208418                Course_stop
  .text.Course_IN_StartToCurve
-                0x002083f4       0x6c build/competision/Course.o
-                0x002083f4                Course_IN_StartToCurve
+                0x00208424       0x6c build/competision/Course.o
+                0x00208424                Course_IN_StartToCurve
  .text.Course_IN_CurveToLineChange
-                0x00208460       0x6c build/competision/Course.o
-                0x00208460                Course_IN_CurveToLineChange
+                0x00208490       0x6c build/competision/Course.o
+                0x00208490                Course_IN_CurveToLineChange
  .text.Course_IN_LineChangeToReStart
-                0x002084cc       0x6c build/competision/Course.o
-                0x002084cc                Course_IN_LineChangeToReStart
+                0x002084fc       0x6c build/competision/Course.o
+                0x002084fc                Course_IN_LineChangeToReStart
  .text.Course_IN_CurveToMogul
-                0x00208538       0x6c build/competision/Course.o
-                0x00208538                Course_IN_CurveToMogul
+                0x00208568       0x6c build/competision/Course.o
+                0x00208568                Course_IN_CurveToMogul
  .text.Course_IN_MogulToManual
-                0x002085a4       0x6c build/competision/Course.o
-                0x002085a4                Course_IN_MogulToManual
+                0x002085d4       0x6c build/competision/Course.o
+                0x002085d4                Course_IN_MogulToManual
  .text.Course_IN_ManualToFigureL
-                0x00208610       0x6c build/competision/Course.o
-                0x00208610                Course_IN_ManualToFigureL
+                0x00208640       0x6c build/competision/Course.o
+                0x00208640                Course_IN_ManualToFigureL
  .text.Course_IN_FigureLToStop
-                0x0020867c       0x6c build/competision/Course.o
-                0x0020867c                Course_IN_FigureLToStop
+                0x002086ac       0x6c build/competision/Course.o
+                0x002086ac                Course_IN_FigureLToStop
  .text.Course_OUT_StartToCurve
-                0x002086e8       0x6c build/competision/Course.o
-                0x002086e8                Course_OUT_StartToCurve
+                0x00208718       0x6c build/competision/Course.o
+                0x00208718                Course_OUT_StartToCurve
  .text.Course_OUT_CurveToJump
-                0x00208754       0x6c build/competision/Course.o
-                0x00208754                Course_OUT_CurveToJump
+                0x00208784       0x6c build/competision/Course.o
+                0x00208784                Course_OUT_CurveToJump
  .text.Course_OUT_JumpToDashStart
-                0x002087c0       0x6c build/competision/Course.o
-                0x002087c0                Course_OUT_JumpToDashStart
+                0x002087f0       0x6c build/competision/Course.o
+                0x002087f0                Course_OUT_JumpToDashStart
  .text.Course_OUT_DashStartToDashEnd
-                0x0020882c       0x6c build/competision/Course.o
-                0x0020882c                Course_OUT_DashStartToDashEnd
+                0x0020885c       0x6c build/competision/Course.o
+                0x0020885c                Course_OUT_DashStartToDashEnd
  .text.Course_OUT_DashEndToPending
-                0x00208898       0x6c build/competision/Course.o
-                0x00208898                Course_OUT_DashEndToPending
+                0x002088c8       0x6c build/competision/Course.o
+                0x002088c8                Course_OUT_DashEndToPending
  .text.Course_OUT_PendingToCurve
-                0x00208904       0x6c build/competision/Course.o
-                0x00208904                Course_OUT_PendingToCurve
+                0x00208934       0x6c build/competision/Course.o
+                0x00208934                Course_OUT_PendingToCurve
  .text.Course_OUT_CurveToGoal
-                0x00208970       0x6c build/competision/Course.o
-                0x00208970                Course_OUT_CurveToGoal
+                0x002089a0       0x6c build/competision/Course.o
+                0x002089a0                Course_OUT_CurveToGoal
  .text.PendingArea_init
-                0x002089dc        0xc build/competision/PendingArea.o
-                0x002089dc                PendingArea_init
+                0x00208a0c        0xc build/competision/PendingArea.o
+                0x00208a0c                PendingArea_init
  .text.PendingArea_action
-                0x002089e8        0x4 build/competision/PendingArea.o
-                0x002089e8                PendingArea_action
+                0x00208a18        0x4 build/competision/PendingArea.o
+                0x00208a18                PendingArea_action
  .text.FigureL_init
-                0x002089ec        0x8 build/competision/FigureL.o
-                0x002089ec                FigureL_init
+                0x00208a1c        0x8 build/competision/FigureL.o
+                0x00208a1c                FigureL_init
  .text.FigureL_action
-                0x002089f4       0xf4 build/competision/FigureL.o
-                0x002089f4                FigureL_action
+                0x00208a24       0xf4 build/competision/FigureL.o
+                0x00208a24                FigureL_action
  .text.FrontWheel_init
-                0x00208ae8        0x4 build/technique/FrontWheel.o
-                0x00208ae8                FrontWheel_init
+                0x00208b18        0x4 build/technique/FrontWheel.o
+                0x00208b18                FrontWheel_init
  .text.FrontWheel_setAngle
-                0x00208aec       0x68 build/technique/FrontWheel.o
-                0x00208aec                FrontWheel_setAngle
+                0x00208b1c       0x68 build/technique/FrontWheel.o
+                0x00208b1c                FrontWheel_setAngle
  .text.FrontWheel_getAngle
-                0x00208b54        0xc build/technique/FrontWheel.o
-                0x00208b54                FrontWheel_getAngle
+                0x00208b84        0xc build/technique/FrontWheel.o
+                0x00208b84                FrontWheel_getAngle
  .text.DrivingWheel_init
-                0x00208b60        0x4 build/technique/DrivingWheel.o
-                0x00208b60                DrivingWheel_init
+                0x00208b90        0x4 build/technique/DrivingWheel.o
+                0x00208b90                DrivingWheel_init
  .text.DrivingWheel_setPwm
-                0x00208b64       0x20 build/technique/DrivingWheel.o
-                0x00208b64                DrivingWheel_setPwm
+                0x00208b94       0x20 build/technique/DrivingWheel.o
+                0x00208b94                DrivingWheel_setPwm
  .text.DrivingWheel_getLeftAngle
-                0x00208b84        0xc build/technique/DrivingWheel.o
-                0x00208b84                DrivingWheel_getLeftAngle
+                0x00208bb4        0xc build/technique/DrivingWheel.o
+                0x00208bb4                DrivingWheel_getLeftAngle
  .text.DrivingWheel_getRightAngle
-                0x00208b90        0xc build/technique/DrivingWheel.o
-                0x00208b90                DrivingWheel_getRightAngle
+                0x00208bc0        0xc build/technique/DrivingWheel.o
+                0x00208bc0                DrivingWheel_getRightAngle
  .text.BumpDecision_init
-                0x00208b9c        0x8 build/technique/BumpDecision.o
-                0x00208b9c                BumpDecision_init
+                0x00208bcc        0x8 build/technique/BumpDecision.o
+                0x00208bcc                BumpDecision_init
  .text.BumpDecision_checkBump
-                0x00208ba4       0x28 build/technique/BumpDecision.o
-                0x00208ba4                BumpDecision_checkBump
+                0x00208bd4       0x28 build/technique/BumpDecision.o
+                0x00208bd4                BumpDecision_checkBump
  .text.TrialDecision_init
-                0x00208bcc        0x8 build/technique/TrialDecision.o
-                0x00208bcc                TrialDecision_init
+                0x00208bfc        0x8 build/technique/TrialDecision.o
+                0x00208bfc                TrialDecision_init
  .text.TrialDecision_action
-                0x00208bd4       0xa4 build/technique/TrialDecision.o
-                0x00208bd4                TrialDecision_action
+                0x00208c04       0xc8 build/technique/TrialDecision.o
+                0x00208c04                TrialDecision_action
  .text.LineChange_init
-                0x00208c78        0x8 build/technique/LineChange.o
-                0x00208c78                LineChange_init
+                0x00208ccc        0x8 build/technique/LineChange.o
+                0x00208ccc                LineChange_init
  .text.LineChange_action
-                0x00208c80       0x78 build/technique/LineChange.o
-                0x00208c80                LineChange_action
+                0x00208cd4       0x78 build/technique/LineChange.o
+                0x00208cd4                LineChange_action
  .text.LineComeback_init
-                0x00208cf8       0x10 build/technique/LineComeback.o
-                0x00208cf8                LineComeback_init
+                0x00208d4c       0x10 build/technique/LineComeback.o
+                0x00208d4c                LineComeback_init
  .text.LineComeback_main
-                0x00208d08       0xe0 build/technique/LineComeback.o
-                0x00208d08                LineComeback_main
+                0x00208d5c       0xe0 build/technique/LineComeback.o
+                0x00208d5c                LineComeback_main
  .text.ColorJudgement_judgeColor
-                0x00208de8       0x24 build/technique/ColorJudgement.o
-                0x00208de8                ColorJudgement_judgeColor
+                0x00208e3c       0x24 build/technique/ColorJudgement.o
+                0x00208e3c                ColorJudgement_judgeColor
  .text.ecrobot_get_gyro_sensor
-                0x00208e0c       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_HiTechnic.o)
-                0x00208e0c                ecrobot_get_gyro_sensor
+                0x00208e60       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_HiTechnic.o)
+                0x00208e60                ecrobot_get_gyro_sensor
  .text.ecrobot_set_light_sensor_active
-                0x00208e20       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208e20                ecrobot_set_light_sensor_active
+                0x00208e74       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208e74                ecrobot_set_light_sensor_active
  .text.ecrobot_set_light_sensor_inactive
-                0x00208e30       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208e30                ecrobot_set_light_sensor_inactive
+                0x00208e84       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208e84                ecrobot_set_light_sensor_inactive
  .text.ecrobot_get_light_sensor
-                0x00208e40       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208e40                ecrobot_get_light_sensor
+                0x00208e94       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208e94                ecrobot_get_light_sensor
  .text.ecrobot_get_touch_sensor
-                0x00208e54       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208e54                ecrobot_get_touch_sensor
+                0x00208ea8       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208ea8                ecrobot_get_touch_sensor
  .text.ecrobot_init_i2c
-                0x00208e74       0x2c ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208e74                ecrobot_init_i2c
+                0x00208ec8       0x2c ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208ec8                ecrobot_init_i2c
  .text.getDistance
-                0x00208ea0       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208ef4       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
  .text.ecrobot_init_sonar_sensor
-                0x00208ec0       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208ec0                ecrobot_init_sonar_sensor
+                0x00208f14       0x10 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f14                ecrobot_init_sonar_sensor
  .text.ecrobot_term_sonar_sensor
-                0x00208ed0       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208ed0                ecrobot_term_sonar_sensor
+                0x00208f24       0x20 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f24                ecrobot_term_sonar_sensor
  .text.ecrobot_get_battery_voltage
-                0x00208ef0        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208ef0                ecrobot_get_battery_voltage
+                0x00208f44        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f44                ecrobot_get_battery_voltage
  .text.ecrobot_get_button_state
-                0x00208efc        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208efc                ecrobot_get_button_state
+                0x00208f50        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f50                ecrobot_get_button_state
  .text.ecrobot_init_nxtstate
-                0x00208f08       0x28 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208f08                ecrobot_init_nxtstate
+                0x00208f5c       0x28 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f5c                ecrobot_init_nxtstate
  .text.ecrobot_poll_nxtstate
-                0x00208f30       0x64 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208f30                ecrobot_poll_nxtstate
+                0x00208f84       0x64 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208f84                ecrobot_poll_nxtstate
  .text.ecrobot_setDeviceInitialized
-                0x00208f94       0x18 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208f94                ecrobot_setDeviceInitialized
+                0x00208fe8       0x18 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00208fe8                ecrobot_setDeviceInitialized
  .text.ecrobot_initDeviceStatus
-                0x00208fac        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208fac                ecrobot_initDeviceStatus
+                0x00209000        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00209000                ecrobot_initDeviceStatus
  .text.ecrobot_bt_data_logger
-                0x00208fb8       0x84 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00208fb8                ecrobot_bt_data_logger
+                0x0020900c       0x84 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x0020900c                ecrobot_bt_data_logger
  .text.ecrobot_bmp2lcd
-                0x0020903c      0x1c8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x0020903c                ecrobot_bmp2lcd
+                0x00209090      0x1c8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00209090                ecrobot_bmp2lcd
  .text.ecrobot_sound_tone
-                0x00209204        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
-                0x00209204                ecrobot_sound_tone
+                0x00209258        0xc ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x00209258                ecrobot_sound_tone
  .text.StartupHook
-                0x00209210        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
-                0x00209210                StartupHook
+                0x00209264        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
+                0x00209264                StartupHook
  .text.PreTaskHook
-                0x00209214        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
-                0x00209214                PreTaskHook
+                0x00209268        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
+                0x00209268                PreTaskHook
  .text.PostTaskHook
-                0x00209218        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
-                0x00209218                PostTaskHook
+                0x0020926c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
+                0x0020926c                PostTaskHook
  .text.ErrorHook
-                0x0020921c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
-                0x0020921c                ErrorHook
+                0x00209270        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
+                0x00209270                ErrorHook
  .text.ShutdownHook
-                0x00209220        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
-                0x00209220                ShutdownHook
- .text          0x00209224       0x8c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_udivsi3.o)
-                0x00209224                __udivsi3
-                0x002092a0                __aeabi_uidivmod
- .text          0x002092b0       0xa4 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_divsi3.o)
-                0x002092b0                __divsi3
-                0x00209344                __aeabi_idivmod
- .text          0x00209354       0xc8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_umodsi3.o)
-                0x00209354                __umodsi3
- .text          0x0020941c       0xd8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_modsi3.o)
-                0x0020941c                __modsi3
- .text          0x002094f4        0x4 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_dvmd_tls.o)
-                0x002094f4                __aeabi_ldiv0
-                0x002094f4                __div0
-                0x002094f4                __aeabi_idiv0
- .text          0x002094f8      0x430 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_addsubdf3.o)
-                0x002098bc                __floatdidf
-                0x0020983c                __floatsidf
-                0x00209814                __aeabi_ui2d
-                0x002094f8                __aeabi_drsub
-                0x00209868                __extendsfdf2
-                0x00209504                __adddf3
-                0x00209814                __floatunsidf
-                0x00209504                __aeabi_dadd
-                0x002098a8                __aeabi_ul2d
-                0x00209500                __aeabi_dsub
-                0x002098a8                __floatundidf
-                0x0020983c                __aeabi_i2d
-                0x002098bc                __aeabi_l2d
-                0x00209868                __aeabi_f2d
-                0x00209500                __subdf3
- .text          0x00209928      0x49c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_muldivdf3.o)
-                0x00209bb8                __aeabi_ddiv
-                0x00209928                __aeabi_dmul
-                0x00209bb8                __divdf3
-                0x00209928                __muldf3
- .text          0x00209dc4       0x5c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_fixdfsi.o)
-                0x00209dc4                __fixdfsi
-                0x00209dc4                __aeabi_d2iz
- .text          0x00209e20       0xa0 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_truncdfsf2.o)
-                0x00209e20                __aeabi_d2f
-                0x00209e20                __truncdfsf2
- .text          0x00209ec0      0x2ac /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_addsubsf3.o)
-                0x00209ecc                __aeabi_fadd
-                0x00209ec8                __subsf3
-                0x0020a090                __aeabi_i2f
-                0x00209ec8                __aeabi_fsub
-                0x0020a0c0                __floatdisf
-                0x0020a090                __floatsisf
-                0x0020a0b0                __floatundisf
-                0x0020a088                __aeabi_ui2f
-                0x0020a0c0                __aeabi_l2f
-                0x0020a0b0                __aeabi_ul2f
-                0x00209ec0                __aeabi_frsub
-                0x0020a088                __floatunsisf
-                0x00209ecc                __addsf3
- .text          0x0020a16c      0x2f8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_muldivsf3.o)
-                0x0020a304                __divsf3
-                0x0020a304                __aeabi_fdiv
-                0x0020a16c                __mulsf3
-                0x0020a16c                __aeabi_fmul
- .text          0x0020a464      0x110 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_cmpsf2.o)
-                0x0020a55c                __aeabi_fcmpgt
-                0x0020a46c                __lesf2
-                0x0020a474                __nesf2
-                0x0020a544                __aeabi_fcmpge
-                0x0020a464                __gtsf2
-                0x0020a52c                __aeabi_fcmple
-                0x0020a474                __eqsf2
-                0x0020a474                __cmpsf2
-                0x0020a46c                __ltsf2
-                0x0020a4e4                __aeabi_cfcmple
-                0x0020a464                __gesf2
-                0x0020a4fc                __aeabi_fcmpeq
-                0x0020a4d4                __aeabi_cfrcmple
-                0x0020a514                __aeabi_fcmplt
-                0x0020a4e4                __aeabi_cfcmpeq
- .text          0x0020a574       0x5c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_fixsfsi.o)
-                0x0020a574                __fixsfsi
-                0x0020a574                __aeabi_f2iz
- .text          0x0020a5d0       0x68 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(memcpy.o)
-                0x0020a5d0                memcpy
- .text          0x0020a638       0x68 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(memset.o)
-                0x0020a638                memset
- .text          0x0020a6a0       0x60 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strcpy.o)
-                0x0020a6a0                strcpy
- .text          0x0020a700       0x48 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strlen.o)
-                0x0020a700                strlen
- .glue_7        0x0020a748       0x30 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strncpy.o)
-                0x0020a760                __call_posttaskhook_from_arm
-                0x0020a749                __ecrobot_debug1_from_arm
-                0x0020a755                __ecrobot_debug2_from_arm
-                0x0020a76c                __call_pretaskhook_from_arm
- .glue_7t       0x0020a778       0xe0 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strncpy.o)
-                0x0020a7a4                __start_change_to_arm
-                0x0020a830                __interrupts_get_and_disable_from_thumb
-                0x0020a851                ____lesf2_from_thumb
-                0x0020a829                ____gtdf2_from_thumb
-                0x0020a798                __exit_and_dispatch_from_thumb
-                0x0020a808                ____divsf3_from_thumb
-                0x0020a84c                ____gesf2_change_to_arm
-                0x0020a818                ____subdf3_from_thumb
-                0x0020a7b4                ____fixsfsi_change_to_arm
-                0x0020a7c4                ____addsf3_change_to_arm
-                0x0020a81c                ____subdf3_change_to_arm
-                0x0020a7b0                ____fixsfsi_from_thumb
-                0x0020a7b8                ____floatsisf_from_thumb
-                0x0020a7e0                ____extendsfdf2_from_thumb
-                0x0020a79c                __exit_and_dispatch_change_to_arm
-                0x0020a778                __disable_int_from_thumb
-                0x0020a849                ____gesf2_from_thumb
-                0x0020a790                __start_dispatch_from_thumb
-                0x0020a7d8                ____ltsf2_from_thumb
-                0x0020a820                ____fixdfsi_from_thumb
-                0x0020a804                ____divdf3_change_to_arm
-                0x0020a854                ____lesf2_change_to_arm
-                0x0020a7a0                __start_from_thumb
-                0x0020a7f8                ____truncdfsf2_from_thumb
-                0x0020a7ec                ____muldf3_change_to_arm
-                0x0020a80c                ____divsf3_change_to_arm
-                0x0020a824                ____fixdfsi_change_to_arm
-                0x0020a800                ____divdf3_from_thumb
-                0x0020a780                __enable_int_from_thumb
-                0x0020a788                __dispatch_from_thumb
-                0x0020a83c                __interrupts_enable_change_to_arm
-                0x0020a7d0                ____gtsf2_from_thumb
-                0x0020a834                __interrupts_get_and_disable_change_to_arm
-                0x0020a78c                __dispatch_change_to_arm
-                0x0020a7ac                ____mulsf3_change_to_arm
-                0x0020a7f4                ____adddf3_change_to_arm
-                0x0020a82c                ____gtdf2_change_to_arm
-                0x0020a7fc                ____truncdfsf2_change_to_arm
-                0x0020a7e4                ____extendsfdf2_change_to_arm
-                0x0020a810                ____floatsidf_from_thumb
-                0x0020a7bc                ____floatsisf_change_to_arm
-                0x0020a841                __display_bios_status_from_thumb
-                0x0020a7c8                ____subsf3_from_thumb
-                0x0020a7f0                ____adddf3_from_thumb
-                0x0020a7d4                ____gtsf2_change_to_arm
-                0x0020a77c                __disable_int_change_to_arm
-                0x0020a7dc                ____ltsf2_change_to_arm
-                0x0020a7a8                ____mulsf3_from_thumb
-                0x0020a7c0                ____addsf3_from_thumb
-                0x0020a7e8                ____muldf3_from_thumb
-                0x0020a7cc                ____subsf3_change_to_arm
-                0x0020a784                __enable_int_change_to_arm
-                0x0020a814                ____floatsidf_change_to_arm
-                0x0020a838                __interrupts_enable_from_thumb
-                0x0020a844                __display_bios_status_change_to_arm
-                0x0020a794                __start_dispatch_change_to_arm
-                0x0020a860                . = ALIGN (0x10)
- *fill*         0x0020a858        0x8 00
+                0x00209274        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(osek_hook.o)
+                0x00209274                ShutdownHook
+ .text          0x00209278       0x8c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_udivsi3.o)
+                0x00209278                __udivsi3
+                0x002092f4                __aeabi_uidivmod
+ .text          0x00209304       0xa4 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_divsi3.o)
+                0x00209304                __divsi3
+                0x00209398                __aeabi_idivmod
+ .text          0x002093a8       0xc8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_umodsi3.o)
+                0x002093a8                __umodsi3
+ .text          0x00209470       0xd8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_modsi3.o)
+                0x00209470                __modsi3
+ .text          0x00209548        0x4 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_dvmd_tls.o)
+                0x00209548                __aeabi_ldiv0
+                0x00209548                __div0
+                0x00209548                __aeabi_idiv0
+ .text          0x0020954c      0x430 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_addsubdf3.o)
+                0x00209910                __floatdidf
+                0x00209890                __floatsidf
+                0x00209868                __aeabi_ui2d
+                0x0020954c                __aeabi_drsub
+                0x002098bc                __extendsfdf2
+                0x00209558                __adddf3
+                0x00209868                __floatunsidf
+                0x00209558                __aeabi_dadd
+                0x002098fc                __aeabi_ul2d
+                0x00209554                __aeabi_dsub
+                0x002098fc                __floatundidf
+                0x00209890                __aeabi_i2d
+                0x00209910                __aeabi_l2d
+                0x002098bc                __aeabi_f2d
+                0x00209554                __subdf3
+ .text          0x0020997c      0x49c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_muldivdf3.o)
+                0x00209c0c                __aeabi_ddiv
+                0x0020997c                __aeabi_dmul
+                0x00209c0c                __divdf3
+                0x0020997c                __muldf3
+ .text          0x00209e18       0x5c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_fixdfsi.o)
+                0x00209e18                __fixdfsi
+                0x00209e18                __aeabi_d2iz
+ .text          0x00209e74       0xa0 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_truncdfsf2.o)
+                0x00209e74                __aeabi_d2f
+                0x00209e74                __truncdfsf2
+ .text          0x00209f14      0x2ac /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_addsubsf3.o)
+                0x00209f20                __aeabi_fadd
+                0x00209f1c                __subsf3
+                0x0020a0e4                __aeabi_i2f
+                0x00209f1c                __aeabi_fsub
+                0x0020a114                __floatdisf
+                0x0020a0e4                __floatsisf
+                0x0020a104                __floatundisf
+                0x0020a0dc                __aeabi_ui2f
+                0x0020a114                __aeabi_l2f
+                0x0020a104                __aeabi_ul2f
+                0x00209f14                __aeabi_frsub
+                0x0020a0dc                __floatunsisf
+                0x00209f20                __addsf3
+ .text          0x0020a1c0      0x2f8 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_muldivsf3.o)
+                0x0020a358                __divsf3
+                0x0020a358                __aeabi_fdiv
+                0x0020a1c0                __mulsf3
+                0x0020a1c0                __aeabi_fmul
+ .text          0x0020a4b8      0x110 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_cmpsf2.o)
+                0x0020a5b0                __aeabi_fcmpgt
+                0x0020a4c0                __lesf2
+                0x0020a4c8                __nesf2
+                0x0020a598                __aeabi_fcmpge
+                0x0020a4b8                __gtsf2
+                0x0020a580                __aeabi_fcmple
+                0x0020a4c8                __eqsf2
+                0x0020a4c8                __cmpsf2
+                0x0020a4c0                __ltsf2
+                0x0020a538                __aeabi_cfcmple
+                0x0020a4b8                __gesf2
+                0x0020a550                __aeabi_fcmpeq
+                0x0020a528                __aeabi_cfrcmple
+                0x0020a568                __aeabi_fcmplt
+                0x0020a538                __aeabi_cfcmpeq
+ .text          0x0020a5c8       0x5c /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/thumb/interwork/libgcc.a(_fixsfsi.o)
+                0x0020a5c8                __fixsfsi
+                0x0020a5c8                __aeabi_f2iz
+ .text          0x0020a624       0x68 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(memcpy.o)
+                0x0020a624                memcpy
+ .text          0x0020a68c       0x68 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(memset.o)
+                0x0020a68c                memset
+ .text          0x0020a6f4       0x60 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strcpy.o)
+                0x0020a6f4                strcpy
+ .text          0x0020a754       0x48 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strlen.o)
+                0x0020a754                strlen
+ .glue_7        0x0020a79c       0x30 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strncpy.o)
+                0x0020a7b4                __call_posttaskhook_from_arm
+                0x0020a79d                __ecrobot_debug1_from_arm
+                0x0020a7a9                __ecrobot_debug2_from_arm
+                0x0020a7c0                __call_pretaskhook_from_arm
+ .glue_7t       0x0020a7cc       0xe0 /cygdrive/C/cygwin/GNUARM/bin/../lib/gcc/arm-elf/4.0.2/../../../../arm-elf/lib/thumb/interwork/libc.a(strncpy.o)
+                0x0020a7f8                __start_change_to_arm
+                0x0020a884                __interrupts_get_and_disable_from_thumb
+                0x0020a8a5                ____lesf2_from_thumb
+                0x0020a87d                ____gtdf2_from_thumb
+                0x0020a7ec                __exit_and_dispatch_from_thumb
+                0x0020a85c                ____divsf3_from_thumb
+                0x0020a8a0                ____gesf2_change_to_arm
+                0x0020a86c                ____subdf3_from_thumb
+                0x0020a808                ____fixsfsi_change_to_arm
+                0x0020a818                ____addsf3_change_to_arm
+                0x0020a870                ____subdf3_change_to_arm
+                0x0020a804                ____fixsfsi_from_thumb
+                0x0020a80c                ____floatsisf_from_thumb
+                0x0020a834                ____extendsfdf2_from_thumb
+                0x0020a7f0                __exit_and_dispatch_change_to_arm
+                0x0020a7cc                __disable_int_from_thumb
+                0x0020a89d                ____gesf2_from_thumb
+                0x0020a7e4                __start_dispatch_from_thumb
+                0x0020a82c                ____ltsf2_from_thumb
+                0x0020a874                ____fixdfsi_from_thumb
+                0x0020a858                ____divdf3_change_to_arm
+                0x0020a8a8                ____lesf2_change_to_arm
+                0x0020a7f4                __start_from_thumb
+                0x0020a84c                ____truncdfsf2_from_thumb
+                0x0020a840                ____muldf3_change_to_arm
+                0x0020a860                ____divsf3_change_to_arm
+                0x0020a878                ____fixdfsi_change_to_arm
+                0x0020a854                ____divdf3_from_thumb
+                0x0020a7d4                __enable_int_from_thumb
+                0x0020a7dc                __dispatch_from_thumb
+                0x0020a890                __interrupts_enable_change_to_arm
+                0x0020a824                ____gtsf2_from_thumb
+                0x0020a888                __interrupts_get_and_disable_change_to_arm
+                0x0020a7e0                __dispatch_change_to_arm
+                0x0020a800                ____mulsf3_change_to_arm
+                0x0020a848                ____adddf3_change_to_arm
+                0x0020a880                ____gtdf2_change_to_arm
+                0x0020a850                ____truncdfsf2_change_to_arm
+                0x0020a838                ____extendsfdf2_change_to_arm
+                0x0020a864                ____floatsidf_from_thumb
+                0x0020a810                ____floatsisf_change_to_arm
+                0x0020a895                __display_bios_status_from_thumb
+                0x0020a81c                ____subsf3_from_thumb
+                0x0020a844                ____adddf3_from_thumb
+                0x0020a828                ____gtsf2_change_to_arm
+                0x0020a7d0                __disable_int_change_to_arm
+                0x0020a830                ____ltsf2_change_to_arm
+                0x0020a7fc                ____mulsf3_from_thumb
+                0x0020a814                ____addsf3_from_thumb
+                0x0020a83c                ____muldf3_from_thumb
+                0x0020a820                ____subsf3_change_to_arm
+                0x0020a7d8                __enable_int_change_to_arm
+                0x0020a868                ____floatsidf_change_to_arm
+                0x0020a88c                __interrupts_enable_from_thumb
+                0x0020a898                __display_bios_status_change_to_arm
+                0x0020a7e8                __start_dispatch_change_to_arm
+                0x0020a8b0                . = ALIGN (0x10)
+ *fill*         0x0020a8ac        0x4 00
  *(*.rodata *.rodata.*)
  .rodata.search_table.966
-                0x0020a860        0xf build/kernel/task.o
- *fill*         0x0020a86f        0x1 00
+                0x0020a8b0        0xf build/kernel/task.o
+ *fill*         0x0020a8bf        0x1 00
  .rodata.alminib_cycle
-                0x0020a870        0x8 build/./kernel_cfg.o
-                0x0020a870                alminib_cycle
+                0x0020a8c0        0x8 build/./kernel_cfg.o
+                0x0020a8c0                alminib_cycle
  .rodata.alminib_almval
-                0x0020a878        0x8 build/./kernel_cfg.o
-                0x0020a878                alminib_almval
+                0x0020a8c8        0x8 build/./kernel_cfg.o
+                0x0020a8c8                alminib_almval
  .rodata.alminib_autosta
-                0x0020a880        0x2 build/./kernel_cfg.o
-                0x0020a880                alminib_autosta
- *fill*         0x0020a882        0x2 00
+                0x0020a8d0        0x2 build/./kernel_cfg.o
+                0x0020a8d0                alminib_autosta
+ *fill*         0x0020a8d2        0x2 00
  .rodata.alminib_cback
-                0x0020a884        0x8 build/./kernel_cfg.o
-                0x0020a884                alminib_cback
+                0x0020a8d4        0x8 build/./kernel_cfg.o
+                0x0020a8d4                alminib_cback
  .rodata.alminib_cntid
-                0x0020a88c        0x2 build/./kernel_cfg.o
-                0x0020a88c                alminib_cntid
- *fill*         0x0020a88e        0x2 00
+                0x0020a8dc        0x2 build/./kernel_cfg.o
+                0x0020a8dc                alminib_cntid
+ *fill*         0x0020a8de        0x2 00
  .rodata.cntinib_tickbase
-                0x0020a890        0x4 build/./kernel_cfg.o
-                0x0020a890                cntinib_tickbase
+                0x0020a8e0        0x4 build/./kernel_cfg.o
+                0x0020a8e0                cntinib_tickbase
  .rodata.cntinib_maxval2
-                0x0020a894        0x4 build/./kernel_cfg.o
-                0x0020a894                cntinib_maxval2
+                0x0020a8e4        0x4 build/./kernel_cfg.o
+                0x0020a8e4                cntinib_maxval2
  .rodata.cntinib_maxval
-                0x0020a898        0x4 build/./kernel_cfg.o
-                0x0020a898                cntinib_maxval
+                0x0020a8e8        0x4 build/./kernel_cfg.o
+                0x0020a8e8                cntinib_maxval
  .rodata.SysTimerCnt
-                0x0020a89c        0x1 build/./kernel_cfg.o
-                0x0020a89c                SysTimerCnt
- *fill*         0x0020a89d        0x1 00
+                0x0020a8ec        0x1 build/./kernel_cfg.o
+                0x0020a8ec                SysTimerCnt
+ *fill*         0x0020a8ed        0x1 00
  .rodata.tinib_stksz
-                0x0020a89e        0x6 build/./kernel_cfg.o
-                0x0020a89e                tinib_stksz
+                0x0020a8ee        0x6 build/./kernel_cfg.o
+                0x0020a8ee                tinib_stksz
  .rodata.tinib_stk
-                0x0020a8a4        0xc build/./kernel_cfg.o
-                0x0020a8a4                tinib_stk
+                0x0020a8f4        0xc build/./kernel_cfg.o
+                0x0020a8f4                tinib_stk
  .rodata.tinib_task
-                0x0020a8b0        0xc build/./kernel_cfg.o
-                0x0020a8b0                tinib_task
+                0x0020a900        0xc build/./kernel_cfg.o
+                0x0020a900                tinib_task
  .rodata.tinib_autoact
-                0x0020a8bc        0x3 build/./kernel_cfg.o
-                0x0020a8bc                tinib_autoact
+                0x0020a90c        0x3 build/./kernel_cfg.o
+                0x0020a90c                tinib_autoact
  .rodata.tinib_maxact
-                0x0020a8bf        0x3 build/./kernel_cfg.o
-                0x0020a8bf                tinib_maxact
+                0x0020a90f        0x3 build/./kernel_cfg.o
+                0x0020a90f                tinib_maxact
  .rodata.tinib_exepri
-                0x0020a8c2        0x3 build/./kernel_cfg.o
-                0x0020a8c2                tinib_exepri
+                0x0020a912        0x3 build/./kernel_cfg.o
+                0x0020a912                tinib_exepri
  .rodata.tinib_inipri
-                0x0020a8c5        0x3 build/./kernel_cfg.o
-                0x0020a8c5                tinib_inipri
+                0x0020a915        0x3 build/./kernel_cfg.o
+                0x0020a915                tinib_inipri
  .rodata.tnum_exttask
-                0x0020a8c8        0x1 build/./kernel_cfg.o
-                0x0020a8c8                tnum_exttask
+                0x0020a918        0x1 build/./kernel_cfg.o
+                0x0020a918                tnum_exttask
  .rodata.tnum_task
-                0x0020a8c9        0x1 build/./kernel_cfg.o
-                0x0020a8c9                tnum_task
+                0x0020a919        0x1 build/./kernel_cfg.o
+                0x0020a919                tnum_task
  .rodata.tnum_counter
-                0x0020a8ca        0x1 build/./kernel_cfg.o
-                0x0020a8ca                tnum_counter
+                0x0020a91a        0x1 build/./kernel_cfg.o
+                0x0020a91a                tnum_counter
  .rodata.tnum_alarm
-                0x0020a8cb        0x1 build/./kernel_cfg.o
-                0x0020a8cb                tnum_alarm
+                0x0020a91b        0x1 build/./kernel_cfg.o
+                0x0020a91b                tnum_alarm
  .rodata.exec_addr
-                0x0020a8cc        0x4 build/ecrobot_base.o
-                0x0020a8cc                exec_addr
+                0x0020a91c        0x4 build/ecrobot_base.o
+                0x0020a91c                exec_addr
  .rodata.str1.4
-                0x0020a8d0       0x80 build/ecrobot_base.o
+                0x0020a920       0x80 build/ecrobot_base.o
  .rodata.str1.4
-                0x0020a950        0xd build/model_impl.o
+                0x0020a9a0        0xd build/model_impl.o
                                  0x10 (size before relaxing)
- *fill*         0x0020a95d        0x3 00
+ *fill*         0x0020a9ad        0x3 00
  .rodata.str1.4
-                0x0020a960        0x5 build/device/Bluetooth.o
+                0x0020a9b0        0x5 build/device/Bluetooth.o
                                   0x8 (size before relaxing)
- *fill*         0x0020a965        0x3 00
+ *fill*         0x0020a9b5        0x3 00
  .rodata.Strategy_action
-                0x0020a968      0x1a4 build/competision/Strategy.o
+                0x0020a9b8      0x1a8 build/competision/Strategy.o
  .rodata.Runner_run
-                0x0020ab0c       0x14 build/competision/Runner.o
+                0x0020ab60       0x14 build/competision/Runner.o
  .rodata.Commander_action
-                0x0020ab20       0x18 build/technique/Commander.o
+                0x0020ab74       0x18 build/technique/Commander.o
  .rodata.RoboControl_control
-                0x0020ab38       0x18 build/competision/RoboControl.o
+                0x0020ab8c       0x18 build/competision/RoboControl.o
  .rodata.Jump_action
-                0x0020ab50       0x14 build/competision/Jump.o
+                0x0020aba4       0x14 build/competision/Jump.o
  .rodata.FigureL_action
-                0x0020ab64       0x14 build/competision/FigureL.o
+                0x0020abb8       0x14 build/competision/FigureL.o
  .rodata.TrialDecision_action
-                0x0020ab78       0x14 build/technique/TrialDecision.o
-                0x0020ab90                . = ALIGN (0x10)
- *fill*         0x0020ab8c        0x4 00
+                0x0020abcc       0x14 build/technique/TrialDecision.o
+                0x0020abe0                . = ALIGN (0x10)
  *(*.gnu.linkonce.* .gcc_except_table)
-                0x0020ab90                . = ALIGN (0x10)
+                0x0020abe0                . = ALIGN (0x10)
 
-.tors           0x0020ab90        0x0
-                0x0020ab90                . = ALIGN (0x10)
-                0x0020ab90                __ctor_begin = .
+.tors           0x0020abe0        0x0
+                0x0020abe0                . = ALIGN (0x10)
+                0x0020abe0                __ctor_begin = .
  *(*.ctors*)
-                0x0020ab90                __ctor_end = .
-                0x0020ab90                . = ALIGN (0x10)
-                0x0020ab90                __dtor_begin = .
+                0x0020abe0                __ctor_end = .
+                0x0020abe0                . = ALIGN (0x10)
+                0x0020abe0                __dtor_begin = .
  *(*.dtors*)
-                0x0020ab90                __dtor_end = .
-                0x0020ab90                . = ALIGN (0x10)
+                0x0020abe0                __dtor_end = .
+                0x0020abe0                . = ALIGN (0x10)
 
-.bss            0x0020ab90     0x1f14
+.bss            0x0020abe0     0x1f14
  *(*.bss *.bss.*)
  .bss.ready_primap
-                0x0020ab90        0x2 build/kernel/task.o
+                0x0020abe0        0x2 build/kernel/task.o
  .bss.ready_queue_last
-                0x0020ab92       0x10 build/kernel/task.o
+                0x0020abe2       0x10 build/kernel/task.o
  .bss.ready_queue_first
-                0x0020aba2       0x10 build/kernel/task.o
- *fill*         0x0020abb2        0x2 00
+                0x0020abf2       0x10 build/kernel/task.o
+ *fill*         0x0020ac02        0x2 00
  .bss._stack_TaskBuletooth
-                0x0020abb4      0x200 build/./kernel_cfg.o
+                0x0020ac04      0x200 build/./kernel_cfg.o
  .bss._stack_TaskMain
-                0x0020adb4      0x200 build/./kernel_cfg.o
+                0x0020ae04      0x200 build/./kernel_cfg.o
  .bss._stack_TaskInit
-                0x0020afb4      0x200 build/./kernel_cfg.o
+                0x0020b004      0x200 build/./kernel_cfg.o
  .bss.receiveBuf
-                0x0020b1b4       0x80 build/ecrobot_bluetooth.o
- .bss.sendBuf   0x0020b234      0x100 build/ecrobot_bluetooth.o
- .bss.handle    0x0020b334        0x1 build/ecrobot_bluetooth.o
- *fill*         0x0020b335        0x3 00
+                0x0020b204       0x80 build/ecrobot_bluetooth.o
+ .bss.sendBuf   0x0020b284      0x100 build/ecrobot_bluetooth.o
+ .bss.handle    0x0020b384        0x1 build/ecrobot_bluetooth.o
+ *fill*         0x0020b385        0x3 00
  .bss.status_bar_position
-                0x0020b338        0x4 build/ecrobot_base.o
+                0x0020b388        0x4 build/ecrobot_base.o
  .bss.last_act_time.2753
-                0x0020b33c        0x4 build/ecrobot_base.o
- .bss.lcd.2682  0x0020b340      0x320 build/ecrobot_base.o
- .bss.OS_flag   0x0020b660        0x4 build/ecrobot_base.o
+                0x0020b38c        0x4 build/ecrobot_base.o
+ .bss.lcd.2682  0x0020b390      0x320 build/ecrobot_base.o
+ .bss.OS_flag   0x0020b6b0        0x4 build/ecrobot_base.o
  .bss.status_bar
-                0x0020b664       0x10 build/ecrobot_base.o
- .bss.i         0x0020b674        0x4 build/competision/Mogul.o
-                0x0020b674                i
+                0x0020b6b4       0x10 build/ecrobot_base.o
+ .bss.i         0x0020b6c4        0x4 build/competision/Mogul.o
+                0x0020b6c4                i
  .bss.buttons_i
-                0x0020b678        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x0020b6c8        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
  .bss.buttons_states
-                0x0020b67c       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x0020b6cc       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
  .bss.ecrobot_inputs
-                0x0020b690        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
+                0x0020b6e0        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(ecrobot_interface.o)
  .bss.systick_ms
-                0x0020b698        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(systick.oram)
+                0x0020b6e8        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(systick.oram)
  .bss.delayedEnable
-                0x0020b69c        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
- *fill*         0x0020b69d        0x3 00
- .bss.outCnt    0x0020b6a0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
- .bss.outPtr    0x0020b6a4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+                0x0020b6ec        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+ *fill*         0x0020b6ed        0x3 00
+ .bss.outCnt    0x0020b6f0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+ .bss.outPtr    0x0020b6f4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
  .bss.newAddress
-                0x0020b6a8        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+                0x0020b6f8        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
  .bss.currentRxBank
-                0x0020b6ac        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+                0x0020b6fc        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
  .bss.currentFeatures
-                0x0020b6b0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+                0x0020b700        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
  .bss.currentConfig
-                0x0020b6b4        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
- *fill*         0x0020b6b5        0x3 00
- .bss.twi_mask  0x0020b6b8        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
- .bss.twi_ptr   0x0020b6bc        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
+                0x0020b704        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(udp.oram)
+ *fill*         0x0020b705        0x3 00
+ .bss.twi_mask  0x0020b708        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
+ .bss.twi_ptr   0x0020b70c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
  .bss.twi_pending
-                0x0020b6c0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
+                0x0020b710        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
  .bss.twi_state
-                0x0020b6c4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
- .bss.page      0x0020b6c8        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
-                0x0020b6c8                page
- .bss.dirty     0x0020b6c9        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
-                0x0020b6c9                dirty
- *fill*         0x0020b6ca        0x2 00
- .bss.display   0x0020b6cc        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
-                0x0020b6cc                display
+                0x0020b714        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(twi.oram)
+ .bss.page      0x0020b718        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
+                0x0020b718                page
+ .bss.dirty     0x0020b719        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
+                0x0020b719                dirty
+ *fill*         0x0020b71a        0x2 00
+ .bss.display   0x0020b71c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_spi.oram)
+                0x0020b71c                display
  .bss.interrupts_this_period
-                0x0020b6d0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
+                0x0020b720        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
  .bss.nxt_motor_initialised
-                0x0020b6d4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
- .bss.motor     0x0020b6d8       0x30 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
+                0x0020b724        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
+ .bss.motor     0x0020b728       0x30 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_motors.oram)
  .bss.display_tick
-                0x0020b708        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
-                0x0020b708                display_tick
+                0x0020b758        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
+                0x0020b758                display_tick
  .bss.display_array
-                0x0020b70c      0x388 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
+                0x0020b75c      0x388 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
  .bss.i2c_int_count
-                0x0020ba94        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(i2c.oram)
- .bss.i2c_port  0x0020ba98      0x170 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(i2c.oram)
+                0x0020bae4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(i2c.oram)
+ .bss.i2c_port  0x0020bae8      0x170 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(i2c.oram)
  .bss.sound_mode
-                0x0020bc08        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
-                0x0020bc08                sound_mode
- *fill*         0x0020bc09        0x3 00
+                0x0020bc58        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
+                0x0020bc58                sound_mode
+ *fill*         0x0020bc59        0x3 00
  .bss.in_buf_idx
-                0x0020bc0c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
- .bss.buf_ptr   0x0020bc10        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
- .bss.out_buf   0x0020bc14      0x200 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+                0x0020bc5c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+ .bss.buf_ptr   0x0020bc60        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+ .bss.out_buf   0x0020bc64      0x200 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
  .bss.out_buf_ptr
-                0x0020be14        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+                0x0020be64        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
  .bss.in_buf_in_ptr
-                0x0020be15        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
- .bss.in_buf    0x0020be16      0x100 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
- *fill*         0x0020bf16        0x2 00
+                0x0020be65        0x1 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+ .bss.in_buf    0x0020be66      0x100 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(bt.oram)
+ *fill*         0x0020bf66        0x2 00
  .bss.link_state
-                0x0020bf18        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf68        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.update_count
-                0x0020bf1c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf6c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.nxt_avr_stats
-                0x0020bf20       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf70       0x14 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.debounce_cnt
-                0x0020bf34        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf84        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.debounce_state
-                0x0020bf36        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf86        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.button_state
-                0x0020bf38        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf88        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.prev_buttons
-                0x0020bf3a        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
- .bss.from_buf  0x0020bf3c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf8a        0x2 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+ .bss.from_buf  0x0020bf8c        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.io_from_avr
-                0x0020bf40        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf90        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.data_from_avr
-                0x0020bf44       0x1a ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bf94       0x1a ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.data_to_avr
-                0x0020bf5e        0x9 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+                0x0020bfae        0x9 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
  .bss.io_to_avr
-                0x0020bf67        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
- *fill*         0x0020bf6f        0x1 00
- .bss.display   0x0020bf70        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_lcd.oram)
-                0x0020bf80                . = ALIGN (0x10)
- *fill*         0x0020bf74        0xc 00
-                0x0020bf80                __bss_end__ = .
- COMMON         0x0020bf80        0x2 build/kernel/interrupt.o
-                0x0020bf80                runisr
-                0x0020bf81                sus_all_cnt
- *fill*         0x0020bf82        0x2 00
- COMMON         0x0020bf84       0x10 build/kernel/osctl.o
-                0x0020bf84                callevel
-                0x0020bf85                _errorhook_svcid
-                0x0020bf86                appmode
-                0x0020bf88                _errorhook_par1
-                0x0020bf8c                _errorhook_par3
-                0x0020bf90                _errorhook_par2
- COMMON         0x0020bf94        0x3 build/kernel/task.o
-                0x0020bf94                runtsk
-                0x0020bf95                schedtsk
-                0x0020bf96                nextpri
- *fill*         0x0020bf97        0x1 00
- COMMON         0x0020bf98       0x50 build/./kernel_cfg.o
-                0x0020bf98                tcb_waievt
-                0x0020bf9c                rescb_prevpri
-                0x0020bf9d                almcb_prev
-                0x0020bf9f                tcb_lastres
-                0x0020bfa4                almcb_almval
-                0x0020bfac                tcxb_pc
-                0x0020bfb8                tcb_next
-                0x0020bfbb                tcb_curpri
-                0x0020bfbe                tcb_tstat
-                0x0020bfc1                isrcb_lastres
-                0x0020bfc2                cntcb_almque
-                0x0020bfc3                rescb_prevres
-                0x0020bfc4                tcb_actcnt
-                0x0020bfc8                tcb_curevt
-                0x0020bfcc                almcb_cycle
-                0x0020bfd4                tcxb_sp
-                0x0020bfe0                almcb_next
-                0x0020bfe4                cntcb_curval
- COMMON         0x0020bfe8      0x748 build/model_impl.o
-                0x0020bfe8                info
-                0x0020c004                wheel
-                0x0020c00c                basicStageDistance
-                0x0020c010                strategy
-                0x0020c048                pidControl
-                0x0020c060                rightMotor
-                0x0020c068                frontMotor
-                0x0020c070                orderList
-                0x0020c3c0                lcd
-                0x0020c3c8                lineComeback
-                0x0020c3d8                tailMotor
-                0x0020c3e0                basicStage
-                0x0020c3e8                bluetooth
-                0x0020c3ec                sonarSensor
-                0x0020c3f0                lookUpGateTimer
-                0x0020c3f4                runner
-                0x0020c410                command
-                0x0020c42c                gyroSensor
-                0x0020c434                runnerInfo
-                0x0020c460                distance
-                0x0020c464                active
-                0x0020c468                communication
-                0x0020c584                direction
-                0x0020c588                tail
-                0x0020c58c                orderTest
-                0x0020c598                leftMotor
-                0x0020c5a0                jump
-                0x0020c5ac                logger
-                0x0020c5b0                figureL
-                0x0020c5bc                course
-                0x0020c5cc                frontWheel
-                0x0020c5d4                touchSensor
-                0x0020c5d8                strategyDistance
-                0x0020c5dc                commander
-                0x0020c5e8                trialDicision
-                0x0020c5f8                calibration
-                0x0020c610                lookupGageDistance
-                0x0020c614                pendingArea
-                0x0020c624                lightSensor
-                0x0020c628                lineTracer
-                0x0020c64c                checkStart
-                0x0020c660                dash
-                0x0020c664                color
-                0x0020c668                drivingWheel
-                0x0020c670                courseInfo
-                0x0020c684                balanceControl
-                0x0020c6b4                garageInDistance
-                0x0020c6b8                bumpDecision
-                0x0020c6c0                colorJudgement
-                0x0020c6c8                settingInfo
-                0x0020c6e8                grayDecisionTimer
-                0x0020c6ec                competision
-                0x0020c6fc                lineChange
-                0x0020c70c                mogul
-                0x0020c718                roboControl
- COMMON         0x0020c730       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
-                0x0020c730                uart
- COMMON         0x0020c774        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
-                0x0020c774                data_abort_pc
- COMMON         0x0020c778        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
-                0x0020c778                display_x
-                0x0020c77c                display_y
- COMMON         0x0020c780      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
-                0x0020c780                sample
-                0x0020ab90                __bss_start__ = ADDR (.bss)
-                0x0020caa4                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
-                0x0020caa4                PROVIDE (end, .)
+                0x0020bfb7        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_avr.oram)
+ *fill*         0x0020bfbf        0x1 00
+ .bss.display   0x0020bfc0        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(nxt_lcd.oram)
+                0x0020bfd0                . = ALIGN (0x10)
+ *fill*         0x0020bfc4        0xc 00
+                0x0020bfd0                __bss_end__ = .
+ COMMON         0x0020bfd0        0x2 build/kernel/interrupt.o
+                0x0020bfd0                runisr
+                0x0020bfd1                sus_all_cnt
+ *fill*         0x0020bfd2        0x2 00
+ COMMON         0x0020bfd4       0x10 build/kernel/osctl.o
+                0x0020bfd4                callevel
+                0x0020bfd5                _errorhook_svcid
+                0x0020bfd6                appmode
+                0x0020bfd8                _errorhook_par1
+                0x0020bfdc                _errorhook_par3
+                0x0020bfe0                _errorhook_par2
+ COMMON         0x0020bfe4        0x3 build/kernel/task.o
+                0x0020bfe4                runtsk
+                0x0020bfe5                schedtsk
+                0x0020bfe6                nextpri
+ *fill*         0x0020bfe7        0x1 00
+ COMMON         0x0020bfe8       0x50 build/./kernel_cfg.o
+                0x0020bfe8                tcb_waievt
+                0x0020bfec                rescb_prevpri
+                0x0020bfed                almcb_prev
+                0x0020bfef                tcb_lastres
+                0x0020bff4                almcb_almval
+                0x0020bffc                tcxb_pc
+                0x0020c008                tcb_next
+                0x0020c00b                tcb_curpri
+                0x0020c00e                tcb_tstat
+                0x0020c011                isrcb_lastres
+                0x0020c012                cntcb_almque
+                0x0020c013                rescb_prevres
+                0x0020c014                tcb_actcnt
+                0x0020c018                tcb_curevt
+                0x0020c01c                almcb_cycle
+                0x0020c024                tcxb_sp
+                0x0020c030                almcb_next
+                0x0020c034                cntcb_curval
+ COMMON         0x0020c038      0x748 build/model_impl.o
+                0x0020c038                info
+                0x0020c054                wheel
+                0x0020c05c                basicStageDistance
+                0x0020c060                strategy
+                0x0020c098                pidControl
+                0x0020c0b0                rightMotor
+                0x0020c0b8                frontMotor
+                0x0020c0c0                orderList
+                0x0020c410                lcd
+                0x0020c418                lineComeback
+                0x0020c428                tailMotor
+                0x0020c430                basicStage
+                0x0020c438                bluetooth
+                0x0020c43c                sonarSensor
+                0x0020c440                lookUpGateTimer
+                0x0020c444                runner
+                0x0020c460                command
+                0x0020c47c                gyroSensor
+                0x0020c484                runnerInfo
+                0x0020c4b0                distance
+                0x0020c4b4                active
+                0x0020c4b8                communication
+                0x0020c5d4                direction
+                0x0020c5d8                tail
+                0x0020c5dc                orderTest
+                0x0020c5e8                leftMotor
+                0x0020c5f0                jump
+                0x0020c5fc                logger
+                0x0020c600                figureL
+                0x0020c60c                course
+                0x0020c61c                frontWheel
+                0x0020c624                touchSensor
+                0x0020c628                strategyDistance
+                0x0020c62c                commander
+                0x0020c638                trialDicision
+                0x0020c648                calibration
+                0x0020c660                lookupGageDistance
+                0x0020c664                pendingArea
+                0x0020c674                lightSensor
+                0x0020c678                lineTracer
+                0x0020c69c                checkStart
+                0x0020c6b0                dash
+                0x0020c6b4                color
+                0x0020c6b8                drivingWheel
+                0x0020c6c0                courseInfo
+                0x0020c6d4                balanceControl
+                0x0020c704                garageInDistance
+                0x0020c708                bumpDecision
+                0x0020c710                colorJudgement
+                0x0020c718                settingInfo
+                0x0020c738                grayDecisionTimer
+                0x0020c73c                competision
+                0x0020c74c                lineChange
+                0x0020c75c                mogul
+                0x0020c768                roboControl
+ COMMON         0x0020c780       0x44 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(uart.oram)
+                0x0020c780                uart
+ COMMON         0x0020c7c4        0x4 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(data_abort.oram)
+                0x0020c7c4                data_abort_pc
+ COMMON         0x0020c7c8        0x8 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(display.oram)
+                0x0020c7c8                display_x
+                0x0020c7cc                display_y
+ COMMON         0x0020c7d0      0x324 ../nxtOSEK/ecrobot/../ecrobot/libecrobot.a(sound.oram)
+                0x0020c7d0                sample
+                0x0020abe0                __bss_start__ = ADDR (.bss)
+                0x0020caf4                __bss_end__ = (ADDR (.bss) + SIZEOF (.bss))
+                0x0020caf4                PROVIDE (end, .)
 
-.heap_area      0x0020caa4     0x30d4
+.heap_area      0x0020caf4     0x3084
                 0x0020fb78                . = (. + (0x20fb78 - end))
- *fill*         0x0020caa4     0x30d4 00
+ *fill*         0x0020caf4     0x3084 00
 
 .stack          0x0020fb78      0x488
                 0x0020fbf8                . = (. + 0x80)
