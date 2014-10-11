@@ -54,7 +54,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// スタート直後の直線
 			case(2):
 			{
-				if(Course_IN_StartToCurve(this->course) == TRUE)
+				if(Course_IN_StartToCurve(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -64,7 +64,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// カーブ
 			case(3):
 			{
-				if(Course_IN_CurveToLineChange(this->course) == TRUE)
+				if(Course_IN_CurveToLineChange(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -74,7 +74,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// ライン切替
 			case(4):
 			{
-				if(LineChange_action(this->lineChange) == TRUE)
+				if(LineChange_action(this->lineChange))
 				{
 					info->strategyState++;
 				}
@@ -83,7 +83,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// 2周目スタート地点
 			case(5):
 			{
-				if(Course_IN_LineChangeToReStart(this->course) == TRUE)
+				if(Course_IN_LineChangeToReStart(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -93,7 +93,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// スタート直後の直線
 			case(6):
 			{
-				if(Course_IN_StartToCurve(this->course) == TRUE)
+				if(Course_IN_StartToCurve(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -103,7 +103,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// 2周目カーブ
 			case(7):
 			{
-				if(Course_IN_CurveToMogul(this->course) == TRUE)
+				if(Course_IN_CurveToMogul(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -140,7 +140,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// マニュアル走行切替
 			case(11):
 			{
-				if(Course_IN_MogulToManual(this->course) == TRUE)
+				if(Course_IN_MogulToManual(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -150,7 +150,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// マニュアル走行
 			case(12):
 			{
-				if(Course_IN_ManualToFigureL(this->course) == TRUE)
+				if(Course_IN_ManualToFigureL(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -188,7 +188,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// 停止位置まで走行
 			case(16):
 			{
-				if(Course_IN_FigureLToStop(this->course) == TRUE)
+				if(Course_IN_FigureLToStop(this->course))
 				{
 					Course_resetMode(this->course);
 					info->strategyState++;
@@ -223,6 +223,12 @@ void Strategy_action(Strategy* this, Info* info)
 				break;
 			case(53):
 				if(LineComeback_main(this->lineComeback,1))
+				{
+					ecrobot_sound_tone(559, 100, 95);
+				}
+				break;
+			case(54):
+				if(LineChange_action(this->lineChange))
 				{
 					ecrobot_sound_tone(559, 100, 95);
 				}

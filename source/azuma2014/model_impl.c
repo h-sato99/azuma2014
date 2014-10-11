@@ -407,8 +407,8 @@ TASK(TaskInit)
 	//OrderList_lineTraceRunning(&orderList, 23, 570, TURN_FRONT, 0, 0);
 	//OrderList_lineTraceRunning(&orderList, 20, 570, TURN_FRONT, 0, 0);
 //	OrderList_lineTraceRunning(&orderList, 0, 550, TURN_FRONT, 0, 0);
-	LineTracer_setLeftEdge(&lineTracer);
-	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
+//	LineTracer_setLeftEdge(&lineTracer);
+//	OrderList_lineTraceRunning(&orderList, 0, 500, TURN_FRONT, 0, 0);
 	//test
 
 	/*

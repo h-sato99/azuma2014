@@ -276,7 +276,7 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			break;
 		}
-		// ライン復帰(左旋回)
+		// ライン復帰(右旋回)
 		case(65):
 		{
 			if(this->command->value1 == 0)
@@ -287,6 +287,20 @@ void Commander_runComand(Commander* this, Info *info)
 			{
 				info->settingInfo->courseType = 1;
 				info->strategyState = 53;
+			}
+			break;
+		}
+		// ライン切替
+		case(66):
+		{
+			if(this->command->value1 == 0)
+			{
+				info->strategyState = 1;
+			}
+			else if(this->command->value1 == 1)
+			{
+				info->settingInfo->courseType = 1;
+				info->strategyState = 54;
 			}
 			break;
 		}
