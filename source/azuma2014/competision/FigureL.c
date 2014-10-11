@@ -101,7 +101,6 @@ BOOL FigureL_action(FigureL* this){
 			ecrobot_sound_tone(659, 70, 95);
 			return TRUE;
 		}
-		break;
 	}
 
 		return FALSE;

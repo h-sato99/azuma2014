@@ -78,7 +78,6 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 
 	// 色判定を使って黒を探す
 	if(ColorJudgement_judgeColor(this->colorJudgement)==BLACK){
-		ecrobot_sound_tone(790, 70, 95);
 		/*
 		 * // 現在の走行状態取得を指示
 		 * OrderList_nowOrder();
@@ -95,7 +94,6 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 		else
 		{
 			if (OrderList_checkFinished(this->orderList,this->orderNum)){
-				ecrobot_sound_tone(659, 70, 95);
 				return TRUE;
 			}
 		}

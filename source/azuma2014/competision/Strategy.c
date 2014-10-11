@@ -29,15 +29,15 @@ void Strategy_action(Strategy* this, Info* info)
 	Strategy_checkState(this, info);
 
 	// test
-	if(info->autoStrategyFlag == FALSE)
-	{
-		//OrderTest_tailRun(this->orderTest);
-		//OrderTest_figureL(this->orderTest);
-		//OrderTest_strateRun(this->orderTest);
-		//Course_strateRunIN(this->course);
-		//Course_stableRunIN(this->course);
-		return;
-	}
+//	if(info->autoStrategyFlag == FALSE)
+//	{
+//		//OrderTest_tailRun(this->orderTest);
+//		//OrderTest_figureL(this->orderTest);
+//		//OrderTest_strateRun(this->orderTest);
+//		//Course_strateRunIN(this->course);
+//		//Course_stableRunIN(this->course);
+//		return;
+//	}
 	// test
 
 	// インコース
@@ -47,6 +47,7 @@ void Strategy_action(Strategy* this, Info* info)
 			// コースクラス初期化
 			case(1):
 			{
+				ecrobot_sound_tone(500, 70, 95);
 				Course_resetMode(this->course);
 				info->strategyState++;
 				break;
@@ -56,6 +57,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_StartToCurve(this->course))
 				{
+					ecrobot_sound_tone(650, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -66,6 +68,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_CurveToLineChange(this->course))
 				{
+					ecrobot_sound_tone(800, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -76,6 +79,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(LineChange_action(this->lineChange))
 				{
+					ecrobot_sound_tone(500, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -85,6 +89,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_LineChangeToReStart(this->course))
 				{
+					ecrobot_sound_tone(650, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -95,6 +100,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_StartToCurve(this->course))
 				{
+					ecrobot_sound_tone(800, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -105,6 +111,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_CurveToMogul(this->course))
 				{
+					ecrobot_sound_tone(500, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -115,6 +122,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
+					ecrobot_sound_tone(650, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -124,6 +132,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Mogul_main(this->mogul))
 				{
+					ecrobot_sound_tone(800, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -131,8 +140,9 @@ void Strategy_action(Strategy* this, Info* info)
 			// ライン復帰
 			case(10):
 			{
-				if(LineComeback_main(this->lineComeback,1))
+				if(LineComeback_main(this->lineComeback, RIGHT))
 				{
+					ecrobot_sound_tone(500, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -142,6 +152,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_MogulToManual(this->course))
 				{
+					ecrobot_sound_tone(650, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -152,6 +163,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_ManualToFigureL(this->course))
 				{
+					ecrobot_sound_tone(800, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -162,6 +174,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(TrialDecision_action(this->trialDecision))
 				{
+					ecrobot_sound_tone(500, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -169,9 +182,9 @@ void Strategy_action(Strategy* this, Info* info)
 			// フィギュアL
 			case(14):
 			{
-				//ecrobot_sound_tone(800, 200, 95);
 				if(FigureL_action(this->figureL))
 				{
+					ecrobot_sound_tone(650, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -181,6 +194,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(LineComeback_main(this->lineComeback,1))
 				{
+					ecrobot_sound_tone(800, 70, 95);
 					info->strategyState++;
 				}
 				break;
@@ -190,6 +204,7 @@ void Strategy_action(Strategy* this, Info* info)
 			{
 				if(Course_IN_FigureLToStop(this->course))
 				{
+					ecrobot_sound_tone(500, 70, 95);
 					Course_resetMode(this->course);
 					info->strategyState++;
 				}
@@ -199,6 +214,7 @@ void Strategy_action(Strategy* this, Info* info)
 			case(17):
 			{
 				// stop
+				ecrobot_sound_tone(800, 70, 95);
 				Course_stop(this->course);
 				break;
 			}

@@ -67,7 +67,6 @@ BOOL PendingArea_action(PendingArea* this)
 			ecrobot_sound_tone(800, 200, 95);
 			return TRUE;
 		}
-		break;
 	}
 	return FALSE;
 }

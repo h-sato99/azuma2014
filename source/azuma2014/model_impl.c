@@ -363,7 +363,7 @@ TASK(TaskInit)
 	info.loggerFlag = FALSE;
 	info.autoStrategyFlag = TRUE;
 //	info.autoStrategyFlag = FALSE;
-	info.strategyState = 0;
+	info.strategyState = 1;
 //	info.strategyState = 7;
 	info.startFlag = FALSE;
 	info.measureInfo->countGrayMarker  = 0;

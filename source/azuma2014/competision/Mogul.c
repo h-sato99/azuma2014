@@ -57,10 +57,8 @@ BOOL Mogul_main(Mogul* this){
 		break;
 	case 2:
 		if (OrderList_checkFinished(this->orderList,this->orderNum)){
-			ecrobot_sound_tone(659, 70, 95);
 			return TRUE;
 		}
-		break;
 	}
 	return FALSE;
 }
