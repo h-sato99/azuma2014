@@ -97,4 +97,6 @@ build/model_impl.o: model_impl.c \
   competision/Jump.h competision/Mogul.h competision/PendingArea.h \
   competision/Course.h competision/FigureL.h technique/DrivingWheel.h \
   technique/FrontWheel.h technique/LineChange.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/OrderTest.h
+  technique/BumpDecision.h technique/ColorJudgement.h \
+  device/LightSensor.h technique/LineComeback.h \
+  technique/ColorJudgement.h competision/OrderTest.h

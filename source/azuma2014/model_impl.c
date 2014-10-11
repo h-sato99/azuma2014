@@ -49,6 +49,8 @@
 #include "technique/LineChange.h"
 #include "technique/TrialDecision.h"
 #include "technique/BumpDecision.h"
+#include "technique/ColorJudgement.h"
+#include "technique/LineComeback.h"
 
 #include "competision/OrderTest.h"
 
@@ -119,6 +121,11 @@ Mogul mogul;
 Course course;
 PendingArea pendingArea;
 FigureL figureL;
+ColorJudgement colorJudgement;
+COLOR color;
+LineComeback lineComeback;
+Active active;
+Direction direction;
 
 OrderTest orderTest;
 
@@ -293,6 +300,7 @@ TASK(TaskInit)
 	strategy.pendingArea = &pendingArea;
 	strategy.orderTest = &orderTest;
 	strategy.figureL = &figureL;
+//	strategy.lineComeback = &lineComeback;
 	bumpDecision.gyroSensor = &gyroSensor;
 	trialDicision.bumpDecision = &bumpDecision;
 	trialDicision.orderList = &orderList;
@@ -303,6 +311,9 @@ TASK(TaskInit)
 	lineChange.orderList = &orderList;
 	lineChange.lineTracer = &lineTracer;
 	figureL.orderList = &orderList;
+	colorJudgement.lightSensor = &lightSensor;
+	lineComeback.colorJudgement = &colorJudgement;
+	lineComeback.orderList = &orderList;
 
 	orderTest.orderList = &orderList;
 
@@ -341,6 +352,7 @@ TASK(TaskInit)
 	Course_init(&course);
 	PendingArea_init(&pendingArea);
 	FigureL_init(&figureL);
+	LineComeback_init(&lineComeback);
 
 	OrderTest_init(&orderTest);
 
