@@ -62,4 +62,5 @@ build/technique/LineComeback.o: technique/LineComeback.c \
   competision/LineTracer.h device/LightSensor.h technique/PidControl.h \
   ../nxtOSEK/ecrobot/../toppers_osek/include/kernel.h kernel_id.h \
   ../nxtOSEK/ecrobot/../ecrobot/c/ecrobot_interface.h \
-  technique/ColorJudgement.h device/LightSensor.h
+  technique/ColorJudgement.h device/LightSensor.h device/LCD.h \
+  kernel_id.h

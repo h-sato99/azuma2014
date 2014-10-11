@@ -232,13 +232,13 @@ void Strategy_action(Strategy* this, Info* info)
 				}
 				break;
 			case(52):
-				if(LineComeback_main(this->lineComeback,0))
+				if(LineComeback_main(this->lineComeback,LEFT))
 				{
 					ecrobot_sound_tone(559, 100, 95);
 				}
 				break;
 			case(53):
-				if(LineComeback_main(this->lineComeback,1))
+				if(LineComeback_main(this->lineComeback,RIGHT))
 				{
 					ecrobot_sound_tone(559, 100, 95);
 				}

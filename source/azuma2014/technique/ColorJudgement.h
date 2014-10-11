@@ -17,14 +17,9 @@ typedef struct ColorJudgement{
 	LightSensor *lightSensor;
 } ColorJudgement;
 
-typedef enum Color{
-	BLACK,
-	NON_BLACK,
-} COLOR;
-
 // åˆäJëÄçÏ
 void ColorJudgement_init(ColorJudgement* this);
-COLOR ColorJudgement_judgeColor(ColorJudgement* this);
+BOOL ColorJudgement_judgeColor(ColorJudgement* this);
 
 #endif /* _ColorJudgement_H_ */
 

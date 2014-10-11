@@ -122,7 +122,6 @@ Course course;
 PendingArea pendingArea;
 FigureL figureL;
 ColorJudgement colorJudgement;
-COLOR color;
 LineComeback lineComeback;
 Active active;
 Direction direction;
@@ -314,6 +313,7 @@ TASK(TaskInit)
 	colorJudgement.lightSensor = &lightSensor;
 	lineComeback.colorJudgement = &colorJudgement;
 	lineComeback.orderList = &orderList;
+	lineComeback.lcd = &lcd;
 
 	orderTest.orderList = &orderList;
 
@@ -353,6 +353,7 @@ TASK(TaskInit)
 	PendingArea_init(&pendingArea);
 	FigureL_init(&figureL);
 	LineComeback_init(&lineComeback);
+	ColorJudgement_init(&colorJudgement);
 
 	OrderTest_init(&orderTest);
 

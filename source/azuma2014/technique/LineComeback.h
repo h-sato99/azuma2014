@@ -9,6 +9,7 @@
 
 #include "competision/OrderList.h"
 #include "technique/ColorJudgement.h"
+#include "device/LCD.h"
 
 // 属性を保持するための構造体の定義
 typedef struct LineComeback{
@@ -16,16 +17,18 @@ typedef struct LineComeback{
 	OrderList *orderList;
 	int mode;					// 走行モード
 	int orderNum;				// オーダー番号
+	LCD *lcd;
 } LineComeback;
 
 // 走行モード定義
 typedef enum active{
 	STOP,
 	TURNLEFT,
-	TURNRIGHT
+	TURNRIGHT,
+	LAST
 } Active;
 
-// 引数用値定義
+// 走行モード定義
 typedef enum direction{
 	LEFT,
 	RIGHT

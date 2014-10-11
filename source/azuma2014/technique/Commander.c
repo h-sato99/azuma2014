@@ -318,6 +318,7 @@ void Commander_runComand(Commander* this, Info *info)
 			}
 			break;
 		}
+
 		// í—ªØ‘Ö
 		case(69):
 		{

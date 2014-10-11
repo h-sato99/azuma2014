@@ -13,8 +13,6 @@
 #define COMEBACK_FINISH_DISTANCE	100		// ライン復帰用終了距離
 #define COMEBACK_STOP_TIME			2000	// ライン復帰用終了時間
 
-int i;
-
 /*------------------------------------------------------------------------------
 --  関数名      ：LineComeback_init
 --  概要        ：初期化する。
@@ -24,7 +22,6 @@ int i;
 ------------------------------------------------------------------------------*/
 void LineComeback_init(LineComeback* this){
 	this->mode = STOP;
-	i = 0;
 }
 
 
@@ -42,6 +39,7 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 		this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
 		if(turnDirection==LEFT){
 			this->mode = TURNLEFT;
+			return FALSE;
 		}
 		this->mode = TURNRIGHT;
 		return FALSE;
@@ -49,13 +47,15 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 	case TURNLEFT:
 		// 左に旋回する
 		if (OrderList_checkFinished(this->orderList,this->orderNum)){
-			OrderList_turnOnSpotLeft(
+			this->orderNum = OrderList_turnOnSpotLeft(
 				this->orderList,
 				COMEBACK_FORWARD,
 				COMEBACK_TURN,
 				COMEBACK_FINISH_TIME,
 				COMEBACK_FINISH_DISTANCE);
 			ecrobot_sound_tone(659, 70, 95);
+			LCD_SetPointXY(this->lcd, 3, 1);
+			LCD_DisplayInt(this->lcd, this->orderNum);
 			this->mode = TURNRIGHT;
 		}
 		break;
@@ -63,48 +63,37 @@ BOOL LineComeback_main(LineComeback* this,Direction turnDirection){
 	case TURNRIGHT:
 		// 右に旋回する
 		if (OrderList_checkFinished(this->orderList,this->orderNum)){
-			OrderList_turnOnSpotRight(
+			this->orderNum = OrderList_turnOnSpotRight(
 				this->orderList,
 				COMEBACK_FORWARD,
 				COMEBACK_TURN,
 				COMEBACK_FINISH_TIME,
 				COMEBACK_FINISH_DISTANCE);
-		ecrobot_sound_tone(659, 70, 95);
-		this->mode = TURNLEFT;
+			ecrobot_sound_tone(659, 70, 95);
+			LCD_SetPointXY(this->lcd, 3, 2);
+			LCD_DisplayInt(this->lcd, this->orderNum);
+			this->mode = TURNLEFT;
 		}
 		break;
 
+	case LAST:
+		// 色判定で黒を取得した後、最後の処理が終わるまで待機
+		if (OrderList_checkFinished(this->orderList,this->orderNum)){
+			ecrobot_sound_tone(400, 70, 95);
+			LCD_SetPointXY(this->lcd, 3, 3);
+			LCD_DisplayInt(this->lcd, this->orderNum);
+			return TRUE;
+		}
+		return FALSE;
 	}
 
 	// 色判定を使って黒を探す
-	if(ColorJudgement_judgeColor(this->colorJudgement)==BLACK){
-		/*
-		 * // 現在の走行状態取得を指示
-		 * OrderList_nowOrder();
-		 * // 取得した走行状態で、ライントレースのエッジ方向を取得
-		 * （上記は未実装。実機確認した結果、必要な場合入れる。）
-		*/
-
-		if (i == 0)
-		{
-			OrderList_finishOrder(this->orderList,this->orderNum);
-			this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
-			i = 1;
-		}
-		else
-		{
-			if (OrderList_checkFinished(this->orderList,this->orderNum)){
-				return TRUE;
-			}
-		}
-
-//		// ラインを見つけたら走行停止
-//		OrderList_stop(this->orderList);
-//		// ライン復帰の音を鳴らし、TRUEを返す
-//		ecrobot_sound_tone(659, 70, 95);
-//		return TRUE;
+	if(ColorJudgement_judgeColor(this->colorJudgement)){
+		OrderList_finishOrder(this->orderList,this->orderNum);
+		this->orderNum = OrderList_manualRunning(this->orderList,NONE,NONE,NONE,COMEBACK_STOP_TIME,NONE);
+		this->mode = LAST;
+		return FALSE;
 	}
 	return FALSE;
 }
-
 

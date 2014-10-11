@@ -68,9 +68,9 @@ build/competision/Competision.o: competision/Competision.c \
   technique/Dash.h technique/DrivingWheel.h technique/FrontWheel.h \
   competision/LineTracer.h competision/LineTracer.h \
   technique/LineComeBack.h technique/ColorJudgement.h \
-  device/LightSensor.h technique/BumpDecision.h technique/TrialDecision.h \
-  technique/BumpDecision.h competision/Runner.h competision/Jump.h \
-  competision/OrderList.h competision/Mogul.h competision/Course.h \
-  competision/PendingArea.h competision/FigureL.h competision/OrderTest.h \
-  competision/Runner.h competision/RoboControl.h competision/OrderList.h \
-  competision/Runner.h
+  device/LightSensor.h device/LCD.h kernel_id.h technique/BumpDecision.h \
+  technique/TrialDecision.h technique/BumpDecision.h competision/Runner.h \
+  competision/Jump.h competision/OrderList.h competision/Mogul.h \
+  competision/Course.h competision/PendingArea.h competision/FigureL.h \
+  competision/OrderTest.h competision/Runner.h competision/RoboControl.h \
+  competision/OrderList.h competision/Runner.h

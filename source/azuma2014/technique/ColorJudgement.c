@@ -5,7 +5,7 @@
 *******************************************************************************/
 
 #include "ColorJudgement.h"
-#define LIGHT_BLACK  560	// 黒色の光センサ値
+#define LIGHT_BLACK  570	// 黒色の光センサ値
 
 
 /*------------------------------------------------------------------------------
@@ -25,15 +25,15 @@ void ColorJudgement_init(ColorJudgement* this){
 --  概要        ：色判定する。
 --              ：
 --  引数        ：なし
---  戻り値      ：COLOR
+--  戻り値      ：TRUE or FALSE
 ------------------------------------------------------------------------------*/
-COLOR ColorJudgement_judgeColor(ColorJudgement* this){
+BOOL ColorJudgement_judgeColor(ColorJudgement* this){
 	// 光センサからの取得値を見て
-	// 黒以上であれば「黒」を、
-	// そうでなければ「黒以外」を返す
+	// 黒以上であれば「TRUE」を、
+	// そうでなければ「FALSE」を返す
 	if(LightSensor_getBrightness(this->lightSensor) >= this->threshold){
-		return  BLACK;
+		return  TRUE;
 	}
-	return NON_BLACK;
+	return FALSE;
 } 
 
